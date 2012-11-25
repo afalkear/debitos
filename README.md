@@ -1,5 +1,5 @@
-# Debitos: Software para generar archivos de debitos
+# Debitos: Generador de resumenes para cobrar por debito automatico.
 
 Esta es una aplicacion para generar los archivos necesarios para los resumenes de debitos.
-# [*Debitos automaticos*](http://debitos.com.ar/)
+
 by [Alex Falke](http://alexfalke.com.ar/).
