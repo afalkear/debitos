@@ -1,0 +1,32 @@
+<%= form_for :alumno, :url => update_multiple_alumnos_path, :html => { :method => :put, :class => "form" } do |f| %>
+  <ul>
+    <% for alumno in @alumnos %>
+      <li>
+        <%= hidden_field_tag "alumno_ids[]", alumno.id %>
+        <%=h alumno.name %>
+      </li>
+    <% end %>
+  </ul>
+  <p>
+    <%= f.label :instructor %> <%= f.text_field :instructor %>
+  </p>
+  <p>
+    <%= f.label :plan %> <%= f.text_field :plan %>
+  </p>
+  <p>
+    <%= f.label :amount %> <%= f.text_field :amount %>
+  </p>
+  <p>
+    <%= f.label :due_date %> <%= f.text_field :due_date %>
+  </p>
+  <p>
+    <%= f.label :payed %> <%= f.select :payed, [["Si", true], ["No", false]] %>
+  </p>
+  <p>
+    <%= f.label :payment %> <%= f.text_field :payment %>
+  </p>
+  <p>
+    <%= f.label :observations %> <%= f.text_field :observations %>
+  </p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>

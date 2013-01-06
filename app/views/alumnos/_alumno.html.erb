@@ -1,0 +1,18 @@
+<tr>
+  <td><%= check_box_tag "alumno_ids[]", alumno.id %></td>
+  <td><%= link_to alumno.name, alumno %></td>
+  <td><%= best_in_place alumno, :card_number, classes: "forum" %></td>
+  <td><%= best_in_place alumno, :identifier, classes: "forum" %></td>
+  <td><%= best_in_place alumno, :bill, classes: "forum" %></td>
+  <td><%= alumno.card_company %></td>
+  <td><%= best_in_place alumno, :card_type, type: :select, collection: [["credito", "credito"], ["debito", "debito"]], classes: "forum" %></td>
+  <td><%= alumno.plan%></td>
+  <td><%= best_in_place alumno, :amount, classes: "forum" %></td>
+  <td><%= best_in_place alumno, :payed, type: :checkbox, collection: %w[No Si], classes: "forum" %></td>
+  <td><%= alumno.observations%></td>
+  <td>
+    <%= link_to alumno, method: :delete, data: { confirm: "You sure?" } do %>
+      <i class="icon-trash"></i>
+    <% end %>
+  </td>
+</tr>

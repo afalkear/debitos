@@ -1,0 +1,39 @@
+<% provide(:title, 'Alumnos') %>
+<h1>Alumnos</h1>
+
+<%= will_paginate %>
+
+<%= form_tag set_multiple_inactive_alumnos_path do %>
+<%= button_to_function "Check / Uncheck All", "toggleChecked()" %>
+  <table class="alumnos table table-hover">
+    <tr>
+      <th></th>
+      <th>Nombre</th>
+      <th>Nro Tarjeta</th>
+      <th>Identificador</th>
+      <th>Factura</th>
+      <th>Compa&ntilde;&iacute;a</th>
+      <th>Tipo</th>
+      <th>Plan</th>
+      <th>Monto</th>
+      <th>Pago?</th>
+      <th>Observaciones</th>
+      <th>Borrar</th>
+    </tr>
+    <%= render @alumnos %>
+  </table>
+<%= submit_tag "Eliminar los elegidos" %>
+<% end %>
+
+<%= will_paginate %>
+
+<h2>Importar alumnos</h2>
+<%= form_tag import_alumnos_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= text_field_tag :bill %>
+  <%= submit_tag "Importar" %>
+<% end %>
+
+<script type='text/javascript'>
+    var toggleChecked = function() { $('input[type="checkbox"]').click(); };
+</script>

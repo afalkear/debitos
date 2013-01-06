@@ -1,0 +1,21 @@
+<h3><%= card %></h3>
+<h5><%= type %></h5>
+<table class="alumnos table table-hover table-condensed">
+    <tr>
+      <th>Nombre</th>
+      <th>Nro Tarjeta</th>
+      <th>Identificador</th>
+      <th>Factura</th>
+      <th>Compa&ntilde;&iacute;a</th>
+      <th>Tipo</th>
+      <th>Plan</th>
+      <th>Monto</th>
+      <th>Pago?</th>
+      <th>Observaciones</th>
+      <th>Borrar</th>
+    </tr>
+    <%= render :partial => "single_card", :collection => alumnos, :as => :alumno %>
+  </table>
+Alumnos: <%= alumnos.count %><br />
+Total: <%= alumnos.sum("amount") %><br />
+<%= link_to "Generar resumen", visa_path, class: "btn btn-large btn-primary" %>
