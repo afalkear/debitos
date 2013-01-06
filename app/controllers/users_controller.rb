@@ -45,6 +45,9 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
 
+  def main
+  end
+
   private
     def signed_in_user
       unless signed_in?

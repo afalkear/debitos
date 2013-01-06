@@ -1,6 +1,17 @@
 Debitos::Application.routes.draw do
-  resources :users
+  resources :users do
+    # Hacer que sea para cada usuario.
+    collection { get :main }
+  end
+  resources :alumnos do
+    collection { post :import }
+    collection { post :edit_multiple}
+    collection { post :update_multiple}
+    collection { post :delete_multiple}
+    collection { post :set_multiple_inactive}
+  end
   resources :sessions, only: [:new, :create, :destroy]
+  resources :summaries
 
   root to: 'static_pages#home'
   
@@ -10,6 +21,8 @@ Debitos::Application.routes.draw do
   match '/help',    to: 'static_pages#help'
   match '/about',   to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
+  match '/news', to: 'static_pages#news'
+  match '/visa', to:'summaries#visa'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

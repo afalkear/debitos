@@ -11,7 +11,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121227152339) do
+ActiveRecord::Schema.define(:version => 20130104203939) do
+
+  create_table "alumnos", :force => true do |t|
+    t.string   "name"
+    t.string   "last_name"
+    t.string   "identifier"
+    t.decimal  "amount",       :precision => 8, :scale => 2
+    t.string   "card_number"
+    t.string   "card_type"
+    t.string   "card_company"
+    t.datetime "created_at",                                                   :null => false
+    t.datetime "updated_at",                                                   :null => false
+    t.string   "padma_id"
+    t.string   "instructor"
+    t.string   "plan"
+    t.string   "due_date"
+    t.boolean  "payed"
+    t.string   "payment"
+    t.string   "observations"
+    t.string   "bill"
+    t.boolean  "active",                                     :default => true
+    t.boolean  "new_debit",                                  :default => true
+  end
 
   create_table "users", :force => true do |t|
     t.string   "name"

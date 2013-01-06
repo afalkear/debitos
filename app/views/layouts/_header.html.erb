@@ -1,13 +1,25 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="navbar-inner">
     <div class="container">
-      <%= link_to "sample app", root_path, id: "logo" %>
+      <%= link_to "Debito", root_path, id: "logo" %>
       <nav>
         <ul class="nav pull-right">
-          <li><%= link_to "Home", root_path %></li>
-          <li><%= link_to "Help", help_path %></li>
+          <li>
+            <%= link_to root_path do %>
+              <i class="icon-home icon-white"></i> Home
+            <% end %>
+          </li>
+          <li>
+            <%= link_to help_path do %>
+              <i class="icon-info-sign icon-white"></i> Help
+            <% end %>
+          </li>
           <% if signed_in? %>
-            <li><%= link_to "Users", users_path %></li>
+            <li>
+              <%= link_to users_path do %>
+                <i class="icon-user icon-white"></i> Users
+              <% end %>
+            </li>
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 Account <b class="caret"></b>
@@ -22,7 +34,11 @@
               </ul>
             </li>
           <% else %>
-            <li><%= link_to "Sign in", signin_path %></li>
+            <li>
+              <%= link_to signin_path do %>
+                <i class="icon-hand-right icon-white"></i> Sign in
+              <% end %>
+            </li>
           <% end %>
         </ul>
       </nav>
