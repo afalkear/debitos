@@ -7,5 +7,9 @@
     de Argentina.
   </h2>
 
-  <%= link_to "Registrate!", signup_path, class: "btn btn-large btn-primary" %>
+  <% if signed_in? %>
+    <%= link_to "Entrar", main_users_path, class: "btn btn-large btn-primary" %>
+  <% else %>
+    <%= link_to "Registrate!", signup_path, class: "btn btn-large btn-primary" %>
+  <% end %>
 </div>

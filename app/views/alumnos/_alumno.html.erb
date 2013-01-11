@@ -1,4 +1,8 @@
-<tr>
+<% if alumno.observations.blank?%>
+  <tr>
+<% else %>
+  <tr class="error">
+<% end%>
   <td><%= check_box_tag "alumno_ids[]", alumno.id %></td>
   <td><%= link_to alumno.name, alumno %></td>
   <td><%= best_in_place alumno, :card_number, classes: "forum" %></td>
