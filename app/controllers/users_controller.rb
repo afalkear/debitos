@@ -46,6 +46,7 @@ class UsersController < ApplicationController
   end
 
   def main
+    @google_session = GoogleDrive.login("alex.falke@uni-yoga.com.br", "deutsche_alex_f4lk3!")
   end
 
   private

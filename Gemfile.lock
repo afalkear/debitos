@@ -200,6 +200,7 @@ DEPENDENCIES
   coffee-rails (= 3.2.2)
   factory_girl_rails (= 4.1.0)
   faker (= 1.0.1)
+  google_drive
   jquery-rails
   pg (= 0.12.2)
   rails (= 3.2.11)
