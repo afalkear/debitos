@@ -20,6 +20,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @google_users = @user.google_users
   end
 
   def edit

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130117185056) do
+ActiveRecord::Schema.define(:version => 20130124234352) do
 
   create_table "alumnos", :force => true do |t|
     t.string   "name"
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(:version => 20130117185056) do
   end
 
   create_table "google_users", :force => true do |t|
-    t.string   "name"
+    t.string   "email"
     t.string   "password_digest"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false

@@ -8,4 +8,33 @@
       </h1>
     </section>
   </aside>
+  <div id="UserData">
+    <h2>Your Data</h2>
+    <%	if !@user.google_users.empty? %>
+        <h3>Google User Name</h3>
+        Email: <%= @user.google_user.email %>
+    <% else %>
+        <div class="row">
+          <div class="span6 offset3">
+            <%= form_for(@user) do |f| %>
+                <%= render 'shared/error_messages' %>
+
+                <%= f.label :email %>
+                <%= f.text_field :email %>
+
+                <%= f.label :password %>
+                <%= f.password_field :password %>
+
+                <%= f.label :password_confirmation, "Confirm Password" %>
+                <%= f.password_field :password_confirmation %>
+
+                <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+            <% end %>
+
+            <%= gravatar_for @user %>
+            <a href="http://gravatar.com/emails">change</a>
+          </div>
+        </div>
+    <%	 end %>
+  </div>
 </div>
