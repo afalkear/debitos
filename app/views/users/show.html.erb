@@ -9,32 +9,16 @@
     </section>
   </aside>
   <div id="UserData">
-    <h2>Your Data</h2>
-    <%	if !@user.google_users.empty? %>
-        <h3>Google User Name</h3>
-        Email: <%= @user.google_user.email %>
+    <%	if !@google_user.email.nil? %>
+        Your Data:<br>
+        Google User Name <br>
+        Email: <%= @google_user.email %>
+        <% if current_user?(@google_user.user)%>
+          <%= link_to "delete", current_user.google_users.last, method: :delete,
+                                              data: { confirm: "Are you sure?" } %>
+        <% end %>
     <% else %>
-        <div class="row">
-          <div class="span6 offset3">
-            <%= form_for(@user) do |f| %>
-                <%= render 'shared/error_messages' %>
-
-                <%= f.label :email %>
-                <%= f.text_field :email %>
-
-                <%= f.label :password %>
-                <%= f.password_field :password %>
-
-                <%= f.label :password_confirmation, "Confirm Password" %>
-                <%= f.password_field :password_confirmation %>
-
-                <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
-            <% end %>
-
-            <%= gravatar_for @user %>
-            <a href="http://gravatar.com/emails">change</a>
-          </div>
-        </div>
+      <%= render 'shared/google_user_form' %>
     <%	 end %>
   </div>
 </div>

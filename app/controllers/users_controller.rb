@@ -20,7 +20,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @google_users = @user.google_users
+    # TODO! let user do this if he is currently signed in
+    @google_user = @user.google_users.last || @user.google_users.build
   end
 
   def edit

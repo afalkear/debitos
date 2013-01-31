@@ -12,6 +12,7 @@ Debitos::Application.routes.draw do
   end
   resources :sessions, only: [:new, :create, :destroy]
   resources :summaries
+  resources :google_users, only: [:new, :create, :destroy]
 
   root to: 'static_pages#home'
   

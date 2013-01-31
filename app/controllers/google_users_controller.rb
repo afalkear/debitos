@@ -1,5 +1,5 @@
 class GoogleUsersController < ApplicationController
-  before_filter :signed_in_user, only: [:create, :destroy, :update]
+  #before_filter :signed_in_user, only: [:create, :destroy, :update]
 
   def index
 
@@ -11,12 +11,14 @@ class GoogleUsersController < ApplicationController
       flash[:success] = "Google User Created"
       redirect_to user_path(current_user)
     else
-      flash[:]
+      flash[:success] = "Google User Not Created"
+      redirect_to user_path(current_user)
     end
   end
 
   def destroy
-
+    current_user.google_users.last.destroy
+    redirect_to user_path(current_user)
   end
 
 end
