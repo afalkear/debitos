@@ -16,7 +16,7 @@
 #  instructor   :string(255)
 #  plan         :string(255)
 #  due_date     :string(255)
-#  payed        :boolean
+#  payed        :boolean          default(FALSE)
 #  payment      :string(255)
 #  observations :string(255)
 #  bill         :string(255)

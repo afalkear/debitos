@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: google_users
+#
+#  id              :integer          not null, primary key
+#  email           :string(255)
+#  password_digest :string(255)
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  user_id         :integer
+#
+
 class GoogleUser < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation
   belongs_to :user

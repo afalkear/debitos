@@ -10,6 +10,7 @@
       <th>Tipo</th>
       <th>Plan</th>
       <th>Monto</th>
+      <th>Nuevo?</th>
       <th>Pago?</th>
       <th>Observaciones</th>
       <th>Borrar</th>
@@ -18,4 +19,4 @@
   </table>
 Alumnos: <%= alumnos.count %><br />
 Total: <%= alumnos.sum("amount") %><br />
-<%= link_to "Generar resumen", visa_path, class: "btn btn-large btn-primary" %>
+<%= link_to "Generar resumen", "#{card.downcase}"+"_"+"#{type.downcase}", class: "btn btn-large btn-primary" %>

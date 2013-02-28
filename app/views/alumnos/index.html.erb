@@ -1,10 +1,21 @@
 <% provide(:title, 'Alumnos') %>
 <h1>Alumnos</h1>
 
+<p>
+  Download:
+  <%= link_to "CSV", alumnos_path(format: "csv") %> |
+  <%= link_to "Excel", alumnos_path(format: "xls") %>
+</p>
+
 <%= will_paginate %>
 
 <%= form_tag set_multiple_inactive_alumnos_path do %>
 <%= button_to_function "Check / Uncheck All", "toggleChecked()" %>
+<%= submit_tag "Eliminar los elegidos" %>
+<br>
+<%= link_to "Agregar alumno nuevo", new_alumno_path(@alumno), class: "btn btn-large btn-primary" %>
+<br>
+<br>
   <table class="alumnos table table-hover">
     <tr>
       <th></th>
@@ -22,7 +33,6 @@
     </tr>
     <%= render @alumnos %>
   </table>
-<%= submit_tag "Eliminar los elegidos" %>
 <% end %>
 
 <%= will_paginate %>

@@ -7,6 +7,7 @@
   <td><%= best_in_place alumno, :card_type, type: :select, collection: [["credito", "credito"], ["debito", "debito"]], classes: "forum" %></td>
   <td><%= alumno.plan%></td>
   <td><%= best_in_place alumno, :amount, classes: "forum" %></td>
+  <td><%= best_in_place alumno, :new_debit, type: :checkbox, collection: %w[No Si], classes: "forum" %></td>
   <td><%= best_in_place alumno, :payed, type: :checkbox, collection: %w[No Si], classes: "forum" %></td>
   <td><%= alumno.observations%></td>
   <td>

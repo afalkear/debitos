@@ -23,7 +23,12 @@ Debitos::Application.routes.draw do
   match '/about',   to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
   match '/news', to: 'static_pages#news'
-  match '/visa', to:'summaries#visa'
+  match '/visa_credito', to:'summaries#visa_cred'
+  match '/visa_debito', to:'summaries#visa_deb'
+  match '/master_credito', to:'summaries#master_cred'
+  match '/master_debito', to:'summaries#master_deb'
+  match '/american_express_credito', to:'summaries#amex_cred'
+  match '/american_express_debito', to:'summaries#amex_deb'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

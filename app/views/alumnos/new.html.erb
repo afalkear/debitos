@@ -1,0 +1,30 @@
+<% provide(:title, 'Agregar alumno') %>
+<h1>Agregar alumno</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@alumno) do |f| %>
+      <%= render 'shared/alumno_error_messages' %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name %>
+
+      <%= f.label :card_company %>
+      <%= f.text_field :card_company %>
+
+      <%= f.label :card_type %>
+      <%= f.text_field :card_type %>
+
+      <%= f.label :card_number %>
+      <%= f.text_field :card_number %>
+
+      <%= f.label :identifier %>
+      <%= f.text_field :identifier %>
+
+      <%= f.submit "Crear alumno", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

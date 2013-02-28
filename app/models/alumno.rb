@@ -16,7 +16,7 @@
 #  instructor   :string(255)
 #  plan         :string(255)
 #  due_date     :string(255)
-#  payed        :boolean
+#  payed        :boolean          default(FALSE)
 #  payment      :string(255)
 #  observations :string(255)
 #  bill         :string(255)
@@ -81,6 +81,15 @@ class Alumno < ActiveRecord::Base
       when ".xls" then Excel.new(file.path, nil, :ignore)
       when ".xlsx" then Excelx.new(file.path, nil, :ignore)
       else raise "Unknown file type: #{file.original_filename}"
+    end
+  end
+
+  def self.to_csv(options = {})
+    CSV.generate(options) do |csv|
+      csv << column_names
+      all.each do |alumno|
+        csv << alumno.attributes.values_at(*column_names)
+      end
     end
   end
 

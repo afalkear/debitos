@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130124234352) do
+ActiveRecord::Schema.define(:version => 20130227202330) do
 
   create_table "alumnos", :force => true do |t|
     t.string   "name"
@@ -21,13 +21,13 @@ ActiveRecord::Schema.define(:version => 20130124234352) do
     t.string   "card_number"
     t.string   "card_type"
     t.string   "card_company"
-    t.datetime "created_at",                                                   :null => false
-    t.datetime "updated_at",                                                   :null => false
+    t.datetime "created_at",                                                    :null => false
+    t.datetime "updated_at",                                                    :null => false
     t.string   "padma_id"
     t.string   "instructor"
     t.string   "plan"
     t.string   "due_date"
-    t.boolean  "payed"
+    t.boolean  "payed",                                      :default => false
     t.string   "payment"
     t.string   "observations"
     t.string   "bill"

@@ -2,20 +2,20 @@
 <h1>Resumen Total</h1>
 
 <% if !@visa_cred.empty? %>
-  <%= render :partial => "card", :locals => {:alumnos => @visa_cred, :card => "VISA", :type => "credito"} %>
+	<%= render :partial => "card", :locals => {:alumnos => @visa_cred, :card => "VISA", :type => "credito"} %>
 <% end %>
 <% if !@visa_deb.empty? %>
-<%= render :partial => "card", :locals => {:alumnos => @visa_deb, :card => "VISA", :type => "debito"} %>
+	<%= render :partial => "card", :locals => {:alumnos => @visa_deb, :card => "VISA", :type => "debito"} %>
 <% end %>
 <% if !@master_cred.empty? %>
-<%= render :partial => "card", :locals => {:alumnos => @master_cred, :card => "MASTER", :type => "credito"} %>
+	<%= render :partial => "card", :locals => {:alumnos => @master_cred, :card => "MASTER", :type => "credito"} %>
 <% end %>
 <% if !@master_deb.empty? %>
-<%= render :partial => "card", :locals => {:alumnos => @master_deb, :card => "MASTER", :type => "debito"} %>
+	<%= render :partial => "card", :locals => {:alumnos => @master_deb, :card => "MASTER", :type => "debito"} %>
 <% end %>
 <% if !@american_cred.empty? %>
-<%= render :partial => "card", :locals => {:alumnos => @american_cred, :card => "AMERICAN", :type => "credito"} %>
+	<%= render :partial => "card", :locals => {:alumnos => @american_cred, :card => "AMERICAN", :type => "credito"} %>
 <% end %>
 <% if !@american_deb.empty? %>
-<%= render :partial => "card", :locals => {:alumnos => @american_deb, :card => "AMERICAN", :type => "debito"} %>
+	<%= render :partial => "card", :locals => {:alumnos => @american_deb, :card => "AMERICAN", :type => "debito"} %>
 <% end %>

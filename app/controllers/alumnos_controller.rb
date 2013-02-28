@@ -3,12 +3,25 @@ class AlumnosController < ApplicationController
 
   def index
     @alumnos = Alumno.paginate(page: params[:page], :conditions => {:active => true})
+    respond_to do |format|
+      format.html
+      format.csv { send_data @alumnos.to_csv }
+      format.xls #{ send_data @alumnos.to_csv(col_sep: "\t") }
+    end
   end
 
   def new
+    @alumno = Alumno.new
   end
 
   def create
+    @alumno = Alumno.new(params[:alumno])
+    if @alumno.save
+      flash[:success] = "Alumno agregado"
+      redirect_to alumnos_path
+    else
+      render 'new'
+    end
   end
 
   def destroy

@@ -9,9 +9,11 @@
 
   <%= link_to "Ver alumnos", alumnos_path, class: "btn btn-large btn-primary" %>
   <%= link_to "Hacer resumen", summaries_path, class: "btn btn-large btn-primary" %>
+  <% if false %>
   <div id="datos">
     <% @google_session.files.each do |file| %>
       <%= file.title %>
     <% end %>
   </div>
+  <% end %>
 </div>
