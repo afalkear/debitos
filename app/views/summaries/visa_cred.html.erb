@@ -1,0 +1,10 @@
+<% provide(:title, 'Resumen tarjetas de crédito VISA') %>
+<h1>Resumen tarjetas de crédito VISA</h1>
+
+<pre>
+  <%=  @visa_summary[0] %>
+  <% @visa_summary[1].each do |vv| %>
+  <%= vv %>
+  <% end %>
+  <%=  @visa_summary[2] %>
+</pre>

@@ -1,0 +1,9 @@
+<p class="fields">
+  <%= f.label :name, "Credit Card Company" %>
+  <%= f.text_field :name %> <br>
+
+  <%= f.label :establishment, "Establishment number" %>
+  <%= f.text_field :establishment %> <br>
+  <%= link_to_remove_fields "remove", f %>
+  <%= link_to_add_fields "Add Establishment", f, :card_companies %>
+</p>

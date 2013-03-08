@@ -1,18 +1,14 @@
-<div class="row">
-  <div class="span6 offset3">
-    <%= form_for(@google_user) do |f| %>
-        <%= render 'shared/error_messages' %>
+<%= form_for(@google_user) do |f| %>
+    <%= render 'shared/error_messages' %>
 
-        <%= f.label :email, "Google user email" %>
-        <%= f.text_field :email %>
+    <%= f.label :email, "Google user email" %>
+    <%= f.text_field :email, class: "input-medium search-query" %>
 
-        <%= f.label :password %>
-        <%= f.password_field :password %>
+    <%= f.label :password %>
+    <%= f.password_field :password, class: "input-medium search-query" %>
 
-        <%= f.label :password_confirmation, "Confirm Password" %>
-        <%= f.password_field :password_confirmation %>
+    <%= f.label :password_confirmation, "Confirm Password" %>
+    <%= f.password_field :password_confirmation, class: "input-medium search-query" %>
 
-        <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
-    <% end %>
-  </div>
-</div>
+    <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+<% end %>

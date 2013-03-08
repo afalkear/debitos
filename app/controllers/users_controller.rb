@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @user.card_companies.build
   end
 
   def create
@@ -20,6 +21,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @user.card_companies.build
     # TODO! let user do this if he is currently signed in
     @google_user = @user.google_users.last || @user.google_users.build
   end

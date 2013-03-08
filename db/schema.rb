@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130227202330) do
+ActiveRecord::Schema.define(:version => 20130306131048) do
 
   create_table "alumnos", :force => true do |t|
     t.string   "name"
@@ -33,6 +33,14 @@ ActiveRecord::Schema.define(:version => 20130227202330) do
     t.string   "bill"
     t.boolean  "active",                                     :default => true
     t.boolean  "new_debit",                                  :default => true
+  end
+
+  create_table "card_companies", :force => true do |t|
+    t.string   "user_id"
+    t.string   "establishment"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.string   "name"
   end
 
   create_table "google_users", :force => true do |t|

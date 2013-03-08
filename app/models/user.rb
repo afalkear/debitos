@@ -14,8 +14,11 @@
 
 class User < ActiveRecord::Base
   attr_accessible :email, :name, :password, :password_confirmation
-  has_many :google_users
+  has_many :google_users, :dependent => :destroy
+  has_many :card_companies, :dependent => :destroy
   has_secure_password
+
+  accepts_nested_attributes_for :card_companies, :reject_if => lambda { |a| a[:establishment].blank? }, :allow_destroy => true
 
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token
