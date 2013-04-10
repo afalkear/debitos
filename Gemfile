@@ -11,6 +11,8 @@ gem 'best_in_place'
 gem 'google_drive'
 gem 'execjs'
 gem 'therubyracer'
+gem 'simple_form'
+gem 'cocoon'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

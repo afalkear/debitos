@@ -13,7 +13,7 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :name, :password, :password_confirmation
+  attr_accessible :email, :name, :password, :password_confirmation, :card_companies_attributes, :card_company
   has_many :google_users, :dependent => :destroy
   has_many :card_companies, :dependent => :destroy
   has_secure_password

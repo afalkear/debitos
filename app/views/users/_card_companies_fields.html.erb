@@ -1,0 +1,9 @@
+<div class="nested-fields">
+  <%= f.input :name, :hint => 'Card company name' do %>
+    <%= f.input_field :name %>
+  <% end %>
+  <%= f.input :establishment, :hint => 'Establishment number' do %>
+    <%= f.input_field :establishment %>
+  <% end %>
+  <%= link_to_remove_association "Remove Card Company", f %>
+</div>

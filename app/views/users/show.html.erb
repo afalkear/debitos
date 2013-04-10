@@ -9,16 +9,22 @@
     </section>
   </aside>
   <div id="UserData">
-
-    <%= form_for(@user) do |f| %>
-      <%= render 'shared/error_messages' %>
-
-      <%= f.fields_for :card_companies do |builder| %>
-        <%= render 'card_companies_form', :f => builder %>
+    <div>
+      <% @user.card_companies.each do |cc| %>
+        <% if !cc.id.nil? %>
+          NAME: <%= cc.name %> <br>
+          ESTABLISHMENT: <%= cc.establishment %>
+        <% end %>
       <% end %>
-
+    </div>
+    <%= simple_form_for @user do |f| %>
+      <%= f.simple_fields_for @user.card_companies.new do |cc| %>
+        <%= render 'card_companies_fields', :f => cc %>
+        <div class="links">
+          <%= link_to_add_association 'Add Card Company', f, :card_companies, :partial => 'card_companies_fields' %>
+        </div>
+      <% end %>
       <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
     <% end %>
-
   </div>
 </div>

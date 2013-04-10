@@ -11,6 +11,6 @@
 #
 
 class CardCompany < ActiveRecord::Base
-  attr_accessible :name, :establishment, :user_id
+  attr_accessible :name, :establishment, :user_id, :card_companies_attributes
   belongs_to :user
 end

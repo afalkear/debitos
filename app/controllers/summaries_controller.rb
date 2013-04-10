@@ -20,6 +20,12 @@ class SummariesController < ApplicationController
     alumnos = Alumno.where(card_company: "VISA", card_type: "credito", active: true, payed: false)
     @visa_summary = generate_visa_summary("credit", alumnos)
 
+    File.open("DEBLIQC.txt", "w") do |f|
+      @visa_summary.each do |sum|
+        f.puts sum
+      end
+    end
+
     respond_to do |format|
       format.html
       #format.html { redirect_to summaries_path, notice: "Archivo creado" }
@@ -30,7 +36,13 @@ class SummariesController < ApplicationController
 
   def visa_deb
     alumnos = Alumno.where(card_company: "VISA", card_type: "debito", active: true, payed: false)
-    generate_visa_file("debit", alumnos)
+    @visa_summary = generate_visa_file("debit", alumnos)
+
+    File.open("DEBLIQD.txt", "w") do |f|
+      @visa_summary.each do |sum|
+        f.puts sum
+      end
+    end
 
     respond_to do |format|
       format.html { redirect_to summaries_path, notice: "Archivo creado" }
