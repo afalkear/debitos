@@ -1,9 +1,19 @@
 <div class="nested-fields">
-  <%= f.input :name, :hint => 'Card company name' do %>
-    <%= f.input_field :name %>
-  <% end %>
-  <%= f.input :establishment, :hint => 'Establishment number' do %>
-    <%= f.input_field :establishment %>
-  <% end %>
-  <%= link_to_remove_association "Remove Card Company", f %>
+  <table>
+    <tr>
+      <td>
+        <%= f.input :name,
+                    collection: [["VISA", "visa"],["MASTERCARD", "master"],["AMERICAN EXPRESS", "american"]],
+                    include_blank: false %>
+      </td>
+      <td>
+        <%= f.input :establishment do %>
+          <%= f.input_field :establishment %>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to_remove_association "Remove Card Company", f %>
+      </td>
+    </tr>
+  </table>
 </div>

@@ -11,28 +11,31 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130306131048) do
+ActiveRecord::Schema.define(:version => 20130415202640) do
 
   create_table "alumnos", :force => true do |t|
     t.string   "name"
     t.string   "last_name"
     t.string   "identifier"
-    t.decimal  "amount",       :precision => 8, :scale => 2
-    t.string   "card_number"
+    t.decimal  "amount",                         :precision => 8, :scale => 2
+    t.binary   "card_number",     :limit => 255
     t.string   "card_type"
     t.string   "card_company"
-    t.datetime "created_at",                                                    :null => false
-    t.datetime "updated_at",                                                    :null => false
+    t.datetime "created_at",                                                                      :null => false
+    t.datetime "updated_at",                                                                      :null => false
     t.string   "padma_id"
     t.string   "instructor"
     t.string   "plan"
     t.string   "due_date"
-    t.boolean  "payed",                                      :default => false
+    t.boolean  "payed",                                                        :default => false
     t.string   "payment"
     t.string   "observations"
     t.string   "bill"
-    t.boolean  "active",                                     :default => true
-    t.boolean  "new_debit",                                  :default => true
+    t.boolean  "active",                                                       :default => true
+    t.boolean  "new_debit",                                                    :default => true
+    t.binary   "card_number_key"
+    t.binary   "card_number_iv"
+    t.integer  "user_id"
   end
 
   create_table "card_companies", :force => true do |t|

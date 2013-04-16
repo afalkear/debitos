@@ -25,15 +25,19 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:id])
   end
 
   def update
     @user = User.find(params[:id])
+    puts "USER: #{@user.inspect}"
+    puts "PARAMS: #{params[:user]}"
     if @user.update_attributes(params[:user])
       flash[:succes] = "Profile updated"
       sign_in @user
       redirect_to @user
     else
+      flash[:error] = "Problem while updating the profile"
       render 'show'
     end
   end

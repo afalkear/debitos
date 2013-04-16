@@ -2,7 +2,7 @@ class AlumnosController < ApplicationController
   respond_to :html, :json
 
   def index
-    @alumnos = Alumno.paginate(page: params[:page], :conditions => {:active => true})
+    @alumnos = current_user.alumnos.paginate(page: params[:page], :conditions => {:active => true})
     respond_to do |format|
       format.html
       format.csv { send_data @alumnos.to_csv }
@@ -15,7 +15,7 @@ class AlumnosController < ApplicationController
   end
 
   def create
-    @alumno = Alumno.new(params[:alumno])
+    @alumno = current_user.alumnos.new(params[:alumno])
     if @alumno.save
       flash[:success] = "Alumno agregado"
       redirect_to alumnos_path
@@ -25,29 +25,29 @@ class AlumnosController < ApplicationController
   end
 
   def destroy
-    @alumno = Alumno.find(params[:id])
+    @alumno = current_user.alumnos.find(params[:id])
     @alumno.update_attribute(:active, false)
     
     redirect_to alumnos_path, notice: "Alumno borrado"
   end
 
   def update
-    @alumno = Alumno.find(params[:id])
+    @alumno = current_user.alumnos.find(params[:id])
     @alumno.update_attributes(params[:alumno])
     respond_with @alumno
   end
 
   def import
-    Alumno.import(params[:file], params[:bill])
+    current_user.alumnos.import(params[:file], params[:bill])
     redirect_to alumnos_path, notice: "Alumnos importados"
   end
 
   def edit_multiple
-    @alumnos = Alumno.find(params[:alumno_ids])
+    @alumnos = current_user.alumnos.find(params[:alumno_ids])
   end
 
   def update_multiple
-    @alumnos = Alumno.find(params[:alumno_ids])
+    @alumnos = current_user.alumnos.find(params[:alumno_ids])
     @alumnos.each do | alumno |
       alumno.update_attributes!(params[:alumno].reject { |k,v| v.blank? })
     end
@@ -55,7 +55,7 @@ class AlumnosController < ApplicationController
   end
 
   def delete_multiple
-    @alumnos = Alumno.find(params[:alumno_ids])
+    @alumnos = current_user.alumnos.find(params[:alumno_ids])
     @alumnos.each do | alumno |
       alumno.destroy
     end
@@ -68,14 +68,14 @@ class AlumnosController < ApplicationController
   end
 
   def set_inactive
-    @alumno = Alumno.find(params[:id])
+    @alumno = current_user.alumnos.find(params[:id])
     @alumno.update_attribute(:active, false)
     
     redirect_to alumnos_path, notice: "Alumno borrado"
   end
 
   def set_multiple_inactive
-    @alumnos = Alumno.find(params[:alumno_ids])
+    @alumnos = current_user.alumnos.find(params[:alumno_ids])
     @alumnos.each do | alumno |
       alumno.update_attribute(:active, false)
     end

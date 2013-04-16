@@ -11,6 +11,8 @@
 #
 
 class CardCompany < ActiveRecord::Base
-  attr_accessible :name, :establishment, :user_id, :card_companies_attributes
+  attr_accessible :name, :establishment
   belongs_to :user
+  validates :name, :inclusion => { :in => %w(visa master american),
+            :message => "%You have to submit a valid credit card company" }
 end

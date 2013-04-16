@@ -10,21 +10,16 @@
   </aside>
   <div id="UserData">
     <div>
-      <% @user.card_companies.each do |cc| %>
-        <% if !cc.id.nil? %>
-          NAME: <%= cc.name %> <br>
-          ESTABLISHMENT: <%= cc.establishment %>
+      <table>
+        <% @user.card_companies.each do |cc| %>
+          <tr>
+            <% unless cc.id.nil? %>
+              <td>NAME: <%= cc.name %></td>
+              <td>ESTABLISHMENT: <%= cc.establishment %></td>
+            <% end %>
+          </tr>
         <% end %>
-      <% end %>
+      </table>
     </div>
-    <%= simple_form_for @user do |f| %>
-      <%= f.simple_fields_for @user.card_companies.new do |cc| %>
-        <%= render 'card_companies_fields', :f => cc %>
-        <div class="links">
-          <%= link_to_add_association 'Add Card Company', f, :card_companies, :partial => 'card_companies_fields' %>
-        </div>
-      <% end %>
-      <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
-    <% end %>
   </div>
 </div>
