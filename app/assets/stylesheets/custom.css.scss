@@ -1,16 +1,21 @@
+/*
 @import "bootstrap";
 
-/* mixins, variables, etc. */
+*/
+/* mixins, variables, etc. *//*
+
 
 $grayMediumLight: #eaeaea;
 
 @mixin box_sizing {
-  -moz-box-sizing: border-box; 
-  -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-/* universal */
+*/
+/* universal *//*
+
 
 html {
   overflow-y: scroll;
@@ -35,7 +40,9 @@ textarea {
   }
 }
 
-/* typography */
+*/
+/* typography *//*
+
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
@@ -63,7 +70,9 @@ p {
 }
 
 
-/* header */
+*/
+/* header *//*
+
 
 #logo {
   float: left;
@@ -81,7 +90,9 @@ p {
   }
 }
 
-/* footer */
+*/
+/* footer *//*
+
 
 footer {
   margin-top: 45px;
@@ -90,12 +101,12 @@ footer {
   color: $grayLight;
   a {
     color: $gray;
-    &:hover { 
+    &:hover {
       color: $grayDarker;
     }
-  }  
-  small { 
-    float: left; 
+  }
+  small {
+    float: left;
   }
   ul {
     float: right;
@@ -107,7 +118,9 @@ footer {
   }
 }
 
-/* miscellaneous */
+*/
+/* miscellaneous *//*
+
 
 .debug_dump {
   clear: both;
@@ -117,7 +130,9 @@ footer {
   @include box_sizing;
 }
 
-/* sidebar */
+*/
+/* sidebar *//*
+
 
 aside {
   section {
@@ -147,7 +162,9 @@ aside {
   margin-right: 10px;
 }
 
-/* forms */
+*/
+/* forms *//*
+
 
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
@@ -174,7 +191,9 @@ input {
   @extend .error;
 }
 
-/* users index */
+*/
+/* users index *//*
+
 
 .users {
   list-style: none;
@@ -187,4 +206,4 @@ input {
       border-bottom: 1px solid $grayLighter;
     }
   }
-}
+}*/

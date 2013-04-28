@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
-gem 'bootstrap-sass', '2.1'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'faker', '1.0.1'
 gem 'will_paginate', '3.0.3'
@@ -11,6 +10,7 @@ gem 'best_in_place'
 gem 'google_drive'
 gem 'execjs'
 gem 'therubyracer'
+gem 'less-rails'
 gem 'simple_form'
 gem 'cocoon'
 gem 'strongbox'
@@ -36,6 +36,7 @@ group :assets do
   gem 'sass-rails',   '3.2.5'
   gem 'coffee-rails', '3.2.2'
   gem 'uglifier', '1.2.3'
+  gem "twitter-bootstrap-rails"
 end
 
 
