@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="16a97234-f051-4e61-95ae-3b82405c8810" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/application.rb" afterPath="$PROJECT_DIR$/config/application.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LICENSE.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/debitos.iml" afterPath="$PROJECT_DIR$/.idea/debitos.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="debitos.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="16a97234-f051-4e61-95ae-3b82405c8810" time="1366067752367" ignored="false" />
+    <file path="/Dummy.txt" changelist="16a97234-f051-4e61-95ae-3b82405c8810" time="1367162077018" ignored="false" />
     <file path="/Gemfile" changelist="16a97234-f051-4e61-95ae-3b82405c8810" time="1365726915950" ignored="false" />
     <file path="/user.rb" changelist="16a97234-f051-4e61-95ae-3b82405c8810" time="1366068646453" ignored="false" />
     <file path="/20130412030249_add_secret_columns_to_user.rb" changelist="16a97234-f051-4e61-95ae-3b82405c8810" time="1365737667599" ignored="false" />
@@ -18,6 +20,7 @@
     <file path="/alumnos_controller.rb" changelist="16a97234-f051-4e61-95ae-3b82405c8810" time="1366058187804" ignored="false" />
     <file path="/card_company.rb" changelist="16a97234-f051-4e61-95ae-3b82405c8810" time="1366068987296" ignored="false" />
     <file path="/_card_companies_fields.html.erb" changelist="16a97234-f051-4e61-95ae-3b82405c8810" time="1366071024358" ignored="false" />
+    <file path="/LICENSE.txt" changelist="16a97234-f051-4e61-95ae-3b82405c8810" time="1367162568734" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +49,24 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="edit.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/users/edit.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="27" selection-start="230" selection-end="230" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_card_companies_fields.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/users/_card_companies_fields.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="41" selection-start="236" selection-end="236" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="user.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/user.rb">
           <provider selected="true" editor-type-id="text-editor">
@@ -64,28 +85,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_card_companies_fields.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/users/_card_companies_fields.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="41" selection-start="236" selection-end="236" vertical-scroll-proportion="-3.75">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="application.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/application.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="69" column="50" selection-start="3093" selection-end="3093" vertical-scroll-proportion="0.8389571">
+            <state line="69" column="50" selection-start="3093" selection-end="3093" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="edit.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/users/edit.html.erb">
+      <file leaf-file-name="LICENSE.txt" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/LICENSE.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="27" selection-start="230" selection-end="230" vertical-scroll-proportion="-4.375">
+            <state line="9" column="26" selection-start="464" selection-end="464" vertical-scroll-proportion="0.20705521">
               <folding />
             </state>
           </provider>
@@ -118,7 +130,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/views/users/show.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/users_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/users/edit.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/google_users_controller.rb" />
@@ -134,14 +145,14 @@
         <option value="$PROJECT_DIR$/app/models/card_company.rb" />
         <option value="$PROJECT_DIR$/app/views/users/_card_companies_fields.html.erb" />
         <option value="$PROJECT_DIR$/config/application.rb" />
+        <option value="$PROJECT_DIR$/LICENSE.txt" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1" />
-    <option name="y" value="-4" />
-    <option name="width" value="1282" />
-    <option name="height" value="805" />
+    <option name="y" value="24" />
+    <option name="width" value="1280" />
+    <option name="height" value="776" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -169,16 +180,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="RailsProjectView">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="debitos" />
-              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.RailsProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -194,60 +195,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="debitos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="debitos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="debitos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="users" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="debitos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="debitos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="debitos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="debitos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -281,11 +228,22 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="RailsProjectView">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="debitos" />
+              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.RailsProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="recentsLimit" value="5" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../contacts" />
     <property name="GoToClass.includeJavaFiles" value="false" />
     <property name="dynamic.classpath" value="false" />
   </component>
@@ -586,11 +544,11 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Rake.db:migrate" />
-      <item index="1" class="java.lang.String" itemvalue="Rake.test" />
-      <item index="2" class="java.lang.String" itemvalue="Rake.spec" />
-      <item index="3" class="java.lang.String" itemvalue="Rails.Production: debitos" />
-      <item index="4" class="java.lang.String" itemvalue="Rails.Development: debitos" />
+      <item index="0" class="java.lang.String" itemvalue="Rake.test" />
+      <item index="1" class="java.lang.String" itemvalue="Rake.spec" />
+      <item index="2" class="java.lang.String" itemvalue="Rails.Production: debitos" />
+      <item index="3" class="java.lang.String" itemvalue="Rails.Development: debitos" />
+      <item index="4" class="java.lang.String" itemvalue="Rake.db:migrate" />
     </list>
     <recent_temporary>
       <list size="1">
@@ -625,7 +583,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="-4" width="1282" height="805" extended-state="6" />
+    <frame x="0" y="24" width="1280" height="776" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -709,23 +667,14 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/db/migrate/20130412030249_add_secret_columns_to_user.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="23" selection-start="192" selection-end="192" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/schema.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="94" selection-start="1310" selection-end="1310" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="24" column="94" selection-start="1310" selection-end="1310" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/helpers/sessions_helper.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="6" selection-start="28" selection-end="28" vertical-scroll-proportion="0.022189349">
-          <folding />
-        </state>
+        <state line="1" column="6" selection-start="28" selection-end="28" vertical-scroll-proportion="0.022189349" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/sessions_controller.rb">
@@ -757,23 +706,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/alumnos_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="38" selection-start="270" selection-end="270" vertical-scroll-proportion="0.16104294">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="38" selection-start="968" selection-end="968" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="7" column="38" selection-start="270" selection-end="270" vertical-scroll-proportion="0.16104294" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/summaries/_card.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="29" selection-start="71" selection-end="71" vertical-scroll-proportion="0.04601227">
-          <folding />
-        </state>
+        <state line="2" column="29" selection-start="71" selection-end="71" vertical-scroll-proportion="0.04601227" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/card_company.rb">
@@ -792,21 +730,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/users/edit.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="27" selection-start="230" selection-end="230" vertical-scroll-proportion="-4.375">
+        <state line="7" column="27" selection-start="230" selection-end="230" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/users/_card_companies_fields.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="41" selection-start="236" selection-end="236" vertical-scroll-proportion="-3.75">
+        <state line="6" column="41" selection-start="236" selection-end="236" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/application.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="50" selection-start="3093" selection-end="3093" vertical-scroll-proportion="0.8389571">
+        <state line="69" column="50" selection-start="3093" selection-end="3093" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="38" selection-start="968" selection-end="968" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LICENSE.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="26" selection-start="464" selection-end="464" vertical-scroll-proportion="0.20705521">
           <folding />
         </state>
       </provider>
