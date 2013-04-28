@@ -11,7 +11,9 @@ Debitos::Application.routes.draw do
     collection { post :set_multiple_inactive}
   end
   resources :sessions, only: [:new, :create, :destroy]
-  resources :summaries
+  resources :summaries do
+    collection {get "download"}
+  end
   resources :google_users, only: [:new, :create, :destroy]
 
   root to: 'static_pages#home'

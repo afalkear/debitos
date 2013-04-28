@@ -1,4 +1,6 @@
 class SummariesController < ApplicationController
+
+
   def new
   end
 
@@ -14,11 +16,19 @@ class SummariesController < ApplicationController
     @american_deb = Alumno.where(card_company: "AMERICAN", card_type: "debito", active: true, payed: false)
   end
 
+  def download
+    file = File.read("DEBLIQC.txt")
+    send_data file,
+              :filename => "DEBLIQC.txt",
+              :type => "text/plain"
+  end
+
   # ver si hago uno por tarjeta, pero no creo que sea conveniente.
   # lo mejor es hacer eso en forma dinámica.
   def visa_cred
     alumnos = Alumno.where(card_company: "VISA", card_type: "credito", active: true, payed: false)
-    @visa_summary = generate_visa_summary("credit", alumnos)
+    establishment = current_user.card_companies.where(name: "visa").first.establishment
+    @visa_summary = generate_visa_summary("credit", alumnos, establishment)
 
     File.open("DEBLIQC.txt", "w") do |f|
       @visa_summary.each do |sum|
@@ -26,9 +36,11 @@ class SummariesController < ApplicationController
       end
     end
 
+    @download_file = @visa_summary
+
     respond_to do |format|
-      format.html
-      #format.html { redirect_to summaries_path, notice: "Archivo creado" }
+      #format.html
+      format.html { redirect_to summaries_path, notice: "Archivo creado" }
       #format.csv { send_data @alumnos.to_csv }
       #format.xls #{ send_data @alumnos.to_csv(col_sep: "\t") }
     end
@@ -36,7 +48,8 @@ class SummariesController < ApplicationController
 
   def visa_deb
     alumnos = Alumno.where(card_company: "VISA", card_type: "debito", active: true, payed: false)
-    @visa_summary = generate_visa_file("debit", alumnos)
+    establishment = current_user.card_companies.where(name: "visa").first.establishment
+    @visa_summary = generate_visa_file("debit", alumnos, establishment)
 
     File.open("DEBLIQD.txt", "w") do |f|
       @visa_summary.each do |sum|
@@ -52,8 +65,9 @@ class SummariesController < ApplicationController
   end
 
   def master_cred
+    establishment = current_user.card_companies.where(name: "master").first.establishment
     alumnos = Alumno.where(card_company: "MASTER", active: true, payed: false)
-    generate_master_file(alumnos)
+    generate_master_file(alumnos, establishment)
 
     respond_to do |format|
       format.html { redirect_to summaries_path, notice: "Archivo creado" }
@@ -62,7 +76,7 @@ class SummariesController < ApplicationController
     end
   end
 
-  def generate_visa_summary(type, alumnos)
+  def generate_visa_summary(type, alumnos, establishment)
     if type == "credit"
       filename = "DEBLIQC"
     else
@@ -71,7 +85,7 @@ class SummariesController < ApplicationController
     begin_register_type = "0"
     end_register_type = "9"
     constant_type = "DEBLIQ"
-    establishment = "3617131"
+    establishment = establishment #"3617131"
     constant = "900000    " #.gsub(/[ ]/, '&nbsp;')
     date = Time.now.year.to_s.rjust(4,"0")+Time.now.month.to_s.rjust(2, "0")+Time.now.day.to_s.rjust(2, "0")
     date = date #.gsub(/[ ]/, '&nbsp;')
@@ -122,7 +136,7 @@ class SummariesController < ApplicationController
     return [header, files, footer]
   end
 
-  def generate_visa_file(type, alumnos)
+  def generate_visa_file(type, alumnos, establishment)
     if type == "credit"
       filename = "DEBLIQC"
     else
@@ -131,7 +145,7 @@ class SummariesController < ApplicationController
     begin_register_type = "0"
     end_register_type = "9"
     constant_type = "DEBLIQ"
-    establishment = "3617131"
+    establishment = establishment #"3617131"
     constant = "900000    "
     date = Time.now.year.to_s.rjust(4,"0")+Time.now.month.to_s.rjust(2, "0")+Time.now.day.to_s.rjust(2, "0")
     hour = Time.now.hour.to_s.rjust(2, "0")+Time.now.min.to_s.rjust(2, "0")
@@ -177,10 +191,10 @@ class SummariesController < ApplicationController
     end
   end
 
-  def generate_master_file(alumnos)
+  def generate_master_file(alumnos, establishment)
     date = Date.today
     filename = date.strftime("%B")
-    establishment = "3617131"
+    establishment = establishment #"3617131"
     date = Time.now.day.to_s.rjust(2, "0") + Time.now.month.to_s.rjust(2, "0") + Time.now.year.to_s.rjust(2,"0")
     hour = Time.now.hour.to_s.rjust(2, "0")+Time.now.min.to_s.rjust(2, "0")
 
@@ -210,10 +224,10 @@ class SummariesController < ApplicationController
     end
   end
 
-  def generate_amex_file(alumnos)
+  def generate_amex_file(alumnos, establishment)
     date = Date.today
     filename = date.strftime("%B")
-    establishment = "3617131"
+    establishment = establishment #"3617131"
     date = Time.now.day.to_s.rjust(2, "0") + Time.now.month.to_s.rjust(2, "0") + Time.now.year.to_s.rjust(2,"0")
     hour = Time.now.hour.to_s.rjust(2, "0")+Time.now.min.to_s.rjust(2, "0")
 
