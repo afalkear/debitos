@@ -40,16 +40,7 @@
 
     <div class="container-fluid">
       <div class="row-fluid">
-        <div class="span2">
-          <div class="well sidebar-nav">
-            <ul class="nav nav-list">
-              <li class="nav-header">Pasos:</li>
-              <li><%= link_to "1. Obtener datos", alumnos_path  %></li>
-              <li><%= link_to "2. Generar resúmenes", summaries_path  %></li>
-              <li><%= link_to "3. Bajar resúmenes", "#"  %></li>
-            </ul>
-          </div><!--/.well -->
-        </div><!--/span-->
+        <%= content_for?(:sidebar) ? yield(:sidebar) : (render "layouts/sidebar") %>
         <div class="span9">
           <%= bootstrap_flash %>
           <%= yield %>
@@ -57,7 +48,7 @@
       </div><!--/row-->
 
       <footer>
-        <p>&copy; Company 2013</p>
+        <p>&copy; Alex Falke 2013</p>
       </footer>
 
     </div> <!-- /container -->

@@ -1,0 +1,22 @@
+<div class="span2">
+  <div class="well sidebar-nav">
+    <ol class="nav nav-list">
+      <li class="nav-header">Pasos:</li>
+      <li class="<%= 'active' if params[:controller] == 'alumnos' %>">
+        <%= link_to alumnos_path do %>
+            <i class="icon-group"></i> Obtener datos
+        <% end %>
+      </li>
+      <li class="<%= 'active' if params[:controller] == 'summaries' %>">
+        <%= link_to summaries_path do %>
+            <i class="icon-home"></i> Generar resúmenes
+        <% end %>
+      </li>
+      <li class="<%= 'active' if params[:controller] == 'download' %>">
+        <%= link_to "#" do %>
+            <i class="icon-download-alt"></i> Bajar resúmenes
+        <% end %>
+      </li>
+    </ol>
+  </div><!--/.well -->
+</div><!--/span-->
