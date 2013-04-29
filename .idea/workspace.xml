@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="16a97234-f051-4e61-95ae-3b82405c8810" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/production.rb" afterPath="$PROJECT_DIR$/config/environments/production.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
     </list>
     <ignored path="debitos.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -82,7 +82,7 @@
       <file leaf-file-name="Gemfile" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Gemfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="20" selection-start="984" selection-end="984" vertical-scroll-proportion="0.85714287">
+            <state line="16" column="29" selection-start="343" selection-end="343" vertical-scroll-proportion="0.5714286">
               <folding />
             </state>
           </provider>
@@ -958,7 +958,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="20" selection-start="984" selection-end="984" vertical-scroll-proportion="0.85714287">
+        <state line="16" column="29" selection-start="343" selection-end="343" vertical-scroll-proportion="0.5714286">
           <folding />
         </state>
       </provider>
