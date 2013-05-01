@@ -7,6 +7,11 @@
             <i class="icon-group"></i> Obtener datos
         <% end %>
       </li>
+      <li class="<%= 'active' if params[:controller] == 'alumnos' %>">
+        <%= link_to alumnos_path do %>
+            <i class="icon-group"></i> Ver si los datos están en orden
+        <% end %>
+      </li>
       <li class="<%= 'active' if params[:controller] == 'summaries' %>">
         <%= link_to summaries_path do %>
             <i class="icon-home"></i> Generar resúmenes
