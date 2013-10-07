@@ -25,11 +25,13 @@
 #
 
 class Alumno < ActiveRecord::Base
-  attr_accessible :amount, :card_company, :card_number, :card_type, :identifier, :last_name, :name, 
+  attr_accessible :amount, :card_company_id, :card_number, :card_type, :identifier, :last_name, :name, 
     :instructor, :plan, :due_date, :payed, :payment, :observations, :bill, :new_debit, :active
   validates :name, presence: true
   encrypt_with_public_key :credit_number, :key_pair => Rails.root.join('config', 'keypair.pem')
   belongs_to :user
+
+  belongs_to :card_company
 
   def new_debit?
     self.new_debit

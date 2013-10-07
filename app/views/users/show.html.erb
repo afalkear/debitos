@@ -9,13 +9,13 @@
     </section>
   </aside>
   <div id="UserData">
-    <div>
+    <div class="span5">
       <table>
+        <tr><th colspan="1">Establishments</th></tr>
         <% @user.card_companies.each do |cc| %>
           <tr>
             <% unless cc.id.nil? %>
-              <td>NAME: <%= cc.name %></td>
-              <td>ESTABLISHMENT: <%= cc.establishment %></td>
+              <td><%= cc.description %>(<%= cc.name %>: <%= cc.establishment %>)</td>
             <% end %>
           </tr>
         <% end %>

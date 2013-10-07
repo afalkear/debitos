@@ -136,6 +136,7 @@ class SummariesController < ApplicationController
     return [header, files, footer]
   end
 
+  # TODO este parece ser una version vieja de generate_visa_summary
   def generate_visa_file(type, alumnos, establishment)
     if type == "credit"
       filename = "DEBLIQC"

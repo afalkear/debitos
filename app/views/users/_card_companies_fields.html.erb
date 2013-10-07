@@ -12,6 +12,11 @@
         <% end %>
       </td>
       <td>
+        <%= f.input :description do %>
+          <%= f.input_field :description %>
+        <% end -%>
+      </td>
+      <td>
         <%= link_to_remove_association "Remove Card Company", f %>
       </td>
     </tr>

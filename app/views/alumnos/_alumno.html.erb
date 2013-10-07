@@ -7,7 +7,7 @@
   <td><%= link_to alumno.name, "http://www.metododerose.org/kshema/personas/" + alumno.padma_id.to_s %></td>
   <td><%= best_in_place alumno, :identifier, classes: "forum" %></td>
   <td><%= best_in_place alumno, :bill, classes: "forum" %></td>
-  <td><%= alumno.card_company %></td>
+  <td><%= best_in_place alumno, :card_company_id, type: :select, collection: current_user.card_companies.map{|cc| [cc.id, cc.description]} %></td>
   <td><%= best_in_place alumno, :card_type, type: :select, collection: [["credito", "credito"], ["debito", "debito"]], classes: "forum" %></td>
   <td><%= alumno.plan%></td>
   <td><%= best_in_place alumno, :amount, classes: "forum" %></td>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130415202640) do
+ActiveRecord::Schema.define(:version => 20131007195234) do
 
   create_table "alumnos", :force => true do |t|
     t.string   "name"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20130415202640) do
     t.binary   "card_number_key"
     t.binary   "card_number_iv"
     t.integer  "user_id"
+    t.integer  "card_company_id"
   end
 
   create_table "card_companies", :force => true do |t|
@@ -44,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20130415202640) do
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
     t.string   "name"
+    t.string   "description"
   end
 
   create_table "google_users", :force => true do |t|
