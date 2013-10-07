@@ -16,4 +16,6 @@ class CardCompany < ActiveRecord::Base
   belongs_to :user
   validates :name, :inclusion => { :in => %w(visa master american),
             :message => "%You have to submit a valid credit card company" }
+
+  has_many :alumnos
 end
