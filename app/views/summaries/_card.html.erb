@@ -1,12 +1,5 @@
 <h3><%= card %></h3>
 <h5><%= type %></h5>
-<% if current_user.card_companies && !current_user.card_companies.where(name:card.downcase).empty? %>
-    Establecimiento: <%= current_user.card_companies.where(name: card.downcase).first.establishment %>
-<% else %>
-    No se tiene número de establecimiento para esta empresa, genere una en
-    <%= link_to "Agregar un nuevo establecimiento", edit_user_path(current_user) %>
-<% end %>
-<br>
 <table class="alumnos table table-hover table-condensed">
     <tr>
       <th>Nombre</th>

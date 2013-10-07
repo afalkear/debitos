@@ -3,7 +3,7 @@
   <td><%= best_in_place alumno, :card_number, classes: "forum" %></td>
   <td><%= best_in_place alumno, :identifier, classes: "forum" %></td>
   <td><%= best_in_place alumno, :bill, classes: "forum" %></td>
-  <td><%= alumno.card_company %></td>
+  <td><%= alumno.card_company.description %></td>
   <td><%= best_in_place alumno, :card_type, type: :select, collection: [["credito", "credito"], ["debito", "debito"]], classes: "forum" %></td>
   <td><%= alumno.plan%></td>
   <td><%= best_in_place alumno, :amount, classes: "forum" %></td>

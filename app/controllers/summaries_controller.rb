@@ -8,8 +8,13 @@ class SummariesController < ApplicationController
   end
 
   def index
-    @visa_cred = Alumno.where(card_company: "VISA", card_type: "credito", active: true, payed: false)
-    @visa_deb = Alumno.where(card_company: "VISA", card_type: "debito", active: true, payed: false)
+    visa_establishments = CardCompany.where(name: 'visa')
+    raise 'no support for multiple establishments yet' if visa_establishments.count > 2
+    @visa = visa_establishments.first
+
+    @visa_cred = @visa.file_candidates('credito')
+    @visa_deb =  @visa.file_candidates('debito')
+
     @master_cred = Alumno.where(card_company: "MASTER", card_type: "credito", active: true, payed: false)
     @master_deb = Alumno.where(card_company: "MASTER", card_type: "debito", active: true, payed: false)
     @american_cred = Alumno.where(card_company: "AMERICAN", card_type: "credito", active: true, payed: false)

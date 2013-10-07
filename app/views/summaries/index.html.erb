@@ -2,10 +2,10 @@
 <h1>Resumen Total</h1>
 
 <% if !@visa_cred.empty? %>
-	<%= render :partial => "card", :locals => {:alumnos => @visa_cred, :card => "VISA", :type => "credito"} %>
+	<%= render :partial => "card", :locals => {:alumnos => @visa_cred, :card => @visa.description, :type => "credito"} %>
 <% end %>
 <% if !@visa_deb.empty? %>
-	<%= render :partial => "card", :locals => {:alumnos => @visa_deb, :card => "VISA", :type => "debito"} %>
+	<%= render :partial => "card", :locals => {:alumnos => @visa_deb, :card => @visa.description, :type => "debito"} %>
 <% end %>
 <% if !@master_cred.empty? %>
 	<%= render :partial => "card", :locals => {:alumnos => @master_cred, :card => "MASTER", :type => "credito"} %>

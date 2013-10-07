@@ -18,4 +18,15 @@ class CardCompany < ActiveRecord::Base
             :message => "%You have to submit a valid credit card company" }
 
   has_many :alumnos
+
+  # returns alumnos of given type (debito/credito) that should be included
+  # in file
+  # @param [String] type
+  # @return [ActiveRecord::Relation <Alumnos>]
+  def file_candidates(type)
+    raise 'wrong type' if !type.in?(%W(debito credito))
+
+    alumnos.where(card_type: type, active: true, payed: false)
+  end
+
 end
