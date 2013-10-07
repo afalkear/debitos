@@ -22,17 +22,24 @@ class SummariesController < ApplicationController
   end
 
   def download
-    file = File.read("DEBLIQC.txt")
+    file_name = params[:file_name] || "DEBLIQC.txt"
+     
+    file = File.read(file_name)
     send_data file,
-              :filename => "DEBLIQC.txt",
+              :filename => file_name,
               :type => "text/plain"
   end
 
   # ver si hago uno por tarjeta, pero no creo que sea conveniente.
   # lo mejor es hacer eso en forma dinámica.
   def visa_cred
-    alumnos = Alumno.where(card_company: "VISA", card_type: "credito", active: true, payed: false)
-    establishment = current_user.card_companies.where(name: "visa").first.establishment
+    visa_establishments = CardCompany.where(name: 'visa')
+    raise 'no support for multiple establishments yet' if visa_establishments.count > 2
+    @visa = visa_establishments.first
+    
+    alumnos = @visa.file_candidates('credito')
+    establishment = @visa.establishment
+
     @visa_summary = generate_visa_summary("credit", alumnos, establishment)
 
     File.open("DEBLIQC.txt", "w") do |f|
@@ -52,9 +59,14 @@ class SummariesController < ApplicationController
   end
 
   def visa_deb
-    alumnos = Alumno.where(card_company: "VISA", card_type: "debito", active: true, payed: false)
-    establishment = current_user.card_companies.where(name: "visa").first.establishment
-    @visa_summary = generate_visa_file("debit", alumnos, establishment)
+    visa_establishments = CardCompany.where(name: 'visa')
+    raise 'no support for multiple establishments yet' if visa_establishments.count > 2
+    @visa = visa_establishments.first
+
+    alumnos = @visa.file_candidates('debito')
+    establishment = @visa.establishment
+
+    @visa_summary = generate_visa_summary("debit", alumnos, establishment)
 
     File.open("DEBLIQD.txt", "w") do |f|
       @visa_summary.each do |sum|
