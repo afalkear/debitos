@@ -42,11 +42,7 @@ class SummariesController < ApplicationController
 
     @visa_summary = generate_visa_summary("credit", alumnos, establishment)
 
-    File.open("DEBLIQC.txt", "w") do |f|
-      @visa_summary.each do |sum|
-        f.puts sum
-      end
-    end
+    write_file("DEBLIQC.TXT", @visa_summary)
 
     @download_file = @visa_summary
 
@@ -68,11 +64,7 @@ class SummariesController < ApplicationController
 
     @visa_summary = generate_visa_summary("debit", alumnos, establishment)
 
-    File.open("DEBLIQD.txt", "w") do |f|
-      @visa_summary.each do |sum|
-        f.puts sum
-      end
-    end
+    write_file("DEBLIQD.TXT", @visa_summary)
 
     respond_to do |format|
       format.html { redirect_to summaries_path, notice: "Archivo creado" }
@@ -239,6 +231,15 @@ class SummariesController < ApplicationController
         f.puts(alumno_line)
       end
       f.puts(end_line)
+    end
+  end
+
+  def write_file(file_name,lines_array)
+    # use crlf_newline for correct newline rendering in windows
+    File.open(file_name, mode: "w", crlf_newline: true) do |f|
+      lines_array.each do |line|
+        f.puts line
+      end
     end
   end
 
