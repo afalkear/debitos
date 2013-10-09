@@ -33,6 +33,8 @@ class Alumno < ActiveRecord::Base
   belongs_to :user
 
   belongs_to :card_company
+  
+  validates_length_of :identifier, maximum: 15
 
   def new_debit?
     self.new_debit
