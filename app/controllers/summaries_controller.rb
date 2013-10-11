@@ -42,7 +42,7 @@ class SummariesController < ApplicationController
 
     @visa_summary = generate_visa_summary("credit", alumnos, establishment)
 
-    write_file("DEBLIQC.TXT", @visa_summary)
+    write_file("DEBLIQC.txt", @visa_summary)
 
     @download_file = @visa_summary
 
@@ -64,7 +64,7 @@ class SummariesController < ApplicationController
 
     @visa_summary = generate_visa_summary("debit", alumnos, establishment)
 
-    write_file("DEBLIQD.TXT", @visa_summary)
+    write_file("DEBLIQD.txt", @visa_summary)
 
     respond_to do |format|
       format.html { redirect_to summaries_path, notice: "Archivo creado" }
