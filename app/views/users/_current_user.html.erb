@@ -1,0 +1,29 @@
+<p>
+  Usuario:
+  <%= link_to user_path(user.id) do %>
+      <%= user.name %>
+  <% end %>
+</p>
+<p>
+  Tarjetas sobre las cuales puede hacer un resumen: <br>
+</p>
+<% if user.card_companies.nil? %>
+      <p>No ha ingresado ninguna tarjeta para poder usar</p>
+  <% else %>
+    <table class="table">
+      <% user.card_companies.each do |card| %>
+          <tr>
+            <td>
+              <i class="icon-credit-card"></i>
+            </td>
+            <td>
+              <%= card.name.upcase %>
+            </td>
+          </tr>
+      <% end %>
+    </table>
+    <% end %>
+<p>
+  Cambiar estos datos:
+  <%= link_to "Editar usuario", edit_user_path(user.id) %>
+</p>

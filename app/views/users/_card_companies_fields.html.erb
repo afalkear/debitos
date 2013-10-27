@@ -1,18 +1,23 @@
 <div class="nested-fields">
-  <table>
+  <table class="table table-condensed">
     <tr>
+      <td>Name</td>
       <td>
         <%= f.input :name,
                     collection: [["VISA", "visa"],["MASTERCARD", "master"],["AMERICAN EXPRESS", "american"]],
+                    label: false,
                     include_blank: false %>
       </td>
+      <td>Establishment</td>
       <td>
-        <%= f.input :establishment do %>
+        <%= f.input :establishment, label: false do %>
           <%= f.input_field :establishment %>
         <% end %>
       </td>
       <td>
-        <%= link_to_remove_association "Remove Card Company", f %>
+        <%= link_to_remove_association f do %>
+            <i class="icon-remove icon-2x"></i>
+        <% end %>
       </td>
     </tr>
   </table>
