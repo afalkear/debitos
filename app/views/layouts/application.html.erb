@@ -33,6 +33,15 @@
     <!-- For all other devices -->
     <!-- Size should be 32 x 32 pixels -->
     <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
+
+    <!-- Check if the application is offline with Offline.js -- >
+    <script>
+      var run = function(){
+        Offline.check();
+      }
+
+      setInterval(run, 30000);
+    </script>
   </head>
   <body>
 

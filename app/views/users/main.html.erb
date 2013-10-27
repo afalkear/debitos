@@ -1,19 +1,45 @@
+<h1>Sistema de d&eacute;bitos</h1>
+
 <div class="center hero-unit">
-  <h1>Sistema de d&eacute;bitos</h1>
-
-  <h2>
-    Para empresas del 
-    <a href="http://metododerose.org/">M&eacute;todo DeRose</a>
-    de Argentina.
-  </h2>
-
-  <%= link_to "Ver alumnos", alumnos_path, class: "btn btn-large btn-primary" %>
-  <%= link_to "Hacer resumen", summaries_path, class: "btn btn-large btn-primary" %>
-  <% if false %>
-  <div id="datos">
-    <% @google_session.files.each do |file| %>
-      <%= file.title %>
-    <% end %>
-  </div>
-  <% end %>
+  <%= render :partial => "current_user", locals: {user: current_user} %>
 </div>
+
+<h2>
+    <i class="icon-bookmark"></i> Pasos a seguir
+</h2>
+
+<div class="well">
+  <ol>
+    <li>
+      <%= link_to edit_user_path(current_user.id)  do %>
+        Añadir las tarjetas con las cuales desea trabajar
+      <% end %>
+    </li>
+    <li>
+      <%= link_to alumnos_path do %>
+          Obtener los datos de los alumnos de PADMA
+      <% end %>
+    </li>
+    <li>
+      <%= link_to alumnos_path do %>
+          Cargar los datos de la tarjetas
+      <% end %>
+    </li>
+    <li>
+      <%= link_to alumnos_path do %>
+          Analizar si los datos son correctos
+      <% end %>
+    </li>
+    <li>
+      <%= link_to summaries_path do %>
+          Generar resúmenes
+      <% end %>
+    </li>
+    <li>
+      <%= link_to summaries_path do %>
+          Descargar los resúmenes
+      <% end %>
+    </li>
+  </ol>
+</div>
+
