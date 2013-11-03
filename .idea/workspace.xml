@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0927fbc-dc53-4b4e-9329-914aba4ffcda" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/alumnos/_alumno.html.erb" afterPath="$PROJECT_DIR$/app/views/alumnos/_alumno.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/alumno.rb" afterPath="$PROJECT_DIR$/app/models/alumno.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/application.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/application.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/alumnos/index.html.erb" afterPath="$PROJECT_DIR$/app/views/alumnos/index.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="debitos.iws" />
@@ -13,9 +13,11 @@
     <file path="/Dummy.txt" changelist="d0927fbc-dc53-4b4e-9329-914aba4ffcda" time="1383489404434" ignored="false" />
     <file path="/index.html.erb" changelist="d0927fbc-dc53-4b4e-9329-914aba4ffcda" time="1383490405165" ignored="false" />
     <file path="/_alumno.html.erb" changelist="d0927fbc-dc53-4b4e-9329-914aba4ffcda" time="1383505467652" ignored="false" />
-    <file path="/alumno.rb" changelist="d0927fbc-dc53-4b4e-9329-914aba4ffcda" time="1383504180749" ignored="false" />
+    <file path="/alumno.rb" changelist="d0927fbc-dc53-4b4e-9329-914aba4ffcda" time="1383505826138" ignored="false" />
     <file path="/alumnos_helper.rb" changelist="d0927fbc-dc53-4b4e-9329-914aba4ffcda" time="1383495644255" ignored="false" />
     <file path="/fragment.rb" changelist="d0927fbc-dc53-4b4e-9329-914aba4ffcda" time="1383498758240" ignored="false" />
+    <file path="/Gemfile" changelist="d0927fbc-dc53-4b4e-9329-914aba4ffcda" time="1383505614396" ignored="false" />
+    <file path="/application.yml" changelist="d0927fbc-dc53-4b4e-9329-914aba4ffcda" time="1383505752156" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +49,7 @@
       <file leaf-file-name="alumno.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/alumno.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="103" selection-start="989" selection-end="989" vertical-scroll-proportion="0.0">
+            <state line="47" column="35" selection-start="1333" selection-end="1333" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -56,16 +58,7 @@
       <file leaf-file-name="_alumno.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/alumnos/_alumno.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="66" selection-start="482" selection-end="482" vertical-scroll-proportion="0.27322406">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="helper.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/.rvm/gems/ruby-1.9.3-p392@global/gems/best_in_place-2.0.2/lib/best_in_place/helper.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="14" selection-start="2519" selection-end="2519" vertical-scroll-proportion="0.0">
+            <state line="10" column="66" selection-start="482" selection-end="482" vertical-scroll-proportion="0.43227667">
               <folding />
             </state>
           </provider>
@@ -106,8 +99,10 @@
         <option value="$PROJECT_DIR$/app/helpers/alumnos_helper.rb" />
         <option value="$PROJECT_DIR$/app/helpers/application_helper.rb" />
         <option value="$USER_HOME$/.rvm/gems/ruby-1.9.3-p392@global/gems/best_in_place-2.0.2/lib/best_in_place/helper.rb" />
-        <option value="$PROJECT_DIR$/app/models/alumno.rb" />
         <option value="$PROJECT_DIR$/app/views/alumnos/_alumno.html.erb" />
+        <option value="$PROJECT_DIR$/Gemfile" />
+        <option value="$PROJECT_DIR$/app/models/alumno.rb" />
+        <option value="$PROJECT_DIR$/config/application.yml" />
       </list>
     </option>
   </component>
@@ -179,43 +174,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="debitos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="debitos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="debitos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="debitos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
+              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -410,11 +369,11 @@
     <frame x="0" y="24" width="1366" height="744" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3284553" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2541857" sideWeight="0.42439026" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2541857" sideWeight="0.67154473" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.57560974" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -500,27 +459,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/helpers/sessions_helper.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.rvm/gems/ruby-1.9.3-p392@global/gems/actionpack-3.2.11/lib/action_view.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/helpers/application_helper.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="5" selection-start="242" selection-end="242" vertical-scroll-proportion="0.24021353">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/helpers/alumnos_helper.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="20" selection-start="20" selection-end="20" vertical-scroll-proportion="0.0">
@@ -584,9 +522,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gemfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="11" selection-start="355" selection-end="355" vertical-scroll-proportion="0.7083333">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$USER_HOME$/.rvm/gems/ruby-1.9.3-p392@global/gems/best_in_place-2.0.2/lib/best_in_place/helper.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="14" selection-start="2519" selection-end="2519" vertical-scroll-proportion="0.0">
+        <state line="54" column="14" selection-start="2519" selection-end="2519" vertical-scroll-proportion="0.375">
           <folding />
         </state>
       </provider>
@@ -600,14 +552,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/alumno.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="103" selection-start="989" selection-end="989" vertical-scroll-proportion="0.0">
+        <state line="47" column="35" selection-start="1333" selection-end="1333" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="8" selection-start="276" selection-end="276" vertical-scroll-proportion="0.2734375">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/alumnos/_alumno.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="66" selection-start="482" selection-end="482" vertical-scroll-proportion="0.27322406">
+        <state line="10" column="66" selection-start="482" selection-end="482" vertical-scroll-proportion="0.43227667">
           <folding />
         </state>
       </provider>

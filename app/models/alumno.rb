@@ -45,7 +45,7 @@ class Alumno < ActiveRecord::Base
     if self.secret.nil?
       return ""
     end
-    self.secret.decrypt('este establecimiento es propiedad de lucia gagliardini')
+    self.secret.decrypt(ENV['PHRASE'])
   end
 
   def self.import(file, bill)

@@ -14,7 +14,8 @@ gem 'less-rails'
 gem 'simple_form'
 gem 'cocoon'
 gem 'strongbox'
-gem "twitter-bootstrap-rails"
+gem 'twitter-bootstrap-rails'
+gem 'figaro'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
