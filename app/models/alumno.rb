@@ -1,3 +1,5 @@
+#
+
 # == Schema Information
 #
 # Table name: alumnos
@@ -26,9 +28,9 @@
 
 class Alumno < ActiveRecord::Base
   attr_accessible :amount, :card_company, :card_number, :card_type, :identifier, :last_name, :name, 
-    :instructor, :plan, :due_date, :payed, :payment, :observations, :bill, :new_debit, :active
+    :instructor, :plan, :due_date, :payed, :payment, :observations, :bill, :new_debit, :active, :secret
   validates :name, presence: true
-  encrypt_with_public_key :credit_number, :key_pair => Rails.root.join('config', 'keypair.pem')
+  encrypt_with_public_key :secret, :key_pair => Rails.root.join('config', 'keypair.pem')
   belongs_to :user
 
   def new_debit?
@@ -37,6 +39,13 @@ class Alumno < ActiveRecord::Base
 
   def set_inactive
     self.active = false
+  end
+
+  def number_for_humans
+    if self.secret.nil?
+      return ""
+    end
+    self.secret.decrypt('este establecimiento es propiedad de lucia gagliardini')
   end
 
   def self.import(file, bill)
@@ -125,5 +134,4 @@ class Alumno < ActiveRecord::Base
         attributes["card_type"] = "debito"
       end
     end
-
 end
