@@ -9,6 +9,7 @@
   <td><%= best_in_place alumno, :bill, classes: "forum" %></td>
   <td><%= best_in_place alumno, :card_company_id, type: :select, collection: current_user.card_companies.map{|cc| [cc.id, cc.description]} %></td>
   <td><%= best_in_place alumno, :card_type, type: :select, collection: [["credito", "credito"], ["debito", "debito"]], classes: "forum" %></td>
+  <td><%= alumno.card_number.to_s.rjust(16, "0")[-4,4] %></td>
   <td><%= alumno.plan%></td>
   <td><%= best_in_place alumno, :amount, classes: "forum" %></td>
   <td><%= best_in_place alumno, :payed, type: :checkbox, collection: %w[No Si], classes: "forum" %></td>
