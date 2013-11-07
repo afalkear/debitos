@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131007195234) do
+ActiveRecord::Schema.define(:version => 20131103205621) do
 
   create_table "alumnos", :force => true do |t|
     t.string   "name"
@@ -33,14 +33,15 @@ ActiveRecord::Schema.define(:version => 20131007195234) do
     t.string   "bill"
     t.boolean  "active",                                                       :default => true
     t.boolean  "new_debit",                                                    :default => true
-    t.binary   "card_number_key"
-    t.binary   "card_number_iv"
     t.integer  "user_id"
+    t.binary   "secret"
+    t.binary   "secret_key"
+    t.binary   "secret_iv"
     t.integer  "card_company_id"
   end
 
   create_table "card_companies", :force => true do |t|
-    t.string   "user_id"
+    t.integer  "user_id"
     t.string   "establishment"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
