@@ -13,10 +13,10 @@
       <%= f.text_field :last_name %>
 
       <%= f.label :card_company %>
-      <%= f.text_field :card_company %>
+      <%= f.select :card_company_id, current_user.card_companies.map{|cc| [cc.description,cc.id]} %>
 
       <%= f.label :card_type %>
-      <%= f.text_field :card_type %>
+      <%= f.select :card_type, ['debito', 'credito'] %>
 
       <%= f.label :card_number %>
       <%= f.text_field :card_number %>

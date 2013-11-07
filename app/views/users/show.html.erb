@@ -1,2 +1,26 @@
 <% provide(:title, @user.name) %>
 <%= render :partial => "current_user", locals: {user: @user} %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>
+        <%= gravatar_for @user %>
+        <%= @user.name %>
+      </h1>
+    </section>
+  </aside>
+  <div id="UserData">
+    <div class="span5">
+      <table>
+        <tr><th colspan="1">Establishments</th></tr>
+        <% @user.card_companies.each do |cc| %>
+          <tr>
+            <% unless cc.id.nil? %>
+              <td><%= cc.description %>(<%= cc.name %>: <%= cc.establishment %>)</td>
+            <% end %>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

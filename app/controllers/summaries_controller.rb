@@ -8,8 +8,13 @@ class SummariesController < ApplicationController
   end
 
   def index
-    @visa_cred = Alumno.where(card_company: "VISA", card_type: "credito", active: true, payed: false)
-    @visa_deb = Alumno.where(card_company: "VISA", card_type: "debito", active: true, payed: false)
+    visa_establishments = CardCompany.where(name: 'visa')
+    raise 'no support for multiple establishments yet' if visa_establishments.count > 2
+    @visa = visa_establishments.first
+
+    @visa_cred = @visa.file_candidates('credito')
+    @visa_deb =  @visa.file_candidates('debito')
+
     @master_cred = Alumno.where(card_company: "MASTER", card_type: "credito", active: true, payed: false)
     @master_deb = Alumno.where(card_company: "MASTER", card_type: "debito", active: true, payed: false)
     @american_cred = Alumno.where(card_company: "AMERICAN", card_type: "credito", active: true, payed: false)
@@ -17,24 +22,27 @@ class SummariesController < ApplicationController
   end
 
   def download
-    file = File.read("DEBLIQC.txt")
+    file_name = params[:file_name] || "DEBLIQC.txt"
+     
+    file = File.read(file_name)
     send_data file,
-              :filename => "DEBLIQC.txt",
+              :filename => file_name,
               :type => "text/plain"
   end
 
   # ver si hago uno por tarjeta, pero no creo que sea conveniente.
   # lo mejor es hacer eso en forma dinámica.
   def visa_cred
-    alumnos = Alumno.where(card_company: "VISA", card_type: "credito", active: true, payed: false)
-    establishment = current_user.card_companies.where(name: "visa").first.establishment
+    visa_establishments = CardCompany.where(name: 'visa')
+    raise 'no support for multiple establishments yet' if visa_establishments.count > 2
+    @visa = visa_establishments.first
+    
+    alumnos = @visa.file_candidates('credito')
+    establishment = @visa.establishment
+
     @visa_summary = generate_visa_summary("credit", alumnos, establishment)
 
-    File.open("DEBLIQC.txt", "w") do |f|
-      @visa_summary.each do |sum|
-        f.puts sum
-      end
-    end
+    write_file("DEBLIQC.txt", @visa_summary)
 
     @download_file = @visa_summary
 
@@ -47,15 +55,16 @@ class SummariesController < ApplicationController
   end
 
   def visa_deb
-    alumnos = Alumno.where(card_company: "VISA", card_type: "debito", active: true, payed: false)
-    establishment = current_user.card_companies.where(name: "visa").first.establishment
-    @visa_summary = generate_visa_file("debit", alumnos, establishment)
+    visa_establishments = CardCompany.where(name: 'visa')
+    raise 'no support for multiple establishments yet' if visa_establishments.count > 2
+    @visa = visa_establishments.first
 
-    File.open("DEBLIQD.txt", "w") do |f|
-      @visa_summary.each do |sum|
-        f.puts sum
-      end
-    end
+    alumnos = @visa.file_candidates('debito')
+    establishment = @visa.establishment
+
+    @visa_summary = generate_visa_summary("debit", alumnos, establishment)
+
+    write_file("DEBLIQD.txt", @visa_summary)
 
     respond_to do |format|
       format.html { redirect_to summaries_path, notice: "Archivo creado" }
@@ -136,6 +145,7 @@ class SummariesController < ApplicationController
     return [header, files, footer]
   end
 
+  # TODO este parece ser una version vieja de generate_visa_summary
   def generate_visa_file(type, alumnos, establishment)
     if type == "credit"
       filename = "DEBLIQC"
@@ -221,6 +231,15 @@ class SummariesController < ApplicationController
         f.puts(alumno_line)
       end
       f.puts(end_line)
+    end
+  end
+
+  def write_file(file_name,lines_array)
+    # use crlf_newline for correct newline rendering in windows
+    File.open(file_name, mode: "w", crlf_newline: true) do |f|
+      lines_array.each do |line|
+        f.puts line
+      end
     end
   end
 
