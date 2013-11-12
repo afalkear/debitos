@@ -222,7 +222,6 @@ GEM
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    sqlite3 (1.3.5)
     strongbox (0.7.0)
       activerecord
     therubyracer (0.11.3)
@@ -270,13 +269,12 @@ DEPENDENCIES
   jquery-rails
   less-rails
   meta_request
-  pg (= 0.12.2)
+  pg
   rails (= 3.2.11)
   roo
   rspec-rails (= 2.11.0)
   sass-rails (= 3.2.5)
   simple_form
-  sqlite3 (= 1.3.5)
   strongbox
   therubyracer
   twitter-bootstrap-rails
