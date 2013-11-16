@@ -1,3 +1,5 @@
+#
+
 # == Schema Information
 #
 # Table name: alumnos
@@ -26,10 +28,10 @@
 
 # @attribute active [Booelan] used for soft-delete. false means alumno has been "deleted"
 class Alumno < ActiveRecord::Base
-  attr_accessible :amount, :card_company_id, :card_number, :card_type, :identifier, :last_name, :name, 
+  attr_accessible :amount, :card_company_id, :card_number, :card_type, :identifier, :last_name, :name,
     :instructor, :plan, :due_date, :payed, :payment, :observations, :bill, :new_debit, :active
   validates :name, presence: true
-  encrypt_with_public_key :credit_number, :key_pair => Rails.root.join('config', 'keypair.pem')
+  encrypt_with_public_key :secret, :key_pair => Rails.root.join('config', 'keypair.pem')
   belongs_to :user
 
   belongs_to :card_company
@@ -42,6 +44,13 @@ class Alumno < ActiveRecord::Base
 
   def set_inactive
     self.active = false
+  end
+
+  def number_for_humans
+    if self.secret.nil?
+      return ""
+    end
+    self.secret.decrypt(ENV['PHRASE'])
   end
 
   def self.import(file, bill)
@@ -130,5 +139,4 @@ class Alumno < ActiveRecord::Base
         attributes["card_type"] = "debito"
       end
     end
-
 end

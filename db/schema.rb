@@ -17,22 +17,22 @@ ActiveRecord::Schema.define(:version => 20131103205621) do
     t.string   "name"
     t.string   "last_name"
     t.string   "identifier"
-    t.decimal  "amount",                         :precision => 8, :scale => 2
-    t.binary   "card_number",     :limit => 255
+    t.decimal  "amount",       :precision => 8, :scale => 2
+    t.string   "card_number"
     t.string   "card_type"
     t.string   "card_company"
-    t.datetime "created_at",                                                                      :null => false
-    t.datetime "updated_at",                                                                      :null => false
+    t.datetime "created_at",                                                    :null => false
+    t.datetime "updated_at",                                                    :null => false
     t.string   "padma_id"
     t.string   "instructor"
     t.string   "plan"
     t.string   "due_date"
-    t.boolean  "payed",                                                        :default => false
+    t.boolean  "payed",                                      :default => false
     t.string   "payment"
     t.string   "observations"
     t.string   "bill"
-    t.boolean  "active",                                                       :default => true
-    t.boolean  "new_debit",                                                    :default => true
+    t.boolean  "active",                                     :default => true
+    t.boolean  "new_debit",                                  :default => true
     t.integer  "user_id"
     t.binary   "secret"
     t.binary   "secret_key"

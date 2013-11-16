@@ -2,22 +2,27 @@
   <div class="well sidebar-nav">
     <ol class="nav nav-list">
       <li class="nav-header">Pasos:</li>
-      <li class="<%= 'active' if params[:controller] == 'alumnos' %>">
+      <li class="<%= 'active' if current_page?(alumnos_path) %>">
         <%= link_to alumnos_path do %>
-            <i class="icon-group"></i> Obtener datos
+            <i class="icon-group"></i> Cargar base de datos
         <% end %>
       </li>
-      <li class="<%= 'active' if params[:controller] == 'alumnos' %>">
+      <li class="<%= 'active' if current_page?(alumnos_path) %>">
+        <%= link_to alumnos_path do %>
+            <i class="icon-group"></i> Obtener alumnos
+        <% end %>
+      </li>
+      <li class="<%= 'active' if current_page?(alumnos_path) %>">
         <%= link_to alumnos_path do %>
             <i class="icon-group"></i> Ver si los datos están en orden
         <% end %>
       </li>
-      <li class="<%= 'active' if params[:controller] == 'summaries' %>">
+      <li class="<%= 'active' if current_page?(summaries_path) %>">
         <%= link_to summaries_path do %>
             <i class="icon-home"></i> Generar resúmenes
         <% end %>
       </li>
-      <li class="<%= 'active' if params[:controller] == 'download' %>">
+      <li class="<%= 'active' if current_page?(download_summaries_path) %>">
         <%= link_to "#" do %>
             <i class="icon-download-alt"></i> Bajar resúmenes
         <% end %>
