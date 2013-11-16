@@ -2,26 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0927fbc-dc53-4b4e-9329-914aba4ffcda" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/migrate/20131103140438_add_secret_column_to_alumno.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/migrate/20131103140606_remove_unnecesary_credit_card_info_from_alumno.rb" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20130306125653_create_card_companies.rb" afterPath="$PROJECT_DIR$/db/migrate/20130306125653_create_card_companies.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20130412030249_add_secret_columns_to_user.rb" afterPath="$PROJECT_DIR$/db/migrate/20130412030249_add_secret_columns_to_user.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/alumnos/_alumno.html.erb" afterPath="$PROJECT_DIR$/app/views/alumnos/_alumno.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/_sidebar.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/_sidebar.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/alumno.rb" afterPath="$PROJECT_DIR$/app/models/alumno.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/application.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/application.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/database.yml" afterPath="$PROJECT_DIR$/config/database.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/debitos.iml" afterPath="$PROJECT_DIR$/.idea/debitos.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/alumnos/index.html.erb" afterPath="$PROJECT_DIR$/app/views/alumnos/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/keypair.pem" afterPath="$PROJECT_DIR$/config/keypair.pem" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/alumnos/new.html.erb" afterPath="$PROJECT_DIR$/app/views/alumnos/new.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/private.pem" afterPath="$PROJECT_DIR$/config/private.pem" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/public.pem" afterPath="$PROJECT_DIR$/config/public.pem" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -57,28 +38,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="alumno.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/alumno.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_alumno.html.erb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="_alumno.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/alumnos/_alumno.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="13" selection-start="399" selection-end="399" vertical-scroll-proportion="-5.625">
+            <state line="16" column="144" selection-start="809" selection-end="809" vertical-scroll-proportion="0.4152249">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+      <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/alumnos/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="0" selection-start="444" selection-end="444" vertical-scroll-proportion="0.41463414">
+            <state line="29" column="44" selection-start="774" selection-end="774" vertical-scroll-proportion="-9.166667">
               <folding />
             </state>
           </provider>
@@ -116,8 +88,8 @@
         <option value="$PROJECT_DIR$/app/controllers/alumnos_controller.rb" />
         <option value="$PROJECT_DIR$/db/schema.rb" />
         <option value="$PROJECT_DIR$/app/models/alumno.rb" />
-        <option value="$PROJECT_DIR$/app/views/alumnos/_alumno.html.erb" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/app/views/alumnos/_alumno.html.erb" />
       </list>
     </option>
   </component>
@@ -573,13 +545,6 @@
         <state line="20" column="0" selection-start="519" selection-end="519" vertical-scroll-proportion="0.1227758" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="11" selection-start="355" selection-end="355" vertical-scroll-proportion="0.7083333">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.rvm/gems/ruby-1.9.3-p392@global/gems/best_in_place-2.0.2/lib/best_in_place/helper.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="54" column="14" selection-start="2519" selection-end="2519" vertical-scroll-proportion="0.375" />
@@ -593,11 +558,6 @@
     <entry file="file://$PROJECT_DIR$/app/views/alumnos/index.xls.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/alumnos/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="44" selection-start="571" selection-end="571" vertical-scroll-proportion="0.16243654" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/static_pages/_main_sidebar.html.erb">
@@ -649,6 +609,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="0" selection-start="444" selection-end="444" vertical-scroll-proportion="0.41463414">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/alumno.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -656,16 +623,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/alumnos/_alumno.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/alumnos/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="13" selection-start="399" selection-end="399" vertical-scroll-proportion="-5.625">
+        <state line="29" column="44" selection-start="774" selection-end="774" vertical-scroll-proportion="-9.166667">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="444" selection-end="444" vertical-scroll-proportion="0.41463414">
+        <state line="33" column="38" selection-start="672" selection-end="703" vertical-scroll-proportion="0.80487806">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/alumnos/_alumno.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="144" selection-start="809" selection-end="809" vertical-scroll-proportion="0.4152249">
           <folding />
         </state>
       </provider>
