@@ -49,6 +49,7 @@
     <orderEntry type="library" scope="PROVIDED" name="faker (v1.0.1, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="faraday (v0.8.4, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ffi (v1.2.0, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="figaro (v0.7.0, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="git-pivotal-tracker-integration (v1.4.0, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="google-spreadsheet-ruby (v0.3.0, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="google_drive (v0.3.2, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
@@ -104,7 +105,6 @@
     <orderEntry type="library" scope="PROVIDED" name="selenium-webdriver (v2.26.0, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="simple_form (v2.1.0, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sprockets (v2.2.2, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="sqlite3 (v1.3.5, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="strongbox (v0.7.0, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="therubyracer (v0.11.3, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="thor (v0.16.0, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
