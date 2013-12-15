@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source source="LOCAL" name="Rails debitos: development" product="" version="" jdbc-version="" driver-name="" driver-version="" uuid="53f2768e-67e0-43ab-9ddc-211e8d3f3ec4">
+    <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+    <jdbc-url>jdbc:postgresql://127.0.0.1/debitos_development</jdbc-url>
+    <user-name>postgres</user-name>
+    <user-password>df9bdf98df99df9e</user-password>
+    <libraries>
+      <library>
+        <url>file://$USER_HOME$/.RubyMine50/config/jdbc-drivers/postgresql-driver-license.txt</url>
+      </library>
+      <library>
+        <url>jar://$USER_HOME$/.RubyMine50/config/jdbc-drivers/postgresql-9.2-1002.jdbc4.jar!/</url>
+      </library>
+    </libraries>
+  </data-source>
+  <data-source source="LOCAL" name="Rails debitos: production" product="" version="" jdbc-version="" driver-name="" driver-version="" uuid="92a2c0f5-284f-447f-bd0a-7caee93f121a">
+    <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+    <jdbc-url>jdbc:postgresql://127.0.0.1/debitos_production</jdbc-url>
+    <user-name>postgres</user-name>
+    <user-password>df9bdf98df99df9e</user-password>
+    <libraries>
+      <library>
+        <url>file://$USER_HOME$/.RubyMine50/config/jdbc-drivers/postgresql-driver-license.txt</url>
+      </library>
+      <library>
+        <url>jar://$USER_HOME$/.RubyMine50/config/jdbc-drivers/postgresql-9.2-1002.jdbc4.jar!/</url>
+      </library>
+    </libraries>
+  </data-source>
+  <data-source source="LOCAL" name="Rails debitos: test" product="" version="" jdbc-version="" driver-name="" driver-version="" uuid="b145c015-df71-4565-aa9d-9f7e55321c6b">
+    <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+    <jdbc-url>jdbc:postgresql://127.0.0.1/debitos_test</jdbc-url>
+    <user-name>postgres</user-name>
+    <user-password>df9bdf98df99df9e</user-password>
+    <libraries>
+      <library>
+        <url>file://$USER_HOME$/.RubyMine50/config/jdbc-drivers/postgresql-driver-license.txt</url>
+      </library>
+      <library>
+        <url>jar://$USER_HOME$/.RubyMine50/config/jdbc-drivers/postgresql-9.2-1002.jdbc4.jar!/</url>
+      </library>
+    </libraries>
+  </data-source>
+</component>

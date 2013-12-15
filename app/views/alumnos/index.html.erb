@@ -4,7 +4,8 @@
 <p>
   Download:
   <%= link_to "CSV", alumnos_path(format: "csv") %> |
-  <%= link_to "Excel", alumnos_path(format: "xls") %>
+  <%= link_to "Excel", alumnos_path(format: "xls") %> |
+  <%= link_to "JSON", alumnos_path(format: "json") %>
 </p>
 
 <%= will_paginate %>
@@ -38,7 +39,10 @@
 
 <%= will_paginate %>
 
-<h2>Importar alumnos</h2>
+<h2>Importar alumnos de CSV</h2>
+<h5>Los headers aceptados son: (en este orden)</h5>
+<h6>id name last_name identifier amount card_type card_company padma_id instructor plan due_date payed payment observations bill 
+              active new_debit user_id secret secret_key secret_iv card_company_id</h6>
 <%= form_tag import_alumnos_path, multipart: true do %>
   <%= file_field_tag :file %>
   <%= text_field_tag :bill %>

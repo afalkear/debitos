@@ -13,7 +13,7 @@
     <% @alumnos.each do |alumno| %>
       <Row>
         <Cell><Data ss:Type="Number"><%= alumno.id %></Data></Cell>
-        <Cell><Data ss:Type="String"><%= Base64.strict_encode64(alumno[:secret]) %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= alumno.secret %></Data></Cell>
       </Row>
     <% end %>
     </Table>
