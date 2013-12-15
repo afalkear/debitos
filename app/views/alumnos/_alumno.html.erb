@@ -11,7 +11,7 @@
     <td><%= best_in_place alumno, :secret, :nil => "Ingrese número" %></td>
   <% else %>
     <td><%= best_in_place alumno, :secret,
-                        classes: "forum",
+                        classes: "forum alumno_secret",
                         display_as: :number_for_humans %></td>
   <% end %>
 <td><%= best_in_place alumno, :card_company_id, type: :select, collection: current_user.card_companies.map{|cc| [cc.id, cc.description]} %></td>

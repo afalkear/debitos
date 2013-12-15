@@ -16,7 +16,28 @@
   opacity: 0.5;
 }
 
-.best_in_place{
+.best_in_place {
   cursor: hand;
   cursor: pointer;
+}
+
+.visa_thumb {
+  display: inline-block;
+  height: 36px;
+  width: 60px;
+  background: url('credit_card_logos_17.gif') 0 0;
+}
+
+.mastercard_thumb {
+  display: inline-block;
+  height: 36px;
+  width: 60px;
+  background: url('credit_card_logos_17.gif') 180px 0;
+}
+
+.amex_thumb{
+  display: inline-block;
+  height: 36px;
+  width: 60px;
+  background: url('credit_card_logos_17.gif') 58px 0;
 }

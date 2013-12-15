@@ -32,7 +32,6 @@
     <orderEntry type="library" scope="PROVIDED" name="bundler (v1.3.5, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="capybara (v1.1.2, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="childprocess (v0.3.6, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="choice (v0.1.6, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="cocoon (v1.1.2, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coderay (v1.0.9, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coffee-rails (v3.2.2, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
@@ -51,7 +50,6 @@
     <orderEntry type="library" scope="PROVIDED" name="ffi (v1.2.0, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="figaro (v0.7.0, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="git-pivotal-tracker-integration (v1.4.0, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="google-spreadsheet-ruby (v0.3.0, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="google_drive (v0.3.2, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="happymapper (v0.4.0, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="highline (v1.6.19, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
@@ -68,7 +66,6 @@
     <orderEntry type="library" scope="PROVIDED" name="libv8 (v3.11.8.13, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="libwebsocket (v0.1.6.1, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="libxml-ruby (v2.7.0, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="log4r (v1.1.10, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mail (v2.4.4, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="meta_request (v0.2.3, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mini_portile (v0.5.2, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
@@ -92,13 +89,12 @@
     <orderEntry type="library" scope="PROVIDED" name="rdoc (v3.12, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ref (v1.0.2, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rest-client (v1.6.7, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="roo (v1.10.1, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rspec (v2.11.0, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rspec-core (v2.11.1, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rspec-expectations (v2.11.3, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rspec-mocks (v2.11.3, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rspec-rails (v2.11.0, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="ruby-ole (v1.2.11.6, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="ruby-ole (v1.2.11.7, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rubyzip (v0.9.9, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="safe_yaml (v0.9.5, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sass (v3.2.3, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
@@ -110,7 +106,6 @@
     <orderEntry type="library" scope="PROVIDED" name="therubyracer (v0.11.3, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="thor (v0.16.0, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="tilt (v1.3.3, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="todonotes (v0.1.1, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="treetop (v1.4.12, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="twitter-bootstrap-rails (v2.2.6, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="tzinfo (v0.3.35, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
