@@ -1,3 +1,4 @@
+# encoding: utf-8
 #
 
 # == Schema Information
@@ -29,9 +30,11 @@
 # @attribute active [Booelan] used for soft-delete. false means alumno has been "deleted"
 class Alumno < ActiveRecord::Base
   attr_accessible :amount, :card_company_id, :card_number, :card_type, :identifier, :last_name, :name,
-    :instructor, :plan, :due_date, :payed, :payment, :observations, :bill, :new_debit, :active
+    :instructor, :plan, :due_date, :payed, :payment, :observations, :bill, :new_debit, :active, :secret
   validates :name, presence: true
-  encrypt_with_public_key :secret, :key_pair => Rails.root.join('config', 'keypair.pem')
+  encrypt_with_public_key :secret,
+                          :base64 => true,
+                          :key_pair => Rails.root.join('config', 'keypair.pem')
   belongs_to :user
 
   belongs_to :card_company
@@ -54,47 +57,29 @@ class Alumno < ActiveRecord::Base
   end
 
   def self.import(file, bill)
-    bill_number = bill.to_i
+    # TODO this number should not be passed as an argument, at least not as an obligatory argument
+    bill_number = bill.nil? ? bil.to_i : nil
+
     spreadsheet = open_spreadsheet(file)
     header = spreadsheet.row(1)
     (2..spreadsheet.last_row).each do |i|
       row = Hash[[header, spreadsheet.row(i)].transpose]
       alumno = find_by_id(row["id"]) || new
-      #alumno.attributes = row.to_hash.slice(*accessible_attributes)
-      att = %w(name instructor plan amount due_date payed payment observations)
+      alumno[:secret] = Base64.decode64(row['secret'])
+      alumno[:secret_key] = Base64.decode64(row['secret_key'])
+      alumno[:secret_iv] = Base64.decode64(row['secret_iv'])
 
-      # instead of an iterator put an array of strings with the name of the columns, in case they change
-      # eg: column = %w("Nombre completo" Instructor Plan Monto "Fecha de vencimiento:" ....etc)
-      i=0
-      attributes = {
-          "name" => nil,
-          "instructor" => nil,
-          "plan" => nil,
-          "amount" => nil,
-          "due_date" => nil,
-          "payed" => false,
-          "payment" => nil,
-          "observations" => nil,
-          "active" => true,
-          "user_id" => current_user.id
-        }
-      row.each do |k, v|
-        attributes[att[i]] = v
-        #alumno.update_attribute(att[i], v)
-        i+=1
-      end
-
-      attributes["bill"] = bill_number
-      bill_number+=1
-      update_card_attributes(attributes)
-      alumno.update_attributes(attributes)
+      alumno.bill = bill_number
+      bill_number+=1 unless bill_number.nil?
+      # update_card_attributes(attributes)
+      # alumno.update_attributes(attributes)
       alumno.save!
     end
   end
 
   def self.open_spreadsheet(file)
     case File.extname(file.original_filename)
-      when ".csv" then Csv.new(file.path, nil, :ignore)
+      when ".csv" then Roo::CSV.new(file.path)
       when ".xls" then Excel.new(file.path, nil, :ignore)
       when ".xlsx" then Excelx.new(file.path, nil, :ignore)
       else raise "Unknown file type: #{file.original_filename}"
@@ -102,12 +87,22 @@ class Alumno < ActiveRecord::Base
   end
 
   def self.to_csv(options = {})
+    # options = options.merge(encoding: "utf-8:utf-8")
     CSV.generate(options) do |csv|
-      csv << column_names
-      all.each do |alumno|
-        csv << alumno.attributes.values_at(*column_names)
+      csv << ['id', 'secret', 'secret_key', 'secret_iv']
+      Alumno.all.each do |alumno|
+        alumno_data = [alumno.id,
+                       Base64.strict_encode64(alumno[:secret]),
+                       Base64.strict_encode64(alumno[:secret_key]),
+                       Base64.strict_encode64(alumno[:secret_iv])
+        ]
+        csv << alumno_data
       end
     end
+  end
+
+  def as_json(options={})
+    {:alumno => {:id => self.id, :secret => Base64.strict_encode64(self[:secret])}}
   end
 
   private
@@ -138,5 +133,9 @@ class Alumno < ActiveRecord::Base
       else
         attributes["card_type"] = "debito"
       end
+    end
+
+    def self.get_value_for(field, row)
+      row[field].blank? ? nil : row[field]
     end
 end

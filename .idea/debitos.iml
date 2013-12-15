@@ -59,6 +59,7 @@
     <orderEntry type="library" scope="PROVIDED" name="httpauth (v0.2.0, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="i18n (v0.6.1, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="journey (v1.0.4, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="jquery-payment-rails (v0.0.1, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jquery-rails (v2.1.3, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="json (v1.7.6, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jwt (v0.1.5, RVM: ruby-1.9.3-p392 [global]) [gem]" level="application" />

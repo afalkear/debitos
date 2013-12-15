@@ -18,8 +18,13 @@
       <%= f.label :card_type %>
       <%= f.select :card_type, ['debito', 'credito'] %>
 
-      <%= f.label :card_number %>
-      <%= f.text_field :secret %>
+      <div class="control-group" id="cc-group">
+        <%= f.label :card_number %>
+        <div class="controls">
+          <%= f.text_field :secret, class: 'cc-num' %>
+        </div>
+
+      </div>
 
       <%= f.label :identifier %>
       <%= f.text_field :identifier %>

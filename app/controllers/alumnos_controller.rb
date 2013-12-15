@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class AlumnosController < ApplicationController
   respond_to :html, :json
 
@@ -5,8 +7,9 @@ class AlumnosController < ApplicationController
     @alumnos = current_user.alumnos.paginate(page: params[:page], :conditions => {:active => true})
     respond_to do |format|
       format.html
-      format.csv { send_data @alumnos.to_csv }
-      format.xls #{ send_data @alumnos.to_csv(col_sep: "\t") }
+      format.csv { send_data @alumnos.to_csv(:encoding => 'utf-8') }
+      format.xls
+      format.json { render :json => @alumnos }
     end
   end
 
@@ -33,10 +36,38 @@ class AlumnosController < ApplicationController
 
   def update
     @alumno = current_user.alumnos.find(params[:id])
+
+    # Strongbox leaves the same encrypted data for safety when its deleted
+    if params[:alumno][:secret] && (params[:alumno][:secret] == "")
+      @alumno.update_attribute(:secret, '-')
+    end
+
     @alumno.update_attributes(params[:alumno])
     respond_with @alumno
   end
 
+  # correct headers
+  #   name
+  #   last_name
+  #   identifier
+  #   amount
+  #   card_type
+  #   card_company
+  #   padma_id
+  #   instructor
+  #   plan
+  #   due_date
+  #   payed
+  #   payment
+  #   observations
+  #   bill
+  #   active
+  #   new_debit
+  #   user_id
+  #   secret
+  #   secret_key
+  #   secret_iv
+  #   card_company_id
   def import
     current_user.alumnos.import(params[:file], params[:bill])
     redirect_to alumnos_path, notice: "Alumnos importados"

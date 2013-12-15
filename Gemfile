@@ -5,7 +5,7 @@ gem 'bcrypt-ruby', '3.0.1'
 gem 'faker', '1.0.1'
 gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
-gem 'roo'
+gem 'roo', '~> 1.13.0'
 gem 'best_in_place'
 gem 'google_drive'
 gem 'execjs'
@@ -16,6 +16,8 @@ gem 'cocoon'
 gem 'strongbox'
 gem 'twitter-bootstrap-rails'
 gem 'figaro'
+# to validate credit card info on the client-side
+gem 'jquery-payment-rails'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

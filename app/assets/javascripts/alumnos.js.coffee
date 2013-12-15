@@ -5,3 +5,9 @@ jQuery ->
   $('.best_in_place').best_in_place()
   $('.forum').hover ->
     $(this).toggleClass('forum_hover')
+
+  $('#alumno_secret').payment('formatCardNumber')
+  # $('#alumno_secret').keyup ->
+  #   if(!$.payment.validateCardNumber($('#alumno_secret').val()))
+  #     $('#cc-group').toggleClass('error')
+
