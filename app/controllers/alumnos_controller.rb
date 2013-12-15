@@ -7,9 +7,9 @@ class AlumnosController < ApplicationController
     @alumnos = current_user.alumnos.paginate(page: params[:page], :conditions => {:active => true})
     respond_to do |format|
       format.html
-      format.csv { send_data @alumnos.to_csv(:encoding => 'utf-8') }
+      format.csv { send_data Alumno.to_csv(:encoding => 'utf-8') }
       format.xls
-      format.json { render :json => @alumnos }
+      format.json { render :json => Alumno.all }
     end
   end
 
