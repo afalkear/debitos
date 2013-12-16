@@ -3,7 +3,7 @@ class Account < ActiveRecord::Base
   validates_presence_of :name
   validates_uniqueness_of :name
 
-  has_many :contacts
+  # has_many :contacts
 
   # Hook to Padma Account API
   # @param [TrueClass] cache: Specify if Cache should be used. default: true
@@ -20,8 +20,8 @@ class Account < ActiveRecord::Base
   # Returns usernames of this account
   # @return [Array <String>]
   def usernames
-    # users = PadmaUser.paginate(account_name: self.name, per_page: 100)
-    # users.nil? ? nil : users.map(&:username)
+    users = PadmaUser.paginate(account_name: self.name, per_page: 100)
+    users.nil? ? nil : users.map(&:username)
   end
 
   # Returns Students of this account

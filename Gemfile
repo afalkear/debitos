@@ -27,6 +27,9 @@ gem 'accounts_client', '>= 0.0.19'
 gem 'devise'
 gem 'devise_cas_authenticatable'
 
+# authentication
+gem 'cancan'
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 

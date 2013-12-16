@@ -15,16 +15,17 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  # devise :database_authenticatable, :registerable,
+  #        :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
-  attr_accessible :email, :name, :password, :password_confirmation, :card_companies_attributes
+  #attr_accessible :email, :password, :password_confirmation, :remember_me,
+  attr_accessible :email, :name, :card_companies_attributes, :username
+  #:password, :password_confirmation, :card_companies_attributes, :username
   has_many :alumnos
   has_many :google_users, :dependent => :destroy
   has_many :card_companies, :dependent => :destroy
-  has_secure_password
+  # has_secure_password
 
   devise :cas_authenticatable
   include Accounts::IsAUser
@@ -33,16 +34,20 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :card_companies, :reject_if => lambda { |a| a[:establishment].blank? }, :allow_destroy => true
 
   before_save { |user| user.email = email.downcase }
-  before_save :create_remember_token
+  # before_save :create_remember_token
 
   validates :name, presence: true, length: { maximum: 50 }
+
   validates_associated :card_companies
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
-    uniqueness: { case_sensitive: false }
+  # VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  # validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
+  #   uniqueness: { case_sensitive: false }
     
-  validates_presence_of :password_confirmation, length: { minimum: 6 }, :if => :password_present?
-  validates_confirmation_of :password, :if => :password_present?
+  # validates_presence_of :password_confirmation, length: { minimum: 6 }, :if => :password_present?
+  # validates_confirmation_of :password, :if => :password_present?
+
+  validates_uniqueness_of :username
+  validates_presence_of :username
 
   # Accounts::IsAUser needs class to respond_to account_name
   def account_name
