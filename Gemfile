@@ -19,6 +19,14 @@ gem 'figaro'
 # to validate credit card info on the client-side
 gem 'jquery-payment-rails'
 
+
+# Padma Clients
+gem 'accounts_client', '>= 0.0.19'
+
+# CAS authentication
+gem 'devise'
+gem 'devise_cas_authenticatable'
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
@@ -48,7 +56,7 @@ end
 gem 'jquery-rails'
 
 group :test do
-  gem 'capybara', '1.1.2'
+  # gem 'capybara'
   gem 'factory_girl_rails', '4.1.0'
 end
 

@@ -1,4 +1,6 @@
 Debitos::Application.routes.draw do
+  devise_for :users
+
   resources :users do
     # Hacer que sea para cada usuario.
     collection { get :main }
