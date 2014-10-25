@@ -39,10 +39,13 @@
     <%= render 'layouts/header' %>
 
     <div class="container-fluid">
+    
       <div class="row-fluid">
         <%= content_for?(:sidebar) ? yield(:sidebar) : (render "layouts/sidebar") %>
         <div class="span9">
-          <%= bootstrap_flash %>
+          <div class="span12" id="flash_messages">
+            <%= render 'shared/flash_messages' %>
+          </div>
           <%= yield %>
         </div>
       </div><!--/row-->

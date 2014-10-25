@@ -57,7 +57,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.4.0)
-    commonjs (0.2.6)
+    commonjs (0.2.7)
     crack (0.4.1)
       safe_yaml (~> 0.9.0)
     debug_inspector (0.0.2)
@@ -116,11 +116,13 @@ GEM
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
       railties (>= 3.0.0)
-    less (2.2.1)
-      commonjs (~> 0.2.6)
-    less-rails (2.2.3)
+    less (2.4.0)
+      commonjs (~> 0.2.7)
+    less-rails (2.4.2)
       actionpack (>= 3.1)
-      less (~> 2.2.0)
+      less (~> 2.4.0)
+    less-rails-bootstrap (3.0.6)
+      less-rails (~> 2.4.2)
     libv8 (3.11.8.13)
     libxml-ruby (2.7.0)
     logical_model (0.5.10)
@@ -241,11 +243,6 @@ GEM
     treetop (1.4.12)
       polyglot
       polyglot (>= 0.3.1)
-    twitter-bootstrap-rails (2.2.8)
-      actionpack (>= 3.1)
-      execjs
-      rails (>= 3.1)
-      railties (>= 3.1)
     typhoeus (0.5.0.alpha)
       ethon (~> 0.4.2)
     tzinfo (0.3.35)
@@ -280,7 +277,7 @@ DEPENDENCIES
   google_drive
   jquery-payment-rails
   jquery-rails
-  less-rails
+  less-rails-bootstrap (~> 3.0.6)
   meta_request
   pg
   rails (= 3.2.11)
@@ -290,6 +287,5 @@ DEPENDENCIES
   simple_form
   strongbox
   therubyracer
-  twitter-bootstrap-rails (~> 2.2.6)
   uglifier (= 1.2.3)
   will_paginate (= 3.0.3)
