@@ -13,7 +13,7 @@ gem 'therubyracer'
 gem 'simple_form'
 gem 'cocoon'
 gem 'strongbox'
-gem 'less-rails-bootstrap', '~> 3.0.6'
+gem 'less-rails-bootstrap', '~> 3.2.0'
 gem 'figaro'
 # to validate credit card info on the client-side
 gem 'jquery-payment-rails'
