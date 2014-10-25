@@ -1,3 +1,4 @@
+[ ![Codeship Status for afalkear/debitos](https://www.codeship.io/projects/cb207e70-3e92-0132-062d-0eac4115c95e/status)](https://www.codeship.io/projects/43510)
 # Debitos: Generador de resumenes para cobrar por debito automatico.
 
 Esta es una aplicacion para generar los archivos necesarios para los resumenes de debitos.
