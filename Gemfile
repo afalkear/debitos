@@ -14,7 +14,7 @@ gem 'less-rails'
 gem 'simple_form'
 gem 'cocoon'
 gem 'strongbox'
-gem 'twitter-bootstrap-rails', '~> 2.1.4'
+gem 'twitter-bootstrap-rails', '~> 2.2.6'
 gem 'figaro'
 # to validate credit card info on the client-side
 gem 'jquery-payment-rails'
