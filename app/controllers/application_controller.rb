@@ -1,11 +1,11 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   # include SessionsHelper
+  before_filter :mock_login
   before_filter :authenticate_user!
   before_filter :require_padma_account
   before_filter :set_current_account
   before_filter :set_timezone
-  before_filter :mock_login
   #config.filter_parameters << :card_number
 
   rescue_from CanCan::AccessDenied do

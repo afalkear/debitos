@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   #attr_accessible :email, :password, :password_confirmation, :remember_me,
-  attr_accessible :email, :name, :card_companies_attributes, :username
+  attr_accessible :email, :name, :card_companies_attributes, :username, :current_account_id
   #:password, :password_confirmation, :card_companies_attributes, :username
   has_many :alumnos
   has_many :google_users, :dependent => :destroy

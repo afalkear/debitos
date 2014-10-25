@@ -21,7 +21,7 @@ gem 'jquery-payment-rails'
 
 
 # Padma Clients
-gem 'accounts_client', '>= 0.0.19'
+gem 'accounts_client'
 
 # CAS authentication
 gem 'devise'
