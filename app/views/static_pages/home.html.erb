@@ -11,8 +11,8 @@
   </h2>
 
   <% if signed_in? %>
-    <%= link_to "Entrar", users_path(current_user.id), class: "btn btn-large btn-primary" %>
+    User: <%= current_user.username %>
   <% else %>
-    <%= link_to "Registrate!", signup_path, class: "btn btn-large btn-primary" %>
+    Ingresá con DeRose Connect
   <% end %>
 </div>
