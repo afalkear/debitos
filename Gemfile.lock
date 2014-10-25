@@ -277,6 +277,7 @@ DEPENDENCIES
   google_drive
   jquery-payment-rails
   jquery-rails
+  less-rails
   less-rails-bootstrap (~> 3.2.0)
   meta_request
   pg
