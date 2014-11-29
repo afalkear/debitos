@@ -1,0 +1,24 @@
+<div class="panel panel-default">
+  <div class="panel-heading <%= account_number == 0 ? "": "collapsed" %>" data-parent="#accordion" data-toggle="collapse" role="tab" id="<%= account_number %>" href="#<%= "collapse-#{account_number}" %>" aria-expanded="<%= account_number == 0 ? "true": "false" %>" aria-controls="<%= "collapse-#{account_number}" %>">
+    <h4 class="panel-title">
+      <a>
+        <%= account.name.humanize %>
+      </a>
+    </h4>
+  </div>
+  <div id="<%= "collapse-#{account_number}" %>" class="panel-collapse collapse <%= account_number == 0 ? "in": "" %>" role="tabpanel" aria-labelledby="<%= account_number %>">
+    <div class="panel-body">
+      
+      <% local_account = Account.where(name: account.name).first %>
+      <% if local_account.nil? %>
+        <div class="row">
+          <div class="col-md-8">
+            <%= link_to "Add account", accounts_path(account_name: account.name), method: :post %>
+          </div>
+        </div>
+      <% else %>
+        <%= render "account", account: local_account %>
+      <% end %>
+    </div>
+  </div>
+</div>

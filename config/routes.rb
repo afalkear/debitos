@@ -17,6 +17,9 @@ Debitos::Application.routes.draw do
     collection { post :delete_multiple}
     collection { post :set_multiple_inactive}
   end
+
+  resources :accounts
+  
   # resources :sessions, only: [:new, :create, :destroy]
   resources :summaries do
     collection {get "download"}

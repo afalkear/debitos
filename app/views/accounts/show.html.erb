@@ -1,0 +1,8 @@
+<div class="container">
+  <% if @account.nil? %>
+    There is no such account or you dont have permission to access it
+  <% else %>
+    <%= render @account %>
+  <% end %>
+  <%= link_to "Accounts list", accounts_path %>
+</div>

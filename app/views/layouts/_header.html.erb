@@ -1,46 +1,30 @@
-<header class="navbar navbar-fluid-top">
-  <div class="navbar-inner">
-    <div class="container-fluid">
-      <%= link_to "Debitos", root_path, id: "logo", class: "brand" %>
-      <nav>
-        <ul class="nav pull-right">
-          <% if signed_in? %>
-            <li>
-              <%= link_to root_path do %>
-                <%= current_user.username %>[<%= current_user.current_account.name%>]
-              <% end %>
-            </li>
-            <li>
-              <% if false %>
-                <%= link_to users_path do %>
-                  <i class="icon-user icon-white"></i> Users
-                <% end %>
-              <% end %>
-            </li>
-            <li id="fat-menu" class="dropdown">
-              <% if false %>
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  Account <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                    <li><%= link_to "Profile", current_user %></li>
-                    <li><%= link_to "Settings", edit_user_path(current_user) %></li>
-                    <li class="divider"></li>
-                  <li>
-                    <%= link_to "Sign out", logout_path, method: "delete" %>
-                  </li>
-                </ul>
-              <% end %>
-            </li>
-          <% else %>
-            <li>
-              <%= link_to login_path do %>
-                <i class="icon-hand-right icon-white"></i> Sign in
-              <% end %>
-            </li>
-          <% end %>
-        </ul>
-      </nav>
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Debitos</a>
     </div>
-  </div>
-</header>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <% if signed_in? %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= current_user.username %>[<%= current_user.current_account.name%>] <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><%= link_to "Sign out", destroy_user_session_path %></li>
+            </ul>
+          </li>
+        <% else %>
+          <li><%= link_to "Sign in", user_session_path %></li>
+        <% end %>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

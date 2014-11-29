@@ -29,4 +29,8 @@ class Account < ActiveRecord::Base
   def students
     # PadmaContact.paginate(select: [:first_name, :last_name], where: {local_status: :student}, account_name: self.name, per_page: 1000)
   end
+
+  def ready_for_summary?
+    (self.name == "malachini_dias") ? true : false
+  end
 end

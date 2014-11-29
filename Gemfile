@@ -13,8 +13,9 @@ gem 'therubyracer'
 gem 'simple_form'
 gem 'cocoon'
 gem 'strongbox'
-gem "less-rails"
-gem 'less-rails-bootstrap', '~> 3.2.0'
+gem "less-rails", "~> 2.6.0"
+gem 'less-rails-bootstrap', '~> 3.3.1.0'
+gem 'jquery-rails'
 gem 'figaro'
 # to validate credit card info on the client-side
 gem 'jquery-payment-rails'
@@ -55,8 +56,6 @@ group :assets do
   gem 'uglifier', '1.2.3'
 end
 
-
-gem 'jquery-rails'
 
 group :test do
   # gem 'capybara'

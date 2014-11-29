@@ -29,6 +29,7 @@ class User < ActiveRecord::Base
 
   devise :cas_authenticatable
   include Accounts::IsAUser
+
   belongs_to :current_account, :class_name => "Account"
 
   accepts_nested_attributes_for :card_companies, :reject_if => lambda { |a| a[:establishment].blank? }, :allow_destroy => true
@@ -48,6 +49,10 @@ class User < ActiveRecord::Base
 
   validates_uniqueness_of :username
   validates_presence_of :username
+
+  def accounts
+    self.padma.enabled_accounts
+  end
 
   # Accounts::IsAUser needs class to respond_to account_name
   def account_name

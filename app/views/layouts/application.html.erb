@@ -38,31 +38,27 @@
 
     <%= render 'layouts/header' %>
 
-    <div class="container-fluid">
+    <div class="container">
     
-      <div class="row-fluid">
-        <%= content_for?(:sidebar) ? yield(:sidebar) : (render "layouts/sidebar") %>
-        <div class="span9">
-          <div class="span12" id="flash_messages">
-            <%= render 'shared/flash_messages' %>
-          </div>
+      <div class="row">
+        <% if false %>
+          <%= content_for?(:sidebar) ? yield(:sidebar) : (render "layouts/sidebar") %>
+        <% end %>
+        <div class="col-md-10">
+          <%= render 'shared/flash_messages' %>
           <%= yield %>
         </div>
       </div><!--/row-->
-      <% if user_signed_in? %>
-          Logged in as <strong><%= current_user.username %></strong>.
-          <% if false %>
-            <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-            <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-          <% end %>
-      <% else %>
-        <% if false %>
-          <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-          <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-        <% end %>
-      <% end %>
-      <footer>
-        <p>&copy; Alex Falke 2013</p>
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-10">
+              <p class="text-muted">
+                &copy; Alex Falke 2013
+              </p>
+            </div>
+          </div>
+        </div>
       </footer>
 
     </div> <!-- /container -->
