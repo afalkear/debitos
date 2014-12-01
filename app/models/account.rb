@@ -2,8 +2,9 @@ class Account < ActiveRecord::Base
   attr_accessible :name
   validates_presence_of :name
   validates_uniqueness_of :name
+  after_create :create_default_responsible
 
-  # has_many :contacts
+  has_many :responsibles
 
   # Hook to Padma Account API
   # @param [TrueClass] cache: Specify if Cache should be used. default: true
@@ -31,6 +32,16 @@ class Account < ActiveRecord::Base
   end
 
   def ready_for_summary?
-    (self.name == "malachini_dias") ? true : false
+    # TODO put all the necessary checks to see if this account can do a summary
+    if self.responsibles.count > 0
+      true
+    else
+      false
+    end
   end
+
+  private
+    def create_default_responsible
+      self.responsibles.create(name: self.name)
+    end
 end

@@ -19,6 +19,8 @@ Debitos::Application.routes.draw do
   end
 
   resources :accounts
+  resources :responsibles
+  resources :card_companies
   
   # resources :sessions, only: [:new, :create, :destroy]
   resources :summaries do
@@ -26,7 +28,7 @@ Debitos::Application.routes.draw do
   end
   resources :google_users, only: [:new, :create, :destroy]
 
-  root to: 'static_pages#home'
+  root to: 'accounts#index'
   
   # match '/signup',  to: 'users#new'
   # match '/signin', to: 'sessions#new'

@@ -1,0 +1,19 @@
+<%= form_for @card_company, class: "form", role: "form" do |f| %>
+    <div class="form-group">
+      <label for="card_company_name">Name</label>
+      <%= f.select :name, @available_card_companies.map {|c| [c == "amex" ? "American Express" : c.humanize, c]} %>
+    </div>
+    <div class="form-group">
+      <label for="card_company_description">Description</label>
+      <%= f.text_field :description, class: "form-control", id: "card_company_description" , placeholder: "Enter name" %>
+    </div>
+    <div class="form-group">
+      <label for="card_company_establishment">Establishment Number</label>
+      <%= f.text_field :establishment, class: "form-control", id: "card_company_establishment" , placeholder: "Enter establishment number" %>
+    </div>
+    <%= hidden_field_tag(:responsible_id, responsible_id)  %>
+    <div class="form-group">
+      <%= f.submit "Create", class: "btn btn-default" %>
+      <%= link_to "Cancel", "#", id: "cancel_new_card_company_form", class: "btn btn-danger" %>
+    </div>
+<% end %>

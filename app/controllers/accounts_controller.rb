@@ -1,7 +1,12 @@
 class AccountsController < ApplicationController
   def index
-    @accounts = current_user.accounts
-    @accounts_count = @accounts.count
+    if signed_in?
+      @accounts = current_user.accounts
+      @accounts_count = @accounts.count
+      @responsible = Responsible.new
+    else
+      render "static_pages#home"
+    end
   end
 
   def create
@@ -20,6 +25,17 @@ class AccountsController < ApplicationController
     account = Account.find(params[:id])
     if current_user.accounts.map(&:name).include? account.name
       @account = account
+      @responsible = Responsible.new
+    else
+      @account = nil
+    end
+  end
+
+  def edit
+    account = Account.find(params[:id])
+    if current_user.accounts.map(&:name).include? account.name
+      @account = account
+      @responsible = Responsible.new
     else
       @account = nil
     end

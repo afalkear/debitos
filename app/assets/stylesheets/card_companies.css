@@ -1,0 +1,21 @@
+.new_card_company_form {
+  display: none;
+}
+
+.card-image {
+  background-image: url('credit_card_logos.gif');
+  height: 35px;
+  width: 55px;
+}
+
+.visa-image {
+  background-position: 0px 0px;
+}
+
+.amex-image {
+  background-position: 55px 0px;
+}
+
+.master-image {
+ background-position: -60px 0px; 
+}

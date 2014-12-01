@@ -1,3 +1,7 @@
 .panel-heading {
     cursor: pointer;
 }
+
+.new_responsible_form {
+  display: none;
+}

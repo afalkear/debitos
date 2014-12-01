@@ -3,8 +3,6 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.11'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'faker', '1.0.1'
-gem 'will_paginate', '3.0.3'
-gem 'bootstrap-will_paginate', '0.0.6'
 gem 'roo', '~> 1.13.0'
 gem 'best_in_place'
 gem 'google_drive'
@@ -13,8 +11,14 @@ gem 'therubyracer'
 gem 'simple_form'
 gem 'cocoon'
 gem 'strongbox'
+
+# View
+# paginate and bootstrap
+gem 'will_paginate', '3.0.3'
+gem 'bootstrap-will_paginate', '0.0.6'
 gem "less-rails", "~> 2.6.0"
 gem 'less-rails-bootstrap', '~> 3.3.1.0'
+
 gem 'jquery-rails'
 gem 'figaro'
 # to validate credit card info on the client-side
