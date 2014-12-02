@@ -5,6 +5,7 @@ class Account < ActiveRecord::Base
   after_create :create_default_responsible
 
   has_many :responsibles
+  has_many :alumnos
 
   # Hook to Padma Account API
   # @param [TrueClass] cache: Specify if Cache should be used. default: true

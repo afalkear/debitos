@@ -38,30 +38,26 @@
 
     <%= render 'layouts/header' %>
 
-    <div class="container">
     
-      <div class="row">
-        <% if false %>
-          <%= content_for?(:sidebar) ? yield(:sidebar) : (render "layouts/sidebar") %>
-        <% end %>
-        <div class="col-md-10">
-          <%= render 'shared/flash_messages' %>
-          <%= yield %>
-        </div>
-      </div><!--/row-->
-      <footer class="footer">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-10">
-              <p class="text-muted">
-                &copy; Alex Falke 2013
-              </p>
-            </div>
+    <% if false %>
+      <%= content_for?(:sidebar) ? yield(:sidebar) : (render "layouts/sidebar") %>
+    <% end %>
+    <div class="col-md-10">
+      <%= render 'shared/flash_messages' %>
+      <%= yield %>
+    </div>
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10">
+            <p class="text-muted">
+              &copy; Alex Falke 2013
+            </p>
           </div>
         </div>
-      </footer>
+      </div>
+    </footer>
 
-    </div> <!-- /container -->
 
     <!-- Javascripts
     ================================================== -->

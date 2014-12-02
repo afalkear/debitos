@@ -1,72 +1,96 @@
 <% provide(:title, 'Alumnos') %>
-
-<div class="row">
-  <div class="col-md-12">
-    <h1>Importar alumnos</h1>
-    <button class="btn btn-primary">Desde PADMA</button>
-    <button class="btn btn-primary">Desde un CSV</button>
-    <div class="row" id="import-students-from-CRM" class="students-toggle">
-      <div class="col-md-12">
-        <h2>Importar alumons de PADMA</h2>
-      </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <%= render "layouts/breadcrumbs", 
+            type: "Summary", 
+            alert: "primary", 
+            pages: [
+                      {name: "Home", path: root_path}, 
+                      {name: "Account", path: account_path(@account.id)},
+                      {name: "Contacts", path: nil}
+                    ] 
+      %>
+      
     </div>
-    <div class="row" id="import-students-from-CSV" class="students-toggle">
-      <div class="col-md-12">
-        <h2>Importar alumnos de CSV</h2>
-        <h5>Los headers aceptados son: (en este orden)</h5>
-        <h6>id name last_name identifier amount card_type card_company padma_id instructor plan due_date payed payment observations bill 
-                      active new_debit user_id secret secret_key secret_iv card_company_id</h6>
-        <%= form_tag import_alumnos_path, multipart: true do %>
-          <%= file_field_tag :file %>
-          <%= text_field_tag :bill %>
-          <%= submit_tag "Importar" %>
-        <% end %>
+  </div>
+  <div class="row">
+    <div class="col-md-10">
+      <h3>
+        <div class="alert alert-info">
+          Importar alumnos
+          <button class="btn btn-primary" id="padma-students-button">Desde PADMA</button>
+          <button class="btn btn-primary" id="csv-students-button">Desde un CSV</button>
+        </div>
+      </h3>
+      
+      <div class="row" id="import-students-from-CRM" class="students-toggle">
+        <div class="col-md-12">
+          <div class="alert alert-info">
+            <h2>Importar alumnos de PADMA</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row" id="import-students-from-CSV" class="students-toggle">
+        <div class="col-md-12">
+          <div class="alert alert-info">
+            <h2>Importar alumnos de CSV</h2>
+            <h5>Los headers aceptados son:</h5>
+            <h6>id name last_name identifier amount card_type card_company padma_id instructor plan due_date payed payment observations bill 
+                          active new_debit user_id secret secret_key secret_iv card_company_id</h6>
+            <%= form_tag import_account_alumnos_path(@account.id), multipart: true do %>
+              <%= file_field_tag :file %>
+              <%= text_field_tag :bill %>
+              <%= submit_tag "Importar" %>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<div class="row">
-  <div class="col-md-12">
-    <h1>Alumnos</h1>
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Alumnos de <%= @account.padma.full_name %></h1>
 
-    <p>
-      Download:
-      <%= link_to "CSV", alumnos_path(format: "csv") %> |
-      <%= link_to "Excel", alumnos_path(format: "xls") %> |
-      <%= link_to "JSON", alumnos_path(format: "json") %>
-    </p>
+      <p>
+        Download:
+        <%= link_to "CSV", account_alumnos_path(account_id: @account.id, format: "csv") %> |
+        <%= link_to "Excel", account_alumnos_path(account_id: @account.id, format: "xls") %> |
+        <%= link_to "JSON", account_alumnos_path(account_id: @account.id, format: "json") %>
+      </p>
 
-    <%= will_paginate %>
+      <%= will_paginate %>
 
-    <%= form_tag set_multiple_inactive_alumnos_path do %>
-    <%= button_to_function "Check / Uncheck All", "toggleChecked()" %>
-    <%= submit_tag "Eliminar los elegidos" %>
-    <br>
-    <%= link_to "Agregar alumno nuevo", new_alumno_path(@alumno), class: "btn btn-large btn-primary" %>
-    <br>
-    <br>
-      <table class="alumnos table table-hover">
-        <tr>
-          <th></th>
-          <th>Nombre</th>
-          <th>Identificador</th>
-          <th>Factura</th>
-          <th>N&uacute;mero</th>
-          <th>Compa&ntilde;&iacute;a</th>
-          <th>Tipo</th>
-          <th>Tarjeta</th>
-          <th>Plan</th>
-          <th>Monto</th>
-          <th>Pago?</th>
-          <th>Observaciones</th>
-          <th>Borrar</th>
-        </tr>
-        <%= render @alumnos %>
-      </table>
-    <% end %>
+      <%= form_tag set_multiple_inactive_account_alumnos_path(@account.id) do %>
+      <%= button_to_function "Check / Uncheck All", "toggleChecked()" %>
+      <%= submit_tag "Eliminar los elegidos" %>
+      <br>
+      <%= link_to "Agregar alumno nuevo", new_account_alumno_path(@account.id), class: "btn btn-large btn-primary" %>
+      <br>
+      <br>
+        <table class="alumnos table table-hover">
+          <tr>
+            <th></th>
+            <th>Nombre</th>
+            <th>Identificador</th>
+            <th>Factura</th>
+            <th>N&uacute;mero</th>
+            <th>Compa&ntilde;&iacute;a</th>
+            <th>Tipo</th>
+            <th>Tarjeta</th>
+            <th>Plan</th>
+            <th>Monto</th>
+            <th>Pago?</th>
+            <th>Observaciones</th>
+            <th>Borrar</th>
+          </tr>
+          <%= render @alumnos %>
+        </table>
+      <% end %>
 
-    <%= will_paginate %>
+      <%= will_paginate %>
+    </div>
   </div>
 </div>
 
