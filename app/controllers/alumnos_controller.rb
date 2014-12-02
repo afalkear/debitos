@@ -2,9 +2,10 @@
 
 class AlumnosController < ApplicationController
   respond_to :html, :json
+  before_filter :check_account
 
   def index
-    @alumnos = current_user.alumnos.paginate(page: params[:page], :conditions => {:active => true})
+    @alumnos = @account.alumnos.paginate(page: params[:page], :conditions => {:active => true})
     respond_to do |format|
       format.html
       format.csv { send_data Alumno.to_csv(:encoding => 'utf-8') }
@@ -113,4 +114,16 @@ class AlumnosController < ApplicationController
     redirect_to alumnos_path, notice: "Alumnos borrado"
   end
 
+  def check_account
+    session[:return_to] = request.referer
+
+    account = Account.find(params[:account_id])
+    if current_user.accounts.map(&:name).include? account.name
+      @account = account
+    else
+      @account = nil
+      flash[:warning] = "You cannot make changes for that account"
+      redirect_to session.delete(:return_to)
+    end
+  end
 end

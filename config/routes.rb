@@ -10,15 +10,16 @@ Debitos::Application.routes.draw do
   #  collection { get :main }
   # end
 
-  resources :alumnos do
-    collection { post :import }
-    collection { post :edit_multiple}
-    collection { post :update_multiple}
-    collection { post :delete_multiple}
-    collection { post :set_multiple_inactive}
-  end
 
-  resources :accounts
+  resources :accounts do
+    resources :alumnos do
+      collection { post :import }
+      collection { post :edit_multiple}
+      collection { post :update_multiple}
+      collection { post :delete_multiple}
+      collection { post :set_multiple_inactive}
+    end
+  end
   resources :responsibles
   resources :card_companies
   

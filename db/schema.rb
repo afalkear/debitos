@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141129085041) do
+ActiveRecord::Schema.define(:version => 20141202005634) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -40,11 +40,11 @@ ActiveRecord::Schema.define(:version => 20141129085041) do
     t.string   "bill"
     t.boolean  "active",                                        :default => true
     t.boolean  "new_debit",                                     :default => true
-    t.integer  "user_id"
     t.integer  "card_company_id"
     t.text     "secret"
     t.binary   "secret_key"
     t.binary   "secret_iv"
+    t.integer  "account_id"
   end
 
   create_table "card_companies", :force => true do |t|

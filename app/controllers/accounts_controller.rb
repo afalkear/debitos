@@ -1,4 +1,6 @@
 class AccountsController < ApplicationController
+  before_filter :check_account, :except => [:create, :index]
+
   def index
     if signed_in?
       @accounts = current_user.accounts
@@ -22,26 +24,28 @@ class AccountsController < ApplicationController
   end
 
   def show
-    account = Account.find(params[:id])
-    if current_user.accounts.map(&:name).include? account.name
-      @account = account
+    if @account
       @responsible = Responsible.new
-    else
-      @account = nil
     end
   end
 
   def edit
-    account = Account.find(params[:id])
-    if current_user.accounts.map(&:name).include? account.name
-      @account = account
+    if @account
       @responsible = Responsible.new
-    else
-      @account = nil
     end
   end
 
   def destroy
     
   end
+
+  def check_account
+    account = Account.find(params[:id])
+    if current_user.accounts.map(&:name).include? account.name
+      @account = account
+    else
+      @account = nil
+    end
+  end
+
 end

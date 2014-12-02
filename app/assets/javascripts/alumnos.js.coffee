@@ -19,6 +19,10 @@ jQuery ->
       $('#card_image').removeClass()
 #   if(!$.payment.validateCardNumber($('#alumno_secret').val()))
 #     $('#cc-group').toggleClass('error')
+  $('#padma-students-button').click ->
+    $('#import-students-from-CRM').toggle()
+    $('#import-students-from-CSV').hide()
 
-
-
+  $('#csv-students-button').click ->
+    $('#import-students-from-CRM').hide()
+    $('#import-students-from-CSV').toggle()

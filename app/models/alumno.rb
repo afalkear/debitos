@@ -35,7 +35,7 @@ class Alumno < ActiveRecord::Base
   encrypt_with_public_key :secret,
                           :base64 => true,
                           :key_pair => Rails.root.join('config', 'keypair.pem')
-  belongs_to :user
+  belongs_to :account
 
   belongs_to :card_company
   
