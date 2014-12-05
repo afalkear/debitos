@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10">
+      <h1>Contacts for <%= @card_company.name %> on <%= @account.padma.full_name %></h1>
+      <table class="table table-stripped table-bordered">
+        <th>Name</th>
+        <th>Identifier</th>
+        <th>Plan</th>
+        <th>Amount</th>
+        <% @contacts.where(payed: false).each do |contact| %>
+          <tr><%= contact.name %> <%= contact.last_name %></tr>
+          <tr><%= contact.identifier %></tr>
+          <tr><%= contact.plan %></tr>
+          <tr><%= contact.amount %></tr>
+        <% end %>
+      </table>
+      <%= link_to "Create Presentation", new_account_card_company_presentation_path(card_company_id: @card_company.id, account_id: @account.id), class: "btn btn-default" %>
+    </div>
+  </div>
+</div>
