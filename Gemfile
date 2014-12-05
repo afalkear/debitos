@@ -21,6 +21,7 @@ gem 'less-rails-bootstrap', '~> 3.3.1.0'
 
 gem 'jquery-rails'
 gem 'figaro'
+
 # to validate credit card info on the client-side
 gem 'jquery-payment-rails'
 

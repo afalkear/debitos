@@ -19,7 +19,7 @@ class AlumnosController < ApplicationController
   end
 
   def create
-    @alumno = current_user.alumnos.new(params[:alumno])
+    @alumno = @account.alumnos.new(params[:alumno])
     if @alumno.save
       flash[:success] = "Alumno agregado"
       redirect_to alumnos_path
@@ -29,14 +29,14 @@ class AlumnosController < ApplicationController
   end
 
   def destroy
-    @alumno = current_user.alumnos.find(params[:id])
+    @alumno = @account.alumnos.find(params[:id])
     @alumno.update_attribute(:active, false)
     
     redirect_to alumnos_path, notice: "Alumno borrado"
   end
 
   def update
-    @alumno = current_user.alumnos.find(params[:id])
+    @alumno = @account.alumnos.find(params[:id])
 
     # Strongbox leaves the same encrypted data for safety when its deleted
     if params[:alumno][:secret] && (params[:alumno][:secret] == "")
@@ -70,16 +70,16 @@ class AlumnosController < ApplicationController
   #   secret_iv
   #   card_company_id
   def import
-    current_user.alumnos.import(params[:file], params[:bill])
+    @account.alumnos.import(params[:file], params[:bill])
     redirect_to alumnos_path, notice: "Alumnos importados"
   end
 
   def edit_multiple
-    @alumnos = current_user.alumnos.find(params[:alumno_ids])
+    @alumnos = @account.alumnos.find(params[:alumno_ids])
   end
 
   def update_multiple
-    @alumnos = current_user.alumnos.find(params[:alumno_ids])
+    @alumnos = @account.alumnos.find(params[:alumno_ids])
     @alumnos.each do | alumno |
       alumno.update_attributes!(params[:alumno].reject { |k,v| v.blank? })
     end
@@ -87,7 +87,7 @@ class AlumnosController < ApplicationController
   end
 
   def delete_multiple
-    @alumnos = current_user.alumnos.find(params[:alumno_ids])
+    @alumnos = @account.alumnos.find(params[:alumno_ids])
     @alumnos.each do | alumno |
       alumno.destroy
     end
@@ -100,18 +100,22 @@ class AlumnosController < ApplicationController
   end
 
   def set_inactive
-    @alumno = current_user.alumnos.find(params[:id])
+    @alumno = @account.alumnos.find(params[:id])
     @alumno.update_attribute(:active, false)
     
     redirect_to alumnos_path, notice: "Alumno borrado"
   end
 
   def set_multiple_inactive
-    @alumnos = current_user.alumnos.find(params[:alumno_ids])
+    @alumnos = @account.alumnos.find(params[:alumno_ids])
     @alumnos.each do | alumno |
       alumno.update_attribute(:active, false)
     end
     redirect_to alumnos_path, notice: "Alumnos borrado"
+  end
+
+  def plans
+    @alumnos = @account.alumnos
   end
 
   def check_account
