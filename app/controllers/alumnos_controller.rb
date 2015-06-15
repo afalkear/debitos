@@ -22,7 +22,7 @@ class AlumnosController < ApplicationController
     @alumno = @account.alumnos.new(params[:alumno])
     if @alumno.save
       flash[:success] = "Alumno agregado"
-      redirect_to alumnos_path
+      redirect_to account_alumnos_path account_id: current_user.current_account_id
     else
       render 'new'
     end

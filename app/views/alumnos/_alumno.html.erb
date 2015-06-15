@@ -4,25 +4,25 @@
   <tr class="warning">
 <% end%>
   <td><%= check_box_tag "alumno_ids[]", alumno.id %></td>
-  <td><%= link_to alumno.name, "http://www.metododerose.org/kshema/personas/" + alumno.padma_id.to_s %></td>
-  <td><%= best_in_place alumno, :identifier, classes: "forum" %></td>
-  <td><%= best_in_place alumno, :bill, classes: "forum" %></td>
+  <td><%= link_to alumno.name, "http://crm.padm.am/contacts/" + alumno.padma_id.to_s %></td>
+  <td><%= best_in_place [current_user.current_account,alumno], :identifier, classes: "forum" %></td>
+  <td><%= best_in_place [current_user.current_account,alumno], :bill, classes: "forum" %></td>
   <% if alumno.secret.nil? %>
-    <td><%= best_in_place alumno, :secret, :nil => "Ingrese número" %></td>
+    <td><%= best_in_place [current_user.current_account,alumno], :secret, :nil => "Ingrese número" %></td>
   <% else %>
-    <td><%= best_in_place alumno, :secret,
+    <td><%= best_in_place [current_user.current_account,alumno], :secret,
                         classes: "forum alumno_secret",
                         display_as: :number_for_humans %></td>
   <% end %>
-<td><%= best_in_place alumno, :card_company_id, type: :select, collection: current_user.card_companies.map{|cc| [cc.id, cc.description]} %></td>
-  <td><%= best_in_place alumno, :card_type, type: :select, collection: [["credito", "credito"], ["debito", "debito"]], classes: "forum" %></td>
+<td><%= best_in_place [current_user.current_account,alumno], :card_company_id, type: :select, collection: current_user.card_companies.map{|cc| [cc.id, cc.description]} %></td>
+  <td><%= best_in_place [current_user.current_account,alumno], :card_type, type: :select, collection: [["credito", "credito"], ["debito", "debito"]], classes: "forum" %></td>
   <td><%= alumno.card_number.to_s.rjust(16, "0")[-4,4] %></td>
   <td><%= alumno.plan%></td>
-  <td><%= best_in_place alumno, :amount, classes: "forum" %></td>
-  <td><%= best_in_place alumno, :payed, type: :checkbox, collection: %w[No Si], classes: "forum" %></td>
+  <td><%= best_in_place [current_user.current_account,alumno], :amount, classes: "forum" %></td>
+  <td><%= best_in_place [current_user.current_account,alumno], :payed, type: :checkbox, collection: %w[No Si], classes: "forum" %></td>
   <td><%= alumno.observations%></td>
   <td>
-    <%= link_to alumno, method: :delete, data: { confirm: "You sure?" } do %>
+    <%= link_to [current_user.current_account,alumno], method: :delete, data: { confirm: "You sure?" } do %>
       <i class="icon-trash"></i>
     <% end %>
   </td>
