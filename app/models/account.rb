@@ -28,8 +28,14 @@ class Account < ActiveRecord::Base
 
   # Returns Students of this account
   # @return [Array <String>]
-  def students
-    # PadmaContact.paginate(select: [:first_name, :last_name], where: {local_status: :student}, account_name: self.name, per_page: 1000)
+  def students(paginate_per)
+    PadmaContact.paginate(select: [:first_name, :last_name], where: {local_status: :student}, account_name: self.name, per_page: paginate_per)
+  end
+
+  def synch_with_contacts
+    students(1000).each do |student|
+      self.alumnos.create(name: student.first_name, last_name: student.last_name, padma_id: student.id) if Alumno.where(padma_id: student.id).blank?
+    end
   end
 
   def ready_for_summary?

@@ -28,6 +28,9 @@
         <div class="col-md-12">
           <div class="alert alert-info">
             <h2>Importar alumnos de PADMA</h2>
+            <%= link_to synch_with_contacts_account_alumnos_path(@account.id), class: "btn btn-primary" do %>
+              Synch with PADMA
+            <% end %>
           </div>
         </div>
       </div>
@@ -49,49 +52,62 @@
     </div>
   </div>
 
+    <% if false %>
   <div class="row">
-    <div class="col-md-12">
-      <h1>Alumnos de <%= @account.padma.full_name %></h1>
-
-      <p>
-        Download:
-        <%= link_to "CSV", account_alumnos_path(account_id: @account.id, format: "csv") %> |
-        <%= link_to "Excel", account_alumnos_path(account_id: @account.id, format: "xls") %> |
-        <%= link_to "JSON", account_alumnos_path(account_id: @account.id, format: "json") %>
-      </p>
-
-      <%= will_paginate %>
-
-      <%= form_tag set_multiple_inactive_account_alumnos_path(@account.id) do %>
-      <%= button_to_function "Check / Uncheck All", "toggleChecked()" %>
-      <%= submit_tag "Eliminar los elegidos" %>
-      <br>
-      <%= link_to "Agregar alumno nuevo", new_account_alumno_path(@account.id), class: "btn btn-large btn-primary" %>
-      <br>
-      <br>
-        <table class="alumnos table table-hover">
-          <tr>
-            <th></th>
-            <th>Nombre</th>
-            <th>Identificador</th>
-            <th>Factura</th>
-            <th>N&uacute;mero</th>
-            <th>Compa&ntilde;&iacute;a</th>
-            <th>Tipo</th>
-            <th>Tarjeta</th>
-            <th>Plan</th>
-            <th>Monto</th>
-            <th>Pago?</th>
-            <th>Observaciones</th>
-            <th>Borrar</th>
-          </tr>
-          <%= render @alumnos %>
-        </table>
+    <div class="col-md-10">
+      <h1><%= @alumnos.count %> Alumnos</h1>
+      <% @alumnos.each do |alumno| %>
+        <%= alumno.inspect %><br/>
       <% end %>
-
-      <%= will_paginate %>
     </div>
   </div>
+  <% end %>
+
+  <% if true %>
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Alumnos de <%= @account.padma.full_name %></h1>
+
+        <p>
+          Download:
+          <%= link_to "CSV", account_alumnos_path(account_id: @account.id, format: "csv") %> |
+          <%= link_to "Excel", account_alumnos_path(account_id: @account.id, format: "xls") %> |
+          <%= link_to "JSON", account_alumnos_path(account_id: @account.id, format: "json") %>
+        </p>
+
+        <%= will_paginate %>
+
+        <%= form_tag set_multiple_inactive_account_alumnos_path(@account.id) do %>
+        <%= button_to_function "Check / Uncheck All", "toggleChecked()" %>
+        <%= submit_tag "Eliminar los elegidos" %>
+        <br>
+        <%= link_to "Agregar alumno nuevo", new_account_alumno_path(@account.id), class: "btn btn-large btn-primary" %>
+        <br>
+        <br>
+          <table class="alumnos table table-hover">
+            <tr>
+              <th></th>
+              <th>Nombre</th>
+              <th>Identificador</th>
+              <th>Factura</th>
+              <th>N&uacute;mero</th>
+              <th>Compa&ntilde;&iacute;a</th>
+              <th>Tipo</th>
+              <th>Tarjeta</th>
+              <th>Plan</th>
+              <th>Monto</th>
+              <th>Pago?</th>
+              <th>Observaciones</th>
+              <th>Borrar</th>
+            </tr>
+            <%= render @alumnos %>
+          </table>
+        <% end %>
+
+        <%= will_paginate %>
+      </div>
+    </div>
+  <% end %>
 </div>
 
 <script type='text/javascript'>

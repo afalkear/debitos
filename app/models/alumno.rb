@@ -30,7 +30,7 @@
 # @attribute active [Booelan] used for soft-delete. false means alumno has been "deleted"
 class Alumno < ActiveRecord::Base
   attr_accessible :amount, :card_company_id, :card_number, :card_type, :identifier, :last_name, :name,
-    :instructor, :plan, :due_date, :payed, :payment, :observations, :bill, :new_debit, :active, :secret
+    :instructor, :plan, :due_date, :payed, :payment, :observations, :bill, :new_debit, :active, :secret, :padma_id
   validates :name, presence: true
   encrypt_with_public_key :secret,
                           :base64 => true,
@@ -54,6 +54,10 @@ class Alumno < ActiveRecord::Base
       return ""
     end
     self.secret.decrypt(ENV['PHRASE'])
+  end
+
+  def full_name
+    "#{name} #{last_name}"    
   end
 
   def self.import(file, bill)

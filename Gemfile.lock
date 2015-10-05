@@ -1,9 +1,16 @@
+PATH
+  remote: /home/alex/workspace/fnz_client
+  specs:
+    fnz_client (0.0.3)
+      logical_model (>= 0.5.11)
+      railties (>= 3.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
-    accounts_client (0.0.20)
+    accounts_client (0.2.6)
       gravtastic
-      logical_model (~> 0.5.8)
+      logical_model (>= 0.5.8)
       railties (>= 3.1)
     actionmailer (3.2.11)
       actionpack (= 3.2.11)
@@ -58,6 +65,9 @@ GEM
       execjs
     coffee-script-source (1.4.0)
     commonjs (0.2.7)
+    contacts_client (0.0.31)
+      logical_model (>= 0.6.1)
+      railties (>= 3.1)
     crack (0.4.1)
       safe_yaml (~> 0.9.0)
     debug_inspector (0.0.2)
@@ -125,7 +135,7 @@ GEM
       less-rails (~> 2.6.0)
     libv8 (3.11.8.13)
     libxml-ruby (2.7.0)
-    logical_model (0.5.10)
+    logical_model (0.6.1)
       activemodel
       activesupport
       ethon (= 0.4.2)
@@ -257,7 +267,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  accounts_client
+  accounts_client (~> 0.2.6)
   annotate (= 2.5.0)
   bcrypt-ruby (= 3.0.1)
   best_in_place
@@ -267,12 +277,14 @@ DEPENDENCIES
   cancan
   cocoon
   coffee-rails (= 3.2.2)
+  contacts_client (~> 0.0.31)
   devise
   devise_cas_authenticatable
   execjs
   factory_girl_rails (= 4.1.0)
   faker (= 1.0.1)
   figaro
+  fnz_client!
   git-pivotal-tracker-integration
   google_drive
   jquery-payment-rails

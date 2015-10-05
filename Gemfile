@@ -27,7 +27,9 @@ gem 'jquery-payment-rails'
 
 
 # Padma Clients
-gem 'accounts_client'
+gem 'accounts_client', '~> 0.2.6'
+gem 'contacts_client', '~> 0.0.31'
+gem 'fnz_client', path: "/home/alex/workspace/fnz_client"#'~> 0.0.3'
 
 # CAS authentication
 gem 'devise'

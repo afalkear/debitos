@@ -4,7 +4,7 @@
   <tr class="warning">
 <% end%>
   <td><%= check_box_tag "alumno_ids[]", alumno.id %></td>
-  <td><%= link_to alumno.name, "http://crm.padm.am/contacts/" + alumno.padma_id.to_s %></td>
+  <td><%= link_to "#{alumno.full_name}", "http://crm.padm.am/contacts/" + alumno.padma_id.to_s %></td>
   <td><%= best_in_place [current_user.current_account,alumno], :identifier, classes: "forum" %></td>
   <td><%= best_in_place [current_user.current_account,alumno], :bill, classes: "forum" %></td>
   <% if alumno.secret.nil? %>
