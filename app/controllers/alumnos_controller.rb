@@ -6,6 +6,7 @@ class AlumnosController < ApplicationController
 
   def index
     @alumnos = @account.alumnos.paginate(page: params[:page], :conditions => {:active => true})
+
     respond_to do |format|
       format.html
       format.csv { send_data Alumno.to_csv(:encoding => 'utf-8') }
@@ -46,6 +47,7 @@ class AlumnosController < ApplicationController
     @alumno.update_attributes(params[:alumno])
     respond_with @alumno
   end
+
 
   # correct headers
   #   name
@@ -116,6 +118,12 @@ class AlumnosController < ApplicationController
 
   def plans
     @alumnos = @account.alumnos
+    @memberships = Membership.find_current_memberships_for(@account.name)
+  end
+
+  def synch_with_contacts
+    @account.synch_with_contacts
+    redirect_to account_alumnos_path(@account.id)
   end
 
   def check_account

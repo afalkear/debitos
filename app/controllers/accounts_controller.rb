@@ -39,6 +39,10 @@ class AccountsController < ApplicationController
     
   end
 
+  def sync_with_fnz
+    @memberships = Membership.find_current_memberships_for(@account.name)
+  end
+
   def check_account
     account = Account.find(params[:id])
     if current_user.accounts.map(&:name).include? account.name
