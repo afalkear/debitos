@@ -40,6 +40,9 @@ class Alumno < ActiveRecord::Base
   belongs_to :card_company
   
   validates_length_of :identifier, maximum: 15
+  validates_uniqueness_of :identifier, scope: :account_id
+
+  before_validation :fill_identifier
 
   def new_debit?
     self.new_debit
@@ -141,5 +144,9 @@ class Alumno < ActiveRecord::Base
 
     def self.get_value_for(field, row)
       row[field].blank? ? nil : row[field]
+    end
+
+    def fill_identifier
+      self.identifier = self.identifier.rjust(15, '0') unless self.identifier.nil?
     end
 end

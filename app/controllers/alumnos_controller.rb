@@ -5,7 +5,7 @@ class AlumnosController < ApplicationController
   before_filter :check_account
 
   def index
-    @alumnos = @account.alumnos.paginate(page: params[:page], :conditions => {:active => true})
+    @alumnos = @account.alumnos.paginate(page: params[:page], :conditions => {:active => true}).order('name ASC')
 
     respond_to do |format|
       format.html
@@ -44,8 +44,16 @@ class AlumnosController < ApplicationController
       @alumno.update_attribute(:secret, '-')
     end
 
-    @alumno.update_attributes(params[:alumno])
-    respond_with @alumno
+    
+    respond_to do |format|
+      if @alumno.update_attributes(params[:alumno])
+        format.html { redirect_to(@index, :notice => 'User was successfully updated.') }
+        format.json { respond_with_bip(@alumno) }
+      else
+        format.html { render :action => "edit" }
+        format.json { respond_with_bip(@alumno) }
+      end
+    end
   end
 
 
