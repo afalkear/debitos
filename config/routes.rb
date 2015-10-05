@@ -19,8 +19,8 @@ Debitos::Application.routes.draw do
       collection { post :update_multiple}
       collection { post :delete_multiple}
       collection { post :set_multiple_inactive}
+      collection { get :synch_with_contacts }
     end
-
     resources :presentations
     
     resources :card_companies do
