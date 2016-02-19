@@ -1,9 +1,9 @@
 class ChangeSecretToText < ActiveRecord::Migration
   def up
-    change_column :alumnos, :secret, :text
+    change_column :contacts, :secret, :text
   end
 
   def down
-    change_column :alumnos, :secret, :binary
+    change_column :contacts, :secret, :binary
   end
 end

@@ -1,6 +1,6 @@
-class AddAccountIdToAlumno < ActiveRecord::Migration
+class AddAccountIdToContact < ActiveRecord::Migration
   def change
-    add_column :alumnos, :account_id, :integer
-    remove_column :alumnos, :user_id
+    add_column :contacts, :account_id, :integer
+    remove_column :contacts, :user_id
   end
 end

@@ -1,5 +1,5 @@
-class AddBillToAlumno < ActiveRecord::Migration
+class AddBillToContact < ActiveRecord::Migration
   def change
-    add_column :alumnos, :bill, :string
+    add_column :contacts, :bill, :string
   end
 end

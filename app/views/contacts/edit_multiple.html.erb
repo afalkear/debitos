@@ -1,9 +1,9 @@
-<%= form_for :alumno, :url => update_multiple_alumnos_path, :html => { :method => :put, :class => "form" } do |f| %>
+<%= form_for :contact, :url => update_multiple_contacts_path, :html => { :method => :put, :class => "form" } do |f| %>
   <ul>
-    <% for alumno in @alumnos %>
+    <% for contact in @contacts %>
       <li>
-        <%= hidden_field_tag "alumno_ids[]", alumno.id %>
-        <%=h alumno.name %>
+        <%= hidden_field_tag "contact_ids[]", contact.id %>
+        <%=h contact.name %>
       </li>
     <% end %>
   </ul>

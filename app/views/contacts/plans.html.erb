@@ -1,0 +1,81 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table">
+        <tr>
+          <th>
+            Contact
+          </th>
+          <th>
+            Compañía
+          </th>
+          <th>
+            Tipo
+          </th>
+          <th>
+            En FNZ
+          </th>
+          <th>
+            Monto
+          </th>
+          <th>
+            Pagó?
+          </th>
+          <th>
+            Observaciones
+          </th>
+        </tr>
+        <% @contacts_y_memberships.each do |aym| %>
+          <tr>
+            <td>
+              <%= aym['contact'].full_name %>
+            </td>
+            <td>
+              <%= aym['contact'].card_company %>
+            </td>
+            <td>
+              <%= aym['contact'].card_type %>
+            </td>
+            <td>
+              <%= aym['membership'].payment_type if aym['membership'] %>
+            </td>
+            <td>
+              <%= aym['installment'].value if aym['installment'] %>
+            </td>
+            <td>
+              <%= aym['installment'].status if aym['installment'] %>
+            </td>
+            <td>
+              <%= aym['contact'].observations %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-10">
+      <h1>Plans TODO</h1>
+      <ul>
+        <li>Primero, los que no pagaron</li>
+        <li>foreach payment_option</li>
+        <ul>
+          <li>todos los que están en ese payment</li>
+          <li>con nombre, plan y monto</li>
+          <li>con una observación si no tiene tarjeta en el sistema</li>
+          <li>abajo, cantidad de contacts y cantidad de plata</li>
+        </ul>
+        <li>más abajo, los que ya pagaron</li>
+        <li>habilidad de actualizar la lista</li>
+        <li>habilidad de cambiar un pago</li>
+        <li>habilidad de eliminar un pago (poner inactivo ese contacto)</li>
+        <li>habilidad de cambiar de forma de pago un usuario</li>
+        <li>esto quizás, pero si hay sólo un responsible, podría poner un botón en cada payment option para que se haga la presentation directamente</li>
+        <li>arriba del todo, cantidad de contacts que tienen plan digamos y se puede poner cantidad de contacts de la escuela</li>
+        <li>también podría poner los contacts de la escuela que no tienen plan y un link a financiero para agregar el plan o un link para agregar un pago nomás</li>
+        <li>NUEVO</li>
+        <li>acá podría poner los contacts de la cuenta y ya y en otro lugar separarlos por responsible</li>
+      </ul>
+    </div>
+  </div>
+</div>

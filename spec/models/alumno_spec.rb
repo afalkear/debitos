@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: alumnos
+# Table name: contacts
 #
 #  id           :integer          not null, primary key
 #  name         :string(255)
@@ -26,6 +26,6 @@
 
 require 'spec_helper'
 
-describe Alumno do
+describe Contact do
   pending "add some examples to (or delete) #{__FILE__}"
 end

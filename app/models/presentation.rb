@@ -42,9 +42,9 @@ class Presentation < ActiveRecord::Base
       mark = "*"
       credit_or_debit = (type == "credit" ? "C" : "D")
 
-      alumno_register_type = "1"
-      alumno_reserved_space_1 = (" "*3) #.gsub(/[ ]/, '&nbsp;')
-      alumno_reserved_space_2 = (" "*26) #.gsub(/[ ]/, '&nbsp;')
+      contact_register_type = "1"
+      contact_reserved_space_1 = (" "*3) #.gsub(/[ ]/, '&nbsp;')
+      contact_reserved_space_2 = (" "*26) #.gsub(/[ ]/, '&nbsp;')
       transaction_code = "0005"
 
       total_count = contact_count.to_s.rjust(7, "0")
@@ -56,20 +56,20 @@ class Presentation < ActiveRecord::Base
                     date+hour+total_count+total_amount+end_reserved+mark
 
       files = []
-      alumnos.each do |alumno|
-        alumno_line = alumno_register_type + 
-                      alumno.card_number.to_s.rjust(16, "0")+
-                      alumno_reserved_space_1+
-                      alumno.bill.to_s.rjust(8, "0")+
+      contacts.each do |contact|
+        contact_line = contact_register_type + 
+                      contact.card_number.to_s.rjust(16, "0")+
+                      contact_reserved_space_1+
+                      contact.bill.to_s.rjust(8, "0")+
                       date+
                       transaction_code+
-                      sprintf("%.02f", alumno.amount.to_s).rjust(16, "0").delete(".")+
-                      alumno.identifier.to_s.rjust(15, "0")+
-                      (alumno.new_debit? ? "E" : " ")+
+                      sprintf("%.02f", contact.amount.to_s).rjust(16, "0").delete(".")+
+                      contact.identifier.to_s.rjust(15, "0")+
+                      (contact.new_debit? ? "E" : " ")+
                       "  "+
-                      alumno_reserved_space_2+
+                      contact_reserved_space_2+
                       mark
-        files << alumno_line
+        files << contact_line
       end
 
       header = first_line 

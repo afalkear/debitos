@@ -1,5 +1,5 @@
 class AddDefaultToPaid < ActiveRecord::Migration
   def change
-  	change_column_default :alumnos, :payed, false
+  	change_column_default :contacts, :payed, false
   end
 end

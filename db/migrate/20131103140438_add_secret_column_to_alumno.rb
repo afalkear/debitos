@@ -1,7 +1,7 @@
-class AddSecretColumnToAlumno < ActiveRecord::Migration
+class AddSecretColumnToContact < ActiveRecord::Migration
   def change
-    add_column :alumnos, :secret, :binary
-    add_column :alumnos, :secret_key, :binary
-    add_column :alumnos, :secret_iv, :binary
+    add_column :contacts, :secret, :binary
+    add_column :contacts, :secret_key, :binary
+    add_column :contacts, :secret_iv, :binary
   end
 end

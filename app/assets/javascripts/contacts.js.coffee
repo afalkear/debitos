@@ -6,9 +6,9 @@ jQuery ->
   $('.forum').hover ->
     $(this).toggleClass('forum_hover')
 
-  # $('.alumno_secret .form_in_place input').payment('formatCardNumber')
-  $('.alumno_secret').payment('formatCardNumber')
-  $('#alumno_secret').keyup ->
+  # $('.contact_secret .form_in_place input').payment('formatCardNumber')
+  $('.contact_secret').payment('formatCardNumber')
+  $('#contact_secret').keyup ->
     if ($('.visa')[0])
       $('#card_image').addClass('visa_thumb')
     else if ($('.mastercard')[0])
@@ -17,7 +17,7 @@ jQuery ->
       $('#card_image').addClass('amex_thumb')
     else
       $('#card_image').removeClass()
-#   if(!$.payment.validateCardNumber($('#alumno_secret').val()))
+#   if(!$.payment.validateCardNumber($('#contact_secret').val()))
 #     $('#cc-group').toggleClass('error')
   $('#padma-students-button').click ->
     $('#import-students-from-CRM').toggle()

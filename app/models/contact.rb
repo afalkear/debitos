@@ -3,7 +3,7 @@
 
 # == Schema Information
 #
-# Table name: alumnos
+# Table name: contacts
 #
 #  id           :integer          not null, primary key
 #  name         :string(255)
@@ -27,8 +27,8 @@
 #  new_debit    :boolean          default(TRUE)
 #
 
-# @attribute active [Booelan] used for soft-delete. false means alumno has been "deleted"
-class Alumno < ActiveRecord::Base
+# @attribute active [Booelan] used for soft-delete. false means contact has been "deleted"
+class Contact < ActiveRecord::Base
   attr_accessible :amount, :card_company_id, :card_number, :card_type, :identifier, :last_name, :name,
     :instructor, :plan, :due_date, :payed, :payment, :observations, :bill, :new_debit, :active, :secret, :padma_id
   validates :name, presence: true
@@ -38,9 +38,9 @@ class Alumno < ActiveRecord::Base
   belongs_to :account
 
   belongs_to :card_company
-  
+
   validates_length_of :identifier, maximum: 15
-  validates_uniqueness_of :identifier, scope: :account_id
+  validates_uniqueness_of :identifier, :allow_blank => true, :allow_nil => true, scope: :account_id
 
   before_validation :fill_identifier
 
@@ -60,7 +60,7 @@ class Alumno < ActiveRecord::Base
   end
 
   def full_name
-    "#{name} #{last_name}"    
+    "#{name} #{last_name}"
   end
 
   def self.import(file, bill)
@@ -71,16 +71,16 @@ class Alumno < ActiveRecord::Base
     header = spreadsheet.row(1)
     (2..spreadsheet.last_row).each do |i|
       row = Hash[[header, spreadsheet.row(i)].transpose]
-      alumno = find_by_id(row["id"]) || new
-      alumno[:secret] = Base64.decode64(row['secret'])
-      alumno[:secret_key] = Base64.decode64(row['secret_key'])
-      alumno[:secret_iv] = Base64.decode64(row['secret_iv'])
+      contact = find_by_id(row["id"]) || new
+      contact[:secret] = Base64.decode64(row['secret'])
+      contact[:secret_key] = Base64.decode64(row['secret_key'])
+      contact[:secret_iv] = Base64.decode64(row['secret_iv'])
 
-      alumno.bill = bill_number
+      contact.bill = bill_number
       bill_number+=1 unless bill_number.nil?
       # update_card_attributes(attributes)
-      # alumno.update_attributes(attributes)
-      alumno.save!
+      # contact.update_attributes(attributes)
+      contact.save!
     end
   end
 
@@ -97,25 +97,25 @@ class Alumno < ActiveRecord::Base
     # options = options.merge(encoding: "utf-8:utf-8")
     CSV.generate(options) do |csv|
       csv << ['id', 'secret', 'secret_key', 'secret_iv']
-      Alumno.all.each do |alumno|
-        alumno_data = [alumno.id,
-                       Base64.strict_encode64(alumno[:secret]),
-                       Base64.strict_encode64(alumno[:secret_key]),
-                       Base64.strict_encode64(alumno[:secret_iv])
+      Contact.all.each do |contact|
+        contact_data = [contact.id,
+                       Base64.strict_encode64(contact[:secret]),
+                       Base64.strict_encode64(contact[:secret_key]),
+                       Base64.strict_encode64(contact[:secret_iv])
         ]
-        csv << alumno_data
+        csv << contact_data
       end
     end
   end
 
   def as_json(options={})
-    {:alumno => {:id => self.id, :secret => Base64.strict_encode64(self[:secret])}}
+    {:contact => {:id => self.id, :secret => Base64.strict_encode64(self[:secret])}}
   end
 
   private
     # TODO! Pensar mejor este method para que no se sobreescriban
     def find_by_padma_id(id)
-      Alumno.where(padma_id: id) unless id.nil?
+      Contact.where(padma_id: id) unless id.nil?
     end
 
     def self.update_card_attributes(attributes)
@@ -126,7 +126,7 @@ class Alumno < ActiveRecord::Base
       # check for company
       if payment.match(/visa/)
         attributes["card_company"] = "VISA"
-        #alumno.update_attribute("card_company", "VISA")
+        #contact.update_attribute("card_company", "VISA")
       elsif payment.match(/master/)
         attributes["card_company"] = "MASTER"
       elsif payment.match(/american/) || payment.match(/amex/)

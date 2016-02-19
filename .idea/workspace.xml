@@ -6,21 +6,21 @@
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="d0927fbc-dc53-4b4e-9329-914aba4ffcda" time="1387166080226" ignored="false" />
     <file path="/index.html.erb" changelist="d0927fbc-dc53-4b4e-9329-914aba4ffcda" time="1387141400708" ignored="false" />
-    <file path="/_alumno.html.erb" changelist="d0927fbc-dc53-4b4e-9329-914aba4ffcda" time="1387147504890" ignored="false" />
-    <file path="/alumno.rb" changelist="d0927fbc-dc53-4b4e-9329-914aba4ffcda" time="1387144688188" ignored="false" />
-    <file path="/alumnos_helper.rb" changelist="d0927fbc-dc53-4b4e-9329-914aba4ffcda" time="1383495644255" ignored="false" />
+    <file path="/_contact.html.erb" changelist="d0927fbc-dc53-4b4e-9329-914aba4ffcda" time="1387147504890" ignored="false" />
+    <file path="/contact.rb" changelist="d0927fbc-dc53-4b4e-9329-914aba4ffcda" time="1387144688188" ignored="false" />
+    <file path="/contacts_helper.rb" changelist="d0927fbc-dc53-4b4e-9329-914aba4ffcda" time="1383495644255" ignored="false" />
     <file path="/fragment.rb" changelist="d0927fbc-dc53-4b4e-9329-914aba4ffcda" time="1383498758240" ignored="false" />
     <file path="/Gemfile" changelist="d0927fbc-dc53-4b4e-9329-914aba4ffcda" time="1387160007827" ignored="false" />
     <file path="/application.yml" changelist="d0927fbc-dc53-4b4e-9329-914aba4ffcda" time="1383505752156" ignored="false" />
     <file path="/_sidebar.html.erb" changelist="d0927fbc-dc53-4b4e-9329-914aba4ffcda" time="1384622934333" ignored="false" />
     <file path="/routes.rb" changelist="d0927fbc-dc53-4b4e-9329-914aba4ffcda" time="1387165066801" ignored="false" />
-    <file path="/alumnos_controller.rb" changelist="d0927fbc-dc53-4b4e-9329-914aba4ffcda" time="1387151297005" ignored="false" />
-    <file path="/alumnos.js.coffee" changelist="d0927fbc-dc53-4b4e-9329-914aba4ffcda" time="1387149652130" ignored="false" />
+    <file path="/contacts_controller.rb" changelist="d0927fbc-dc53-4b4e-9329-914aba4ffcda" time="1387151297005" ignored="false" />
+    <file path="/contacts.js.coffee" changelist="d0927fbc-dc53-4b4e-9329-914aba4ffcda" time="1387149652130" ignored="false" />
     <file path="/new.html.erb" changelist="d0927fbc-dc53-4b4e-9329-914aba4ffcda" time="1387155098161" ignored="false" />
     <file path="/20131209164007_change_secret_from_binary_to_strin.rb" changelist="d0927fbc-dc53-4b4e-9329-914aba4ffcda" time="1386607322468" ignored="false" />
     <file path="/index.xls.erb" changelist="d0927fbc-dc53-4b4e-9329-914aba4ffcda" time="1387138345444" ignored="false" />
     <file path="/20131215191025_change_secret_to_text.rb" changelist="d0927fbc-dc53-4b4e-9329-914aba4ffcda" time="1387134673995" ignored="false" />
-    <file path="/alumnos.css.scss" changelist="d0927fbc-dc53-4b4e-9329-914aba4ffcda" time="1387151089857" ignored="false" />
+    <file path="/contacts.css.scss" changelist="d0927fbc-dc53-4b4e-9329-914aba4ffcda" time="1387151089857" ignored="false" />
     <file path="/account.rb" changelist="d0927fbc-dc53-4b4e-9329-914aba4ffcda" time="1387159868654" ignored="false" />
     <file path="/20131216002713_add_devise_to_users.rb" changelist="d0927fbc-dc53-4b4e-9329-914aba4ffcda" time="1387153873377" ignored="false" />
     <file path="/a.dummy" changelist="d0927fbc-dc53-4b4e-9329-914aba4ffcda" time="1387163288495" ignored="false" />
@@ -383,7 +383,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/views/alumnos" />
+      <recent name="$PROJECT_DIR$/app/views/contacts" />
     </key>
   </component>
   <component name="RunManager" selected="Rails.Development: debitos">

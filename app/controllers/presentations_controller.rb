@@ -12,7 +12,7 @@ class PresentationsController < ApplicationController
   def new
     @card_company = CardCompany.find(params[:card_company_id])
     @presentation = Presentation.new
-    @contacts = @account.alumnos.where(card_company: @card_company.name)
+    @contacts = @account.contacts.where(card_company: @card_company.name)
   end
 
   def create

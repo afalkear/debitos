@@ -1,5 +1,5 @@
-class LinkAlumnoWithCardCompany < ActiveRecord::Migration
+class LinkContactWithCardCompany < ActiveRecord::Migration
   def change
-    add_column :alumnos, :card_company_id, :integer
+    add_column :contacts, :card_company_id, :integer
   end
 end

@@ -36,10 +36,10 @@ class AccountsController < ApplicationController
   end
 
   def destroy
-    
+
   end
 
-  def sync_with_fnz
+  def synch_with_fnz
     @memberships = Membership.find_current_memberships_for(@account.name)
   end
 

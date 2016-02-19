@@ -1,6 +1,6 @@
-class CreateAlumnos < ActiveRecord::Migration
+class CreateContacts < ActiveRecord::Migration
   def change
-    create_table :alumnos do |t|
+    create_table :contacts do |t|
       t.string :name
       t.string :last_name
       t.string :identifier

@@ -12,7 +12,7 @@ Debitos::Application.routes.draw do
 
 
   resources :accounts do
-    resources :alumnos do
+    resources :contacts do
       collection { get :plans }
       collection { post :import }
       collection { post :edit_multiple}

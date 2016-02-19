@@ -1,5 +1,5 @@
-class AddPadmaIdToAlumnos < ActiveRecord::Migration
+class AddPadmaIdToContacts < ActiveRecord::Migration
   def change
-    add_column :alumnos, :padma_id, :string
+    add_column :contacts, :padma_id, :string
   end
 end

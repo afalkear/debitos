@@ -1,6 +1,6 @@
 <h3><%= card.description %></h3>
 <h5><%= type %></h5>
-<table class="alumnos table table-hover table-condensed">
+<table class="contacts table table-hover table-condensed">
     <tr>
       <th>Nombre</th>
       <th>Nro Tarjeta</th>
@@ -15,9 +15,9 @@
       <th>Observaciones</th>
       <th>Borrar</th>
     </tr>
-    <%= render :partial => "single_card", :collection => alumnos, :as => :alumno %>
+    <%= render :partial => "single_card", :collection => contacts, :as => :contact %>
   </table>
-Alumnos: <%= alumnos.count %><br />
-Total: <%= alumnos.sum("amount") %><br />
+Contacts: <%= contacts.count %><br />
+Total: <%= contacts.sum("amount") %><br />
 <%= link_to "Generar resumen", "#{card.name.downcase}"+"_"+"#{type.downcase}", class: "btn btn-large btn-primary" %>
 <%= link_to "Download", download_summaries_path(file_name: file_name) %>

@@ -10,10 +10,10 @@
         <Cell><Data ss:Type="String">id</Data></Cell>
         <Cell><Data ss:Type="String">secret</Data></Cell>
       </Row>
-    <% @alumnos.each do |alumno| %>
+    <% @contacts.each do |contact| %>
       <Row>
-        <Cell><Data ss:Type="Number"><%= alumno.id %></Data></Cell>
-        <Cell><Data ss:Type="String"><%= Base64.strict_encode64(alumno[:secret]) %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= contact.id %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= contact.secret %></Data></Cell>
       </Row>
     <% end %>
     </Table>

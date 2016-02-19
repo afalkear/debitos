@@ -5,7 +5,7 @@ class Account < ActiveRecord::Base
   after_create :create_default_responsible
 
   has_many :responsibles
-  has_many :alumnos
+  has_many :contacts
 
   # Hook to Padma Account API
   # @param [TrueClass] cache: Specify if Cache should be used. default: true
@@ -34,7 +34,7 @@ class Account < ActiveRecord::Base
 
   def synch_with_contacts
     students(1000).each do |student|
-      self.alumnos.create(name: student.first_name, last_name: student.last_name, padma_id: student.id) if Alumno.where(padma_id: student.id).blank?
+      self.contacts.create(name: student.first_name, last_name: student.last_name, padma_id: student.id) if Contact.where(padma_id: student.id).blank?
     end
   end
 

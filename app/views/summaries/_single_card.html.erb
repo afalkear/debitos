@@ -1,17 +1,17 @@
 <tr>
-  <td><%= link_to alumno.name, alumno %></td>
-  <td><%= best_in_place alumno, :card_number, classes: "forum" %></td>
-  <td><%= best_in_place alumno, :identifier, classes: "forum" %></td>
-  <td><%= best_in_place alumno, :bill, classes: "forum" %></td>
-  <td><%= alumno.card_company.description %></td>
-  <td><%= best_in_place alumno, :card_type, type: :select, collection: [["credito", "credito"], ["debito", "debito"]], classes: "forum" %></td>
-  <td><%= alumno.plan%></td>
-  <td><%= best_in_place alumno, :amount, classes: "forum" %></td>
-  <td><%= best_in_place alumno, :new_debit, type: :checkbox, collection: %w[No Si], classes: "forum" %></td>
-  <td><%= best_in_place alumno, :payed, type: :checkbox, collection: %w[No Si], classes: "forum" %></td>
-  <td><%= alumno.observations%></td>
+  <td><%= link_to contact.name, contact %></td>
+  <td><%= best_in_place contact, :card_number, classes: "forum" %></td>
+  <td><%= best_in_place contact, :identifier, classes: "forum" %></td>
+  <td><%= best_in_place contact, :bill, classes: "forum" %></td>
+  <td><%= contact.card_company.description %></td>
+  <td><%= best_in_place contact, :card_type, type: :select, collection: [["credito", "credito"], ["debito", "debito"]], classes: "forum" %></td>
+  <td><%= contact.plan%></td>
+  <td><%= best_in_place contact, :amount, classes: "forum" %></td>
+  <td><%= best_in_place contact, :new_debit, type: :checkbox, collection: %w[No Si], classes: "forum" %></td>
+  <td><%= best_in_place contact, :payed, type: :checkbox, collection: %w[No Si], classes: "forum" %></td>
+  <td><%= contact.observations%></td>
   <td>
-    <%= link_to alumno, method: :delete, data: { confirm: "You sure?" } do %>
+    <%= link_to contact, method: :delete, data: { confirm: "You sure?" } do %>
       <i class="icon-trash"></i>
     <% end %>
   </td>

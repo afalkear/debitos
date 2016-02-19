@@ -19,16 +19,16 @@ class CardCompany < ActiveRecord::Base
   validates :name, :inclusion => { :in => CARD_COMPANIES,
             :message => "%{value}is not an acceptable name. You have to submit a valid credit card company" }
 
-  has_many :alumnos
+  has_many :contacts
 
-  # returns alumnos of given type (debito/credito) that should be included
+  # returns contacts of given type (debito/credito) that should be included
   # in file
   # @param [String] type
-  # @return [ActiveRecord::Relation <Alumnos>]
+  # @return [ActiveRecord::Relation <Contacts>]
   def file_candidates(type)
     raise 'wrong type' if !type.in?(%W(debito credito))
 
-    alumnos.where(card_type: type, active: true, payed: false)
+    contacts.where(card_type: type, active: true, payed: false)
   end
 
 end

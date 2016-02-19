@@ -1,0 +1,30 @@
+<% if contact.observations.blank?%>
+  <tr>
+<% else %>
+  <tr class="warning">
+<% end%>
+  <td><%= check_box_tag "contact_ids[]", contact.id %></td>
+  <td><%= link_to "#{contact.full_name}", "http://crm.padm.am/contacts/" + contact.padma_id.to_s %></td>
+  <td><%= best_in_place [@account,contact], :identifier, classes: "forum" %></td>
+  <% if false %>
+    <td><%= best_in_place [@account,contact], :bill, classes: "forum" %></td>
+  <% end %>
+  <% if contact.secret.nil? %>
+    <td><%= best_in_place [@account,contact], :secret, :nil => "Ingrese número de tarjeta" %></td>
+  <% else %>
+    <td><%= best_in_place [@account,contact], :secret,
+                        classes: "forum contact_secret",
+                        display_as: :number_for_humans %></td>
+  <% end %>
+<td><%= best_in_place [@account,contact], :card_company_id, type: :select, collection: @account.responsibles.first.card_companies.map{|cc| [cc.id, cc.description]} %></td>
+  <td><%= best_in_place [@account,contact], :card_type, type: :select, collection: [["credito", "credito"], ["debito", "debito"]], classes: "forum" %></td>
+  <td><%= contact.plan%></td>
+  <td><%= best_in_place [@account,contact], :amount, classes: "forum" %></td>
+  <td><%= best_in_place [@account,contact], :payed, type: :checkbox, collection: %w[No Si], classes: "forum" %></td>
+  <td><%= contact.observations%></td>
+  <td>
+    <%= link_to [@account,contact], method: :delete, data: { confirm: "You sure?" } do %>
+      <i class="icon-trash"></i>
+    <% end %>
+  </td>
+</tr>
