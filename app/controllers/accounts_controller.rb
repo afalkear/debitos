@@ -3,8 +3,8 @@ class AccountsController < ApplicationController
 
   def index
     if signed_in?
-      @accounts = current_user.accounts
-      @accounts_count = @accounts.count
+      @account = current_user.current_account
+      #@accounts_count = @accounts.count
       @responsible = Responsible.new
     else
       render "static_pages#home"
