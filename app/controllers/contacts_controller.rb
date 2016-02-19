@@ -125,16 +125,22 @@ class ContactsController < ApplicationController
   end
 
   def plans
+    @account.contacts.map{|c| c.synch_with_fnz}
     @contacts = @account.contacts
-    @contacts_y_memberships = []
-    @contacts.each do |contact|
-      m = Membership.find_current_membership(@account.name, contact.padma_id)
-      @contacts_y_memberships << {
-        'contact' => contact,
-        'membership' => m,
-        'installment' => m.nil? ? "" : m.installments.select { |i| i.due_on.to_date.month == Date.today.month}.first
-        }
-    end
+    @payed = @contacts.with_installment.payed
+    @not_payed = @contacts.with_installment.not_payed
+    @without_installment = @contacts.without_installment
+    
+    #@contacts_y_memberships = []
+    #@contacts.each do |contact|
+    #  m = Membership.find_current_membership(@account.name, contact.padma_id)
+    #  @contacts_y_memberships << {
+    #    'contact' => contact,
+    #    'membership' => m,
+    #    'installment' => m.nil? ? nil : m.installments.select { |i| i.due_on.to_date.month == Date.today.month}.first
+    #    }
+    #end
+
     #@memberships = Membership.find_current_memberships_for(@account.name)
   end
 

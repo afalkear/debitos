@@ -44,6 +44,11 @@ class Contact < ActiveRecord::Base
 
   before_validation :fill_identifier
 
+  scope :payed, -> { where(payed: true) }
+  scope :not_payed, -> { where(payed: false) }
+  scope :without_installment,  -> { where(amount: nil) }
+  scope :with_installment, -> { where('amount is not null') }
+
   def new_debit?
     self.new_debit
   end
@@ -61,6 +66,15 @@ class Contact < ActiveRecord::Base
 
   def full_name
     "#{name} #{last_name}"
+  end
+
+  def synch_with_fnz
+    m = Membership.find_current_membership(account.name, padma_id)
+    self.card_type = m.nil? ? nil : m.payment_type
+    self.amount = m.nil? ? nil : m.installments.select { |i| i.due_on.to_date.month == Date.today.month}.first.value
+    status = m.nil? ? nil : m.installments.select { |i| i.due_on.to_date.month == Date.today.month}.first.status
+    self.payed = status.nil? ? nil : (status == "incomplete" ? false : true)
+    self.save
   end
 
   def self.import(file, bill)
