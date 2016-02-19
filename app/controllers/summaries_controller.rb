@@ -8,22 +8,30 @@ class SummariesController < ApplicationController
   end
 
   def index
+    @account = current_user.current_account
+    @account.contacts.map{|c| c.synch_with_fnz}
+    @contacts = @account.contacts
+    @payed = @contacts.with_installment.payed
+    @not_payed = @contacts.with_installment.not_payed
+    @without_installment = @contacts.without_installment
+
+    #remove this
     visa_establishments = CardCompany.where(name: 'visa')
     raise 'no support for multiple establishments yet' if visa_establishments.count > 2
     @visa = visa_establishments.first
 
-    @visa_cred = @visa.file_candidates('credito')
-    @visa_deb =  @visa.file_candidates('debito')
+    #@visa_cred = @visa.file_candidates('credito')
+    #@visa_deb =  @visa.file_candidates('debito')
 
-    @master_cred = Contact.where(card_company: "MASTER", card_type: "credito", active: true, payed: false)
-    @master_deb = Contact.where(card_company: "MASTER", card_type: "debito", active: true, payed: false)
-    @american_cred = Contact.where(card_company: "AMERICAN", card_type: "credito", active: true, payed: false)
-    @american_deb = Contact.where(card_company: "AMERICAN", card_type: "debito", active: true, payed: false)
+    #@master_cred = Contact.where(card_company: "MASTER", card_type: "credito", active: true, payed: false)
+    #@master_deb = Contact.where(card_company: "MASTER", card_type: "debito", active: true, payed: false)
+    #@american_cred = Contact.where(card_company: "AMERICAN", card_type: "credito", active: true, payed: false)
+    #@american_deb = Contact.where(card_company: "AMERICAN", card_type: "debito", active: true, payed: false)
   end
 
   def download
     file_name = params[:file_name] || "DEBLIQC.txt"
-     
+
     file = File.read(file_name)
     send_data file,
               :filename => file_name,
@@ -36,7 +44,7 @@ class SummariesController < ApplicationController
     visa_establishments = CardCompany.where(name: 'visa')
     raise 'no support for multiple establishments yet' if visa_establishments.count > 2
     @visa = visa_establishments.first
-    
+
     contacts = @visa.file_candidates('credito')
     establishment = @visa.establishment
 
@@ -122,7 +130,7 @@ class SummariesController < ApplicationController
 
     files = []
     contacts.each do |contact|
-      contact_line = contact_register_type + 
+      contact_line = contact_register_type +
                     contact.card_number.to_s.rjust(16, "0")+
                     contact_reserved_space_1+
                     contact.bill.to_s.rjust(8, "0")+
@@ -136,7 +144,7 @@ class SummariesController < ApplicationController
                     mark
       files << contact_line
     end
-    
+
 
     header = first_line #[begin_register_type,constant_type,credit_or_debit," ",establishment.rjust(10, "0"),constant,
                   # date,hour,debit_type,status,begin_reserved,mark]
@@ -184,16 +192,16 @@ class SummariesController < ApplicationController
       f.puts(first_line)
       contacts.each do |contact|
         contact_line = contact_register_type +
-                      contact.card_number.to_s.rjust(16, "0") + 
-                      contact_reserved_space_1 + 
+                      contact.card_number.to_s.rjust(16, "0") +
+                      contact_reserved_space_1 +
                       contact.bill.to_s.rjust(8, "0") +
-                      date + 
-                      transaction_code + 
-                      sprintf("%.02f", contact.amount.to_s).rjust(16, "0").delete(".") + 
+                      date +
+                      transaction_code +
+                      sprintf("%.02f", contact.amount.to_s).rjust(16, "0").delete(".") +
                       contact.identifier.to_s.rjust(15, "0") +
-                      (contact.new_debit? ? "E" : " ") + 
-                      "  " + 
-                      contact_reserved_space_2 + 
+                      (contact.new_debit? ? "E" : " ") +
+                      "  " +
+                      contact_reserved_space_2 +
                       mark
         f.puts(contact_line)
       end
@@ -216,17 +224,17 @@ class SummariesController < ApplicationController
       f.puts(first_line)
       contacts.each do |contact|
         contact_line = establishment.rjust(8, "0") +
-                      "2" + 
-                      contact.card_number.to_s.rjust(16, "0") + 
+                      "2" +
+                      contact.card_number.to_s.rjust(16, "0") +
                       contact.identifier.to_s.rjust(12, "0") +
-                      "001" + 
-                      "999" + 
-                      "01" + 
-                      sprintf("%.02f", contact.amount.to_s).rjust(11, "0").delete(".") + 
-                      Time.now.month.to_s.rjust(5, "0") + #TODO averiguar que es este campo "PERIODO" 
+                      "001" +
+                      "999" +
+                      "01" +
+                      sprintf("%.02f", contact.amount.to_s).rjust(11, "0").delete(".") +
+                      Time.now.month.to_s.rjust(5, "0") + #TODO averiguar que es este campo "PERIODO"
                       " " +
-                      date + 
-                      " "*40 + 
+                      date +
+                      " "*40 +
                       " "*20
         f.puts(contact_line)
       end
@@ -258,13 +266,13 @@ class SummariesController < ApplicationController
       f.puts(first_line)
       contacts.each do |contact|
         contact_line = establishment.rjust(10, "0") +
-                      contact.card_number.to_s.rjust(15, "0") + 
+                      contact.card_number.to_s.rjust(15, "0") +
                       contact.identifier.to_s.rjust(5, "0") + #TODO Averiguar bien estos dos campos, código de servicio y número de servicio
                       contact.identifier.to_s.rjust(10, "0") +
-                      "01" + 
-                      Time.now.year.to_s.rjust(2,"0") + Time.now.month.to_s.rjust(2, "0") + 
-                      sprintf("%.02f", contact.amount.to_s).rjust(11, "0").delete(".") + 
-                      Time.now.year.to_s.rjust(2,"0") + "-" + Time.now.month.to_s.rjust(2, "0") + 
+                      "01" +
+                      Time.now.year.to_s.rjust(2,"0") + Time.now.month.to_s.rjust(2, "0") +
+                      sprintf("%.02f", contact.amount.to_s).rjust(11, "0").delete(".") +
+                      Time.now.year.to_s.rjust(2,"0") + "-" + Time.now.month.to_s.rjust(2, "0") +
                       " "*38
         f.puts(contact_line)
       end

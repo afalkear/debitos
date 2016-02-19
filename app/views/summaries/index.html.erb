@@ -1,21 +1,34 @@
-<% provide(:title, 'Resumen') %>
-<h1>Resumen Total</h1>
+<% if false %>
+  <% provide(:title, 'Resumen') %>
+  <h1>Resumen Total</h1>
 
-<% if !@visa_cred.empty? %>
-  <%= render :partial => "card", :locals => {:contacts => @visa_cred, :card => @visa, :type => "credito", :file_name => 'DEBLIQC.txt'} %>
+  <% if !@visa_cred.empty? %>
+    <%= render :partial => "card", :locals => {:contacts => @visa_cred, :card => @visa, :type => "credito", :file_name => 'DEBLIQC.txt'} %>
+  <% end %>
+  <% if !@visa_deb.empty? %>
+    <%= render :partial => "card", :locals => {:contacts => @visa_deb, :card => @visa, :type => "debito", :file_name => 'DEBLIQD.txt' } %>
+  <% end %>
+  <% if !@master_cred.empty? %>
+  	<%= render :partial => "card", :locals => {:contacts => @master_cred, :card => "MASTER", :type => "credito"} %>
+  <% end %>
+  <% if !@master_deb.empty? %>
+  	<%= render :partial => "card", :locals => {:contacts => @master_deb, :card => "MASTER", :type => "debito"} %>
+  <% end %>
+  <% if !@american_cred.empty? %>
+  	<%= render :partial => "card", :locals => {:contacts => @american_cred, :card => "AMERICAN", :type => "credito"} %>
+  <% end %>
+  <% if !@american_deb.empty? %>
+  	<%= render :partial => "card", :locals => {:contacts => @american_deb, :card => "AMERICAN", :type => "debito"} %>
+  <% end %>
 <% end %>
-<% if !@visa_deb.empty? %>
-  <%= render :partial => "card", :locals => {:contacts => @visa_deb, :card => @visa, :type => "debito", :file_name => 'DEBLIQD.txt' } %>
-<% end %>
-<% if !@master_cred.empty? %>
-	<%= render :partial => "card", :locals => {:contacts => @master_cred, :card => "MASTER", :type => "credito"} %>
-<% end %>
-<% if !@master_deb.empty? %>
-	<%= render :partial => "card", :locals => {:contacts => @master_deb, :card => "MASTER", :type => "debito"} %>
-<% end %>
-<% if !@american_cred.empty? %>
-	<%= render :partial => "card", :locals => {:contacts => @american_cred, :card => "AMERICAN", :type => "credito"} %>
-<% end %>
-<% if !@american_deb.empty? %>
-	<%= render :partial => "card", :locals => {:contacts => @american_deb, :card => "AMERICAN", :type => "debito"} %>
-<% end %>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <%= render "not_payed", contacts: @not_payed %>
+      <%= render "payed", contacts: @payed %>
+      <%= render "without_installment", contacts: @without_installment %>
+    </div>
+  </div>
+</div>

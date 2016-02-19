@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(:version => 20141202043055) do
     t.datetime "updated_at",      :null => false
   end
 
+  create_table "card_companies", :force => true do |t|
+    t.string   "establishment"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.string   "name"
+    t.string   "description"
+    t.integer  "responsible_id"
+  end
+
   create_table "contacts", :force => true do |t|
     t.string   "name"
     t.string   "last_name"
@@ -45,15 +54,6 @@ ActiveRecord::Schema.define(:version => 20141202043055) do
     t.binary   "secret_key"
     t.binary   "secret_iv"
     t.integer  "account_id"
-  end
-
-  create_table "card_companies", :force => true do |t|
-    t.string   "establishment"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
-    t.string   "name"
-    t.string   "description"
-    t.integer  "responsible_id"
   end
 
   create_table "google_users", :force => true do |t|

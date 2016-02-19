@@ -1,5 +1,3 @@
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-  <% @accounts_count.times do |account_number| %>
-    <%= render "accounts_list", account: PadmaAccount.find(@accounts[account_number].name), account_number: account_number %>
-  <% end %>
+  <%= render "accounts_list", account: PadmaAccount.find(@account.name) %>
 </div>

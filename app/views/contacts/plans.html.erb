@@ -25,28 +25,78 @@
             Observaciones
           </th>
         </tr>
-        <% @contacts_y_memberships.each do |aym| %>
+        <% @payed.each do |contact| %>
           <tr>
             <td>
-              <%= aym['contact'].full_name %>
+              <%= contact.full_name %>
             </td>
             <td>
-              <%= aym['contact'].card_company %>
+              <%= contact.card_company %>
             </td>
             <td>
-              <%= aym['contact'].card_type %>
+              <%= contact.card_type %>
             </td>
             <td>
-              <%= aym['membership'].payment_type if aym['membership'] %>
+              <%= contact.card_type %>
             </td>
             <td>
-              <%= aym['installment'].value if aym['installment'] %>
+              <%= contact.amount %>
             </td>
             <td>
-              <%= aym['installment'].status if aym['installment'] %>
+              <%= contact.payed %>
             </td>
             <td>
-              <%= aym['contact'].observations %>
+              <%= contact.observations %>
+            </td>
+          </tr>
+        <% end %>
+        <% @not_payed.each do |contact| %>
+          <tr>
+            <td>
+              <%= contact.full_name %>
+            </td>
+            <td>
+              <%= contact.card_company %>
+            </td>
+            <td>
+              <%= contact.card_type %>
+            </td>
+            <td>
+              <%= contact.card_type %>
+            </td>
+            <td>
+              <%= contact.amount %>
+            </td>
+            <td>
+              <%= contact.payed %>
+            </td>
+            <td>
+              <%= contact.observations %>
+            </td>
+          </tr>
+        <% end %>
+        <% @without_installment.each do |contact| %>
+          <tr>
+            <td>
+              <%= contact.full_name %>
+            </td>
+            <td>
+              <%= contact.card_company %>
+            </td>
+            <td>
+              <%= contact.card_type %>
+            </td>
+            <td>
+              <%= contact.card_type %>
+            </td>
+            <td>
+              <%= contact.amount %>
+            </td>
+            <td>
+              <%= contact.payed %>
+            </td>
+            <td>
+              <%= contact.observations %>
             </td>
           </tr>
         <% end %>

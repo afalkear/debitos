@@ -1,0 +1,51 @@
+<h1>Payed</h1>
+<table class="table">
+  <tr>
+    <th>
+      Contact
+    </th>
+    <th>
+      Compañía
+    </th>
+    <th>
+      Tipo
+    </th>
+    <th>
+      En FNZ
+    </th>
+    <th>
+      Monto
+    </th>
+    <th>
+      Pagó?
+    </th>
+    <th>
+      Observaciones
+    </th>
+  </tr>
+  <% contacts.each do |contact| %>
+    <tr>
+      <td>
+        <%= contact.full_name %>
+      </td>
+      <td>
+        <%= contact.card_company %>
+      </td>
+      <td>
+        <%= contact.card_type %>
+      </td>
+      <td>
+        <%= contact.card_type %>
+      </td>
+      <td>
+        <%= contact.amount %>
+      </td>
+      <td>
+        <%= contact.payed %>
+      </td>
+      <td>
+        <%= contact.observations %>
+      </td>
+    </tr>
+  <% end %>
+</table>

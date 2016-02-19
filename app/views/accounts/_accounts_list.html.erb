@@ -1,14 +1,13 @@
 <div class="panel panel-default">
-  <div class="panel-heading <%= account_number == 0 ? "": "collapsed" %>" data-parent="#accordion" data-toggle="collapse" role="tab" id="<%= account_number %>" href="#<%= "collapse-#{account_number}" %>" aria-expanded="<%= account_number == 0 ? "true": "false" %>" aria-controls="<%= "collapse-#{account_number}" %>">
+  <div class="">
     <h4 class="panel-title">
       <a>
         <%= account.name.humanize %>
       </a>
     </h4>
   </div>
-  <div id="<%= "collapse-#{account_number}" %>" class="panel-collapse collapse <%= account_number == 0 ? "in": "" %>" role="tabpanel" aria-labelledby="<%= account_number %>">
+  <div class="">
     <div class="panel-body">
-      
       <% local_account = Account.where(name: account.name).first %>
       <% if local_account.nil? %>
         <div class="row">

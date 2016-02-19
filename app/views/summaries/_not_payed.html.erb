@@ -1,0 +1,37 @@
+<h1>Not Payed</h1>
+<% card_companies = contacts.group_by(&:card_type) %>
+<% card_companies.each do |card_company| %>
+  <h3><%= card_company[0] %> </h3>
+  <table class="table <%= card_company[0]%>">
+    <tr>
+      <th>
+        Contact
+      </th>
+      <th>
+        Monto
+      </th>
+      <th>
+        Pagó?
+      </th>
+      <th>
+        Observaciones
+      </th>
+    </tr>
+    <% card_company[1].each do |contact| %>
+      <tr>
+        <td>
+          <%= contact.full_name %>
+        </td>
+        <td>
+          <%= contact.amount %>
+        </td>
+        <td>
+          <%= contact.payed %>
+        </td>
+        <td>
+          <%= contact.observations %>
+        </td>
+      </tr>
+    <% end %>
+    </table>
+  <% end %>
