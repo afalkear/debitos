@@ -7,12 +7,12 @@ class Presentation < ActiveRecord::Base
       card_contacts = @contacts.where(card_type: type, active: true, payed: false)
 
       summary = generate_visa_summary(
-                        type, 
-                        @card_company.establishment, 
-                        card_contacts.count, 
+                        type,
+                        @card_company.establishment,
+                        card_contacts.count,
                         card_contacts.sum("amount")
                         )
-      filename = if type = "credit"
+      filename = if type == "credit"
                   "DEBLIQC.txt"
                 else
                   "DEBLIQD.txt"
@@ -57,7 +57,7 @@ class Presentation < ActiveRecord::Base
 
       files = []
       contacts.each do |contact|
-        contact_line = contact_register_type + 
+        contact_line = contact_register_type +
                       contact.card_number.to_s.rjust(16, "0")+
                       contact_reserved_space_1+
                       contact.bill.to_s.rjust(8, "0")+
@@ -72,7 +72,7 @@ class Presentation < ActiveRecord::Base
         files << contact_line
       end
 
-      header = first_line 
+      header = first_line
       footer = end_line
 
       return [header, files, footer]

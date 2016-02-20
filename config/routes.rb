@@ -11,6 +11,7 @@ Debitos::Application.routes.draw do
   # end
 
 
+  resources :presentations
   resources :accounts do
     resources :contacts do
       collection { get :plans }
@@ -21,15 +22,14 @@ Debitos::Application.routes.draw do
       collection { post :set_multiple_inactive}
       collection { get :synch_with_contacts }
     end
-    resources :presentations
-    
+
     resources :card_companies do
       resources :presentations
     end
   end
   resources :responsibles
   resources :card_companies
-  
+
   # resources :sessions, only: [:new, :create, :destroy]
   resources :summaries do
     collection {get "download"}
@@ -37,7 +37,7 @@ Debitos::Application.routes.draw do
   resources :google_users, only: [:new, :create, :destroy]
 
   root to: 'accounts#index'
-  
+
   # match '/signup',  to: 'users#new'
   # match '/signin', to: 'sessions#new'
   # match '/signout', to: 'sessions#destroy', via: :delete

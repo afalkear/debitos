@@ -10,13 +10,14 @@ class PresentationsController < ApplicationController
   end
 
   def new
-    @card_company = CardCompany.find(params[:card_company_id])
+    #@card_company = CardCompany.find(params[:card_company_id])
     @presentation = Presentation.new
-    @contacts = @account.contacts.where(card_company: @card_company.name)
+    @contacts = Contact.find(params[:contact][:ids])
   end
 
   def create
-    @presentation = Presentation.new
+    @presentation = Presentation.create(params[:presentation])
+    @presentation.generate_visa_file("credit")
   end
 
   def edit
@@ -44,15 +45,16 @@ class PresentationsController < ApplicationController
   end
 
   def check_account
-    session[:return_to] = request.referer
+    @account = current_user.current_account
+    #session[:return_to] = request.referer
 
-    account = Account.find(params[:account_id])
-    if current_user.accounts.map(&:name).include? account.name
-      @account = account
-    else
-      @account = nil
-      flash[:warning] = "You cannot make changes for that account"
-      redirect_to session.delete(:return_to)
-    end
+    #account = Account.find(params[:account_id])
+    #if current_user.accounts.map(&:name).include? account.name
+   #   @account = account
+    #else
+    #  @account = nil
+    #  flash[:warning] = "You cannot make changes for that account"
+    #  redirect_to session.delete(:return_to)
+    #end
   end
 end

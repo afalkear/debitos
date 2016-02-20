@@ -1,7 +1,13 @@
 <h1>Not Payed</h1>
 <% card_companies = contacts.group_by(&:card_type) %>
 <% card_companies.each do |card_company| %>
-  <h3><%= card_company[0] %> </h3>
+  <h3>
+    <%= card_company[0] %>
+    <%= link_to "Generar resumen",
+    new_presentation_path(
+    contact: {ids: card_company[1].map(&:id)}),
+    class: "btn btn-default" %>
+  </h3>
   <table class="table <%= card_company[0]%>">
     <tr>
       <th>

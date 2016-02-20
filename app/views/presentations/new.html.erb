@@ -1,20 +1,27 @@
 <div class="container">
   <div class="row">
     <div class="col-md-10">
-      <h1>Contacts for <%= @card_company.name %> on <%= @account.padma.full_name %></h1>
+      <h1>Presentation of <%= params[:card_type] %></h1>
       <table class="table table-stripped table-bordered">
-        <th>Name</th>
-        <th>Identifier</th>
-        <th>Plan</th>
-        <th>Amount</th>
-        <% @contacts.where(payed: false).each do |contact| %>
-          <tr><%= contact.name %> <%= contact.last_name %></tr>
-          <tr><%= contact.identifier %></tr>
-          <tr><%= contact.plan %></tr>
-          <tr><%= contact.amount %></tr>
+        <tr>
+          <th>Name</th>
+          <th>Identifier</th>
+          <th>Plan</th>
+          <th>Amount</th>
+        </tr>
+        <% @contacts.each do |contact| %>
+        <tr>
+          <td><%= contact.name %> <%= contact.last_name %></td>
+          <td><%= contact.identifier %></td>
+          <td><%= contact.card_type %></td>
+          <td><%= contact.amount %></td>
+        </tr>
         <% end %>
       </table>
-      <%= link_to "Create Presentation", new_account_card_company_presentation_path(card_company_id: @card_company.id, account_id: @account.id), class: "btn btn-default" %>
+      <%= form_for @presentation, url: { action: "create" } do |f| %>
+        <%= f.collection_select(:card_company_id, CardCompany.all, :id, :name) %>
+        <%= f.submit "create", class: "btn btn-default" %>
+      <% end %>
     </div>
   </div>
 </div>
