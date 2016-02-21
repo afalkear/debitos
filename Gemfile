@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.11'
+gem 'rails', '3.2.22'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'faker', '1.0.1'
 gem 'roo', '~> 1.13.0'
@@ -38,13 +38,17 @@ gem 'devise_cas_authenticatable'
 # authentication
 gem 'cancan'
 
+# Administration
+#gem "administrate", "~> 0.1.3"
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :development, :test do
   # gem 'sqlite3', '1.3.5'
   gem 'rspec-rails', '2.11.0'
-  gem 'pg'
+  gem 'test-unit'
+  gem 'pg','~> 0.18.4'
 end
 
 group :development do
@@ -70,7 +74,7 @@ group :test do
 end
 
 group :production do
-  gem 'pg'
+  gem 'pg', '~> 0.18.4'
 end
 
 # To use ActiveModel has_secure_password

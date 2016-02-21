@@ -17,6 +17,20 @@
           <td><%= contact.amount %></td>
         </tr>
         <% end %>
+        <tr>
+          <td>
+            Total
+          </td>
+          <td>
+
+          </td>
+          <td>
+
+          </td>
+          <td>
+            <%= @contacts.map{|c| c.amount}.sum %>
+          </td>
+        </tr>
       </table>
       <%= form_for @presentation, url: { action: "create" } do |f| %>
         <%= f.collection_select(:card_company_id, CardCompany.all, :id, :name) %>
