@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.1'
-gem 'bcrypt-ruby', '3.0.1'
+gem 'rails', '4.2'
+gem 'bcrypt-ruby', '3.1.5'
 gem 'faker', '1.0.1'
 gem 'roo', '~> 1.13.0'
 gem 'best_in_place', github: "bernat/best_in_place"
@@ -11,19 +11,21 @@ gem 'therubyracer'
 gem 'simple_form', '~> 3.1.0'
 gem 'cocoon'
 gem 'strongbox'
+gem 'turbolinks'
 
 # gems that used to be in the asset group
 gem 'sass-rails',   '5.0.4'
-gem 'coffee-rails', '4.1.1'
+gem 'coffee-rails'
 gem 'uglifier', '1.2.3'
 gem 'activeresource'
 
 # View
 # paginate and bootstrap
-gem 'will_paginate', '3.0.3'
-gem 'bootstrap-will_paginate', '0.0.6'
-gem "less-rails", "~> 2.6.0"
-gem 'less-rails-bootstrap', '~> 3.3.1.0'
+gem 'will_paginate', '3.1.0'
+# gem 'bootstrap-will_paginate', '0.0.6'
+# gem 'kaminari'
+gem "less-rails", "~> 2.7.1"
+gem 'less-rails-bootstrap'
 
 gem 'jquery-rails'
 gem 'figaro'
@@ -35,8 +37,9 @@ gem 'figaro'
 gem 'protected_attributes'
 
 # Padma Clients
-gem 'accounts_client', '~> 0.2.19'
-gem 'contacts_client', '~> 0.0.31'
+gem 'logical_model', path: "/home/alex/workspace/logical_model"
+gem 'accounts_client', path: "/home/alex/workspace/accounts_client" #'~> 0.2.19'
+gem 'contacts_client', path: "/home/alex/workspace/contacts_client" #'~> 0.0.31'
 gem 'fnz_client', path: "/home/alex/workspace/fnz_client"#'~> 0.0.3'
 
 # CAS authentication
@@ -47,7 +50,7 @@ gem 'devise_cas_authenticatable'
 gem 'cancan'
 
 # Administration
-#gem "administrate"
+gem "administrate"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -58,6 +61,7 @@ group :development, :test do
   gem 'test-unit'
   gem 'pg','~> 0.18.4'
   gem 'spring'
+  gem 'web-console', '~> 2.0'
 end
 
 group :development do

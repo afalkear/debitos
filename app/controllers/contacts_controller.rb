@@ -1,11 +1,11 @@
 # encoding: utf-8
 
 class ContactsController < ApplicationController
-  respond_to :html, :json
+  #respond_to :html, :json
   before_filter :check_account
 
   def index
-    @contacts = @account.contacts.paginate(page: params[:page], :conditions => {:active => true}).order('name ASC')
+    @contacts = @account.contacts.where(active: true) #.page(params[:page]).order('name ASC')
 
     respond_to do |format|
       format.html

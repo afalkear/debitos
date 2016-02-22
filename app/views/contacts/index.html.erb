@@ -2,16 +2,16 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <%= render "layouts/breadcrumbs", 
-            type: "Contacts", 
-            alert: "info", 
+      <%= render "layouts/breadcrumbs",
+            type: "Contacts",
+            alert: "info",
             pages: [
-                      {name: "Home", path: root_path}, 
+                      {name: "Home", path: root_path},
                       {name: "Account", path: account_path(@account.id)},
                       {name: "Contacts", path: nil}
-                    ] 
+                    ]
       %>
-      
+
     </div>
   </div>
   <div class="row">
@@ -23,7 +23,7 @@
           <button class="btn btn-primary" id="csv-students-button">Desde un CSV</button>
         </div>
       </h3>
-      
+
       <div class="row" id="import-students-from-CRM" class="students-toggle">
         <div class="col-md-12">
           <div class="alert alert-info">
@@ -39,7 +39,7 @@
           <div class="alert alert-info">
             <h2>Importar contacts de CSV</h2>
             <h5>Los headers aceptados son:</h5>
-            <h6>id name last_name identifier amount card_type card_company padma_id instructor plan due_date payed payment observations bill 
+            <h6>id name last_name identifier amount card_type card_company padma_id instructor plan due_date payed payment observations bill
                           active new_debit user_id secret secret_key secret_iv card_company_id</h6>
             <%= form_tag import_account_contacts_path(@account.id), multipart: true do %>
               <%= file_field_tag :file %>
@@ -75,10 +75,8 @@
           <%= link_to "JSON", account_contacts_path(account_id: @account.id, format: "json") %>
         </p>
 
-        <%= will_paginate %>
-
         <%= form_tag set_multiple_inactive_account_contacts_path(@account.id) do %>
-        <%= button_to_function "Check / Uncheck All", "toggleChecked()" %>
+        <button id="toggle_all_contacts"> "Check / Uncheck All" </button>
         <%= submit_tag "Eliminar los elegidos" %>
         <br>
         <%= link_to "Agregar contact nuevo", new_account_contact_path(@account.id), class: "btn btn-large btn-primary" %>
@@ -101,13 +99,7 @@
             <%= render @contacts %>
           </table>
         <% end %>
-
-        <%= will_paginate %>
       </div>
     </div>
   <% end %>
 </div>
-
-<script type='text/javascript'>
-    var toggleChecked = function() { $('input[type="checkbox"]').click(); };
-</script>
