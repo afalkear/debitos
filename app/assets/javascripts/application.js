@@ -17,6 +17,5 @@
 //= require best_in_place
 //= require best_in_place.purr
 //= require bootstrap
-//= require jquery.payment
 //= require cocoon
 //= require_tree .

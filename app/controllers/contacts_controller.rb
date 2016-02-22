@@ -46,7 +46,7 @@ class ContactsController < ApplicationController
 
 
     respond_to do |format|
-      if @contact.update_attributes(params[:contact])
+      if @contact.update_attributes(contact_params)
         format.html { redirect_to(@index, :notice => 'User was successfully updated.') }
         format.json { respond_with_bip(@contact) }
       else
@@ -130,7 +130,7 @@ class ContactsController < ApplicationController
     @payed = @contacts.with_installment.payed
     @not_payed = @contacts.with_installment.not_payed
     @without_installment = @contacts.without_installment
-    
+
     #@contacts_y_memberships = []
     #@contacts.each do |contact|
     #  m = Membership.find_current_membership(@account.name, contact.padma_id)
@@ -160,5 +160,9 @@ class ContactsController < ApplicationController
       flash[:warning] = "You cannot make changes for that account"
       redirect_to session.delete(:return_to)
     end
+  end
+
+  def contact_params
+    params.require(:contact).permit!
   end
 end

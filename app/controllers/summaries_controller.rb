@@ -279,4 +279,8 @@ class SummariesController < ApplicationController
       f.puts(end_line)
     end
   end
+
+  def summary_params
+    params.require(:summary).permit!
+  end
 end

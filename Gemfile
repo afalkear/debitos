@@ -1,16 +1,22 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.22'
+gem 'rails', '4.1'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'faker', '1.0.1'
 gem 'roo', '~> 1.13.0'
-gem 'best_in_place'
+gem 'best_in_place', github: "bernat/best_in_place"
 gem 'google_drive'
 gem 'execjs'
 gem 'therubyracer'
-gem 'simple_form'
+gem 'simple_form', '~> 3.1.0'
 gem 'cocoon'
 gem 'strongbox'
+
+# gems that used to be in the asset group
+gem 'sass-rails',   '5.0.4'
+gem 'coffee-rails', '4.1.1'
+gem 'uglifier', '1.2.3'
+gem 'activeresource'
 
 # View
 # paginate and bootstrap
@@ -23,23 +29,25 @@ gem 'jquery-rails'
 gem 'figaro'
 
 # to validate credit card info on the client-side
-gem 'jquery-payment-rails'
+# gem 'jquery-payment-rails'
 
+# logical_model uses MassAssignmentSecurity
+gem 'protected_attributes'
 
 # Padma Clients
-gem 'accounts_client', '~> 0.2.6'
+gem 'accounts_client', '~> 0.2.19'
 gem 'contacts_client', '~> 0.0.31'
 gem 'fnz_client', path: "/home/alex/workspace/fnz_client"#'~> 0.0.3'
 
 # CAS authentication
-gem 'devise'
+gem 'devise', '3.5.6'
 gem 'devise_cas_authenticatable'
 
 # authentication
 gem 'cancan'
 
 # Administration
-#gem "administrate", "~> 0.1.3"
+#gem "administrate"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -49,6 +57,7 @@ group :development, :test do
   gem 'rspec-rails', '2.11.0'
   gem 'test-unit'
   gem 'pg','~> 0.18.4'
+  gem 'spring'
 end
 
 group :development do
@@ -58,15 +67,6 @@ group :development do
   gem 'meta_request'
   gem 'git-pivotal-tracker-integration'
 end
-
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sass-rails',   '3.2.5'
-  gem 'coffee-rails', '3.2.2'
-  gem 'uglifier', '1.2.3'
-end
-
 
 group :test do
   # gem 'capybara'

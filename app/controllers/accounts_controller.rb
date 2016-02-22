@@ -52,4 +52,8 @@ class AccountsController < ApplicationController
     end
   end
 
+  def account_params
+    params.permit(:name, :account_name, :id)
+  end
+
 end

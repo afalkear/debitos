@@ -29,8 +29,6 @@
 
 # @attribute active [Booelan] used for soft-delete. false means contact has been "deleted"
 class Contact < ActiveRecord::Base
-  attr_accessible :amount, :card_company_id, :card_number, :card_type, :identifier, :last_name, :name,
-    :instructor, :plan, :due_date, :payed, :payment, :observations, :bill, :new_debit, :active, :secret, :padma_id
   validates :name, presence: true
   encrypt_with_public_key :secret,
                           :base64 => true,

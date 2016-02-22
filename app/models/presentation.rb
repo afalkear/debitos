@@ -1,5 +1,4 @@
 class Presentation < ActiveRecord::Base
-  attr_accessible :account_id, :card_company_id, :summary
 
   private
     def generate_visa_file(type)

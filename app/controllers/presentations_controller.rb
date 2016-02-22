@@ -16,7 +16,7 @@ class PresentationsController < ApplicationController
   end
 
   def create
-    @presentation = Presentation.create(params[:presentation])
+    @presentation = Presentation.create(presentation_params)
     @presentation.generate_visa_file("credit")
   end
 
@@ -56,5 +56,9 @@ class PresentationsController < ApplicationController
     #  flash[:warning] = "You cannot make changes for that account"
     #  redirect_to session.delete(:return_to)
     #end
+  end
+
+  def presentation_params
+    params.require(:presentation).permit!
   end
 end

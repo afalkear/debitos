@@ -12,6 +12,8 @@
 #  admin           :boolean          default(FALSE)
 #
 
+require "accounts_client"
+
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
@@ -19,15 +21,17 @@ class User < ActiveRecord::Base
   #        :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  #attr_accessible :email, :password, :password_confirmation, :remember_me,
-  attr_accessible :email, :name, :card_companies_attributes, :username, :current_account_id
+  # attr_accessible :email, :password, :password_confirmation, :remember_me,
   #:password, :password_confirmation, :card_companies_attributes, :username
+
+  # CHEQUEAR QUE ONDA CON ESTOOOO
+  include Accounts::IsAUser
+
   has_many :google_users, :dependent => :destroy
   has_many :card_companies, :dependent => :destroy
   # has_secure_password
 
   devise :cas_authenticatable
-  include Accounts::IsAUser
 
   belongs_to :current_account, :class_name => "Account"
 
@@ -42,7 +46,7 @@ class User < ActiveRecord::Base
   # VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   # validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
   #   uniqueness: { case_sensitive: false }
-    
+
   # validates_presence_of :password_confirmation, length: { minimum: 6 }, :if => :password_present?
   # validates_confirmation_of :password, :if => :password_present?
 

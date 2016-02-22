@@ -2,7 +2,7 @@ class ResponsiblesController < ApplicationController
   #TODO add more security, check if the user can manage this model
 
   def index
-    
+
   end
 
   def new
@@ -36,7 +36,7 @@ class ResponsiblesController < ApplicationController
 
   def update
     @responsible = Responsible.find(params[:id])
-    if @responsible.update(params[:responsible])
+    if @responsible.update(responsible_params)
       flash[:success] = "Updated"
       redirect_to responsible_path(@responsible.id)
     else
@@ -48,5 +48,9 @@ class ResponsiblesController < ApplicationController
   def destroy
     @responsible = Responsible.find(params[:id])
     @responsible.destroy
+  end
+
+  def responsible_params
+    params.require(:responsible).permit!
   end
 end

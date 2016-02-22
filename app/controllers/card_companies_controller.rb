@@ -19,4 +19,9 @@ class CardCompaniesController < ApplicationController
     flash[:success] = "Card company deleted"
     @card_company.destroy
   end
+
+  def card_companies_params
+    # insert here the allowed params
+    # params.permit(:id)
+  end
 end
