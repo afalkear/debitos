@@ -28,7 +28,7 @@
         <div class="col-md-12">
           <div class="alert alert-info">
             <h2>Importar contacts de PADMA</h2>
-            <%= link_to synch_with_contacts_account_contacts_path(@account.id), class: "btn btn-primary" do %>
+            <%= link_to synch_with_contacts_contacts_path, class: "btn btn-primary" do %>
               Synch with PADMA
             <% end %>
           </div>
@@ -41,7 +41,7 @@
             <h5>Los headers aceptados son:</h5>
             <h6>id name last_name identifier amount card_type card_company padma_id instructor plan due_date payed payment observations bill
                           active new_debit user_id secret secret_key secret_iv card_company_id</h6>
-            <%= form_tag import_account_contacts_path(@account.id), multipart: true do %>
+            <%= form_tag import_contacts_path(@account.id), multipart: true do %>
               <%= file_field_tag :file %>
               <%= text_field_tag :bill %>
               <%= submit_tag "Importar" %>
@@ -70,16 +70,16 @@
 
         <p>
           Download:
-          <%= link_to "CSV", account_contacts_path(account_id: @account.id, format: "csv") %> |
-          <%= link_to "Excel", account_contacts_path(account_id: @account.id, format: "xls") %> |
-          <%= link_to "JSON", account_contacts_path(account_id: @account.id, format: "json") %>
+          <%= link_to "CSV", contacts_path(account_id: @account.id, format: "csv") %> |
+          <%= link_to "Excel", contacts_path(account_id: @account.id, format: "xls") %> |
+          <%= link_to "JSON", contacts_path(account_id: @account.id, format: "json") %>
         </p>
 
-        <%= form_tag set_multiple_inactive_account_contacts_path(@account.id) do %>
+        <%= form_tag set_multiple_inactive_contacts_path(@account.id) do %>
         <button id="toggle_all_contacts"> "Check / Uncheck All" </button>
         <%= submit_tag "Eliminar los elegidos" %>
         <br>
-        <%= link_to "Agregar contact nuevo", new_account_contact_path(@account.id), class: "btn btn-large btn-primary" %>
+        <%= link_to "Agregar contact nuevo", new_contact_path(@account.id), class: "btn btn-large btn-primary" %>
         <br>
         <br>
           <table class="contacts table table-hover">

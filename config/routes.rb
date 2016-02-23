@@ -23,16 +23,16 @@ Debitos::Application.routes.draw do
 
 
   resources :presentations
+  resources :contacts do
+    collection { get :plans }
+    collection { post :import }
+    collection { post :edit_multiple}
+    collection { post :update_multiple}
+    collection { post :delete_multiple}
+    collection { post :set_multiple_inactive}
+    collection { get :synch_with_contacts }
+  end
   resources :accounts do
-    resources :contacts do
-      collection { get :plans }
-      collection { post :import }
-      collection { post :edit_multiple}
-      collection { post :update_multiple}
-      collection { post :delete_multiple}
-      collection { post :set_multiple_inactive}
-      collection { get :synch_with_contacts }
-    end
 
     resources :card_companies do
       resources :presentations

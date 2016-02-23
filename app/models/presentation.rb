@@ -1,15 +1,17 @@
 class Presentation < ActiveRecord::Base
 
-  private
-    def generate_visa_file(type)
-      @card_company.establishment
-      card_contacts = @contacts.where(card_type: type, active: true, payed: false)
+  def generate_file(card_company, card_type, contacts)
+    filename = generate_visa_file(card_company, card_type, contacts)
+  end
 
+  private
+    def generate_visa_file(card_company, type, contacts)
       summary = generate_visa_summary(
                         type,
-                        @card_company.establishment,
-                        card_contacts.count,
-                        card_contacts.sum("amount")
+                        card_company.establishment,
+                        contacts.count,
+                        contacts.sum(&:amount),
+                        contacts
                         )
       filename = if type == "credit"
                   "DEBLIQC.txt"
@@ -17,15 +19,11 @@ class Presentation < ActiveRecord::Base
                   "DEBLIQD.txt"
                 end
 
-      file = write_file(filename, credit_summary)
+      write_file(filename, summary)
+      filename
     end
 
-    def generate_visa_summary(type, establishment, contact_count, total_amount)
-      if type == "credit"
-        filename = "DEBLIQC"
-      else
-        filename = "DEBLIQD"
-      end
+    def generate_visa_summary(type, establishment, contact_count, total_amount, contacts)
       begin_register_type = "0"
       end_register_type = "9"
       constant_type = "DEBLIQ"

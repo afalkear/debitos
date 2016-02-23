@@ -5,21 +5,21 @@
 <% end%>
   <td><%= check_box_tag "contact_ids[]", contact.id %></td>
   <td><%= link_to "#{contact.full_name}", "http://crm.padm.am/contacts/" + contact.padma_id.to_s %></td>
-  <td><%= best_in_place [@account,contact], :identifier, class: "forum" %></td>
+  <td><%= best_in_place contact, :identifier, class: "forum" %></td>
   <% if false %>
-    <td><%= best_in_place [@account,contact], :bill, class: "forum" %></td>
+    <td><%= best_in_place contact, :bill, class: "forum" %></td>
   <% end %>
   <td>
-    <%= best_in_place [@account, contact], :secret_value %>
+    <%= best_in_place contact, :secret_value %>
   </td>
-  <td><%= best_in_place [@account,contact], :card_company_id, as: :select, collection: @account.responsibles.first.card_companies.map{|cc| [cc.id, cc.description]} %></td>
-  <td><%= best_in_place [@account,contact], :card_type, as: :select, collection: [["credito", "credito"], ["debito", "debito"]], class: "forum" %></td>
+  <td><%= best_in_place contact, :card_company_id, as: :select, collection: @account.responsibles.first.card_companies.map{|cc| [cc.id, cc.description]} %></td>
+  <td><%= best_in_place contact, :card_type, as: :select, collection: [["credito", "credito"], ["debito", "debito"]], class: "forum" %></td>
   <td><%= contact.plan%></td>
-  <td><%= best_in_place [@account,contact], :amount, class: "forum" %></td>
-  <td><%= best_in_place [@account,contact], :payed, as: :checkbox, collection: %w[No Si], class: "forum" %></td>
+  <td><%= best_in_place contact, :amount, class: "forum" %></td>
+  <td><%= best_in_place contact, :payed, as: :checkbox, collection: %w[No Si], class: "forum" %></td>
   <td><%= contact.observations%></td>
   <td>
-    <%= link_to [@account,contact], method: :delete, data: { confirm: "You sure?" } do %>
+    <%= link_to contact, method: :delete, data: { confirm: "You sure?" } do %>
       <i class="icon-trash"></i>
     <% end %>
   </td>

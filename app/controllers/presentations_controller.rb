@@ -17,7 +17,12 @@ class PresentationsController < ApplicationController
 
   def create
     @presentation = Presentation.create(presentation_params)
-    @presentation.generate_visa_file("credit")
+    contacts = Contact.find(params[:ids].split(" "))
+    card_company = CardCompany.find(params[:presentation][:card_company_id])
+    filename = @presentation.generate_file(card_company, params[:presentation][:type], contacts)
+
+    send_file "#{Rails.root}/#{filename}", type: 'text/html'
+    #@presentation.generate_visa_file("credit")
   end
 
   def edit

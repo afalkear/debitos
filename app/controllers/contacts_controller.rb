@@ -152,14 +152,14 @@ class ContactsController < ApplicationController
   def check_account
     session[:return_to] = request.referer
 
-    account = Account.find(params[:account_id])
-    if current_user.accounts.map(&:name).include? account.name
-      @account = account
-    else
-      @account = nil
-      flash[:warning] = "You cannot make changes for that account"
-      redirect_to session.delete(:return_to)
-    end
+    @account = current_user.current_account
+    #if current_user.accounts.map(&:name).include? account.name
+    #  @account = account
+    #else
+    #  @account = nil
+    #  flash[:warning] = "You cannot make changes for that account"
+    #  redirect_to session.delete(:return_to)
+    #end
   end
 
   def contact_params
