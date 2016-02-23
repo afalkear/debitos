@@ -1,14 +1,13 @@
 Debitos::Application.routes.draw do
   namespace :admin do
-    resources :users
-resources :accounts
-resources :card_companies
-resources :contacts
-resources :google_users
-resources :presentations
-resources :responsibles
-
-    root to: "users#index"
+    #resources :users
+    #resources :accounts
+    #resources :card_companies
+    #resources :contacts
+    #resources :google_users
+    #resources :presentations
+    #resources :responsibles
+    #root to: "users#index"
   end
 
   devise_for :users

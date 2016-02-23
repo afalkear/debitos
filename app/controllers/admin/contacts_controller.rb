@@ -3,10 +3,11 @@ module Admin
     # To customize the behavior of this controller,
     # simply overwrite any of the RESTful actions. For example:
     #
-    # def index
-    #   super
-    #   @resources = Contact.all.paginate(10, params[:page])
-    # end
+    def index
+     super
+     page = params[:page] || 1
+     @resources = Contact.all.paginate(page: page)
+    end
 
     # Define a custom finder by overriding the `find_resource` method:
     # def find_resource(param)

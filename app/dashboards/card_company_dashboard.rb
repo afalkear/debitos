@@ -8,12 +8,12 @@ class CardCompanyDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    responsible: Field::BelongsTo,
-    contacts: Field::HasMany,
-    id: Field::Number,
-    establishment: Field::String,
-    created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    #responsible: Field::BelongsTo,
+    #contacts: Field::HasMany,
+    #id: Field::Number,
+    #establishment: Field::String,
+    #created_at: Field::DateTime,
+    #updated_at: Field::DateTime,
     name: Field::String,
     description: Field::String,
   }
@@ -24,21 +24,21 @@ class CardCompanyDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :responsible,
-    :contacts,
-    :id,
-    :establishment,
+    #:responsible,
+    #:contacts,
+    #:id,
+    #:establishment,
   ]
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :responsible,
-    :contacts,
-    :id,
-    :establishment,
-    :created_at,
-    :updated_at,
+    #:responsible,
+    #:contacts,
+    #:id,
+    #:establishment,
+    #:created_at,
+    #:updated_at,
     :name,
     :description,
   ]
@@ -47,9 +47,9 @@ class CardCompanyDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :responsible,
-    :contacts,
-    :establishment,
+    #:responsible,
+    #:contacts,
+    #:establishment,
     :name,
     :description,
   ]

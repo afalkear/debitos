@@ -14,6 +14,7 @@
 class CardCompany < ActiveRecord::Base
   CARD_COMPANIES = %w(visa master amex)
 
+  attr_accessible :name, :description
   belongs_to :responsible
   validates :name, :inclusion => { :in => CARD_COMPANIES,
             :message => "%{value}is not an acceptable name. You have to submit a valid credit card company" }
