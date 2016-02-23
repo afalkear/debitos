@@ -33,7 +33,7 @@
         </tr>
       </table>
       <%= form_for @presentation, url: { action: "create" } do |f| %>
-        #TODO aca hay que hacer que el select sea de los card companies que estan asociados al responsible de esa cuenta.
+        ##TODO aca hay que hacer que el select sea de los card companies que estan asociados al responsible de esa cuenta.
         Ahora estoy tomando al responsible como el primero
         <br>
         <%= f.collection_select(:card_company_id, current_user.current_account.responsibles.first.card_companies, :id, :name) %>
