@@ -37,10 +37,10 @@ gem 'figaro'
 gem 'protected_attributes'
 
 # Padma Clients
-gem 'logical_model', path: "/home/alex/workspace/logical_model"
-gem 'accounts_client', path: "/home/alex/workspace/accounts_client" #'~> 0.2.19'
-gem 'contacts_client', path: "/home/alex/workspace/contacts_client" #'~> 0.0.31'
-gem 'fnz_client', path: "/home/alex/workspace/fnz_client"#'~> 0.0.3'
+#gem 'logical_model', path: "/home/alex/workspace/logical_model"
+gem 'accounts_client'#, path: "/home/alex/workspace/accounts_client" #'~> 0.2.19'
+gem 'contacts_client'#, path: "/home/alex/workspace/contacts_client" #'~> 0.0.31'
+gem 'fnz_client'#, path: "/home/alex/workspace/fnz_client"#'~> 0.0.3'
 
 # CAS authentication
 gem 'devise', '3.5.6'
