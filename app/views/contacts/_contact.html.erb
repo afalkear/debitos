@@ -9,18 +9,9 @@
   <% if false %>
     <td><%= best_in_place [@account,contact], :bill, class: "forum" %></td>
   <% end %>
-  <% if false && contact.secret.nil? %>
-    <td><%= best_in_place [@account,contact], :secret, :place_holder => "Ingrese número de tarjeta" %></td>
-  <% elsif false %>
-    <td><%= best_in_place [@account,contact], :secret,
-                        class: "forum contact_secret",
-                        display_as: :number_for_humans %></td>
-  <% else %>
   <td>
-    no se puede modificar por ahora
-    <%= contact.number_for_humans %>
+    <%= best_in_place [@account, contact], :secret_value %>
   </td>
-  <% end %>
   <td><%= best_in_place [@account,contact], :card_company_id, as: :select, collection: @account.responsibles.first.card_companies.map{|cc| [cc.id, cc.description]} %></td>
   <td><%= best_in_place [@account,contact], :card_type, as: :select, collection: [["credito", "credito"], ["debito", "debito"]], class: "forum" %></td>
   <td><%= contact.plan%></td>

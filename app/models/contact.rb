@@ -29,6 +29,7 @@
 
 # @attribute active [Booelan] used for soft-delete. false means contact has been "deleted"
 class Contact < ActiveRecord::Base
+  attr_accessor :secret_value
   validates :name, presence: true
   encrypt_with_public_key :secret,
                           :base64 => true,
@@ -49,6 +50,15 @@ class Contact < ActiveRecord::Base
 
   def new_debit?
     self.new_debit
+  end
+
+  def secret_value=(value)
+    self.secret = value
+    self.save
+  end
+
+  def secret_value
+    self.secret.nil? ? "" : self.number_for_humans
   end
 
   def set_inactive
