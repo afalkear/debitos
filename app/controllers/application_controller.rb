@@ -33,6 +33,12 @@ class ApplicationController < ActionController::Base
 
   # CAS user must have a PADMA account
   def require_padma_account
+    if current_user.nil?
+      if user_signed_in?
+        render text: "signed in"
+      end
+      render text: "current user nil: signed_in: #{signed_in?}, user signed_in: #{user_signed_in?} current user: #{current_user.inspect}"
+    end
     if signed_in?
       unless current_user.padma_enabled?
         render text: 'Access allowed to PADMA users only - Think this is a mistake? Maybe PADMA Authentication service is down.'

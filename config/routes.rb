@@ -13,6 +13,7 @@ Debitos::Application.routes.draw do
   devise_for :users
   devise_scope :user do
     get '/login', to: "devise/cas_sessions#new"
+    get '/logout', to: "devise/cas_sessions#destroy"
     post '/logout', to: "devise/cas_sessions#destroy"
   end
 
@@ -47,7 +48,7 @@ Debitos::Application.routes.draw do
   end
   resources :google_users, only: [:new, :create, :destroy]
 
-  root to: 'accounts#index'
+  root to: 'summaries#index'
 
   # match '/signup',  to: 'users#new'
   # match '/signin', to: 'sessions#new'

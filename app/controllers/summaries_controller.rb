@@ -1,6 +1,5 @@
 class SummariesController < ApplicationController
 
-
   def new
   end
 

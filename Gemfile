@@ -21,9 +21,9 @@ gem 'activeresource'
 
 # View
 # paginate and bootstrap
-gem 'will_paginate', '3.1.0'
+# gem 'will_paginate', '3.1.0'
 # gem 'bootstrap-will_paginate', '0.0.6'
-# gem 'kaminari'
+gem 'kaminari'
 gem "less-rails", "~> 2.7.1"
 gem 'less-rails-bootstrap'
 
@@ -37,29 +37,33 @@ gem 'figaro'
 gem 'protected_attributes'
 
 # Padma Clients
-gem 'logical_model', path: "/home/alex/workspace/logical_model"
-gem 'accounts_client', path: "/home/alex/workspace/accounts_client" #'~> 0.2.19'
-gem 'contacts_client', path: "/home/alex/workspace/contacts_client" #'~> 0.0.31'
-gem 'fnz_client', path: "/home/alex/workspace/fnz_client"#'~> 0.0.3'
+#gem 'logical_model', path: "/home/alex/workspace/logical_model"
+gem 'accounts_client', '~> 0.2.19'
+gem 'contacts_client', '~> 0.0.31'
+gem 'fnz_client', '~> 0.0.3'
 
 # CAS authentication
-gem 'devise', '3.5.6'
-gem 'devise_cas_authenticatable'
+gem 'devise', '4.0.0.rc1'
+#gem 'devise_cas_authenticatable', github: "dwaynemac/devise_cas_authenticatable"
+gem 'devise_cas_authenticatable', '~> 1.3.7'
+gem 'activerecord-session_store'
 
 # authentication
 gem 'cancan'
 
 # Administration
-gem "administrate"
+# gem "administrate"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
+
+# PostgreSQL used in production and development, no need to put it in a group
+gem 'pg','~> 0.18.4'
 
 group :development, :test do
   # gem 'sqlite3', '1.3.5'
   gem 'rspec-rails', '2.11.0'
   gem 'test-unit'
-  gem 'pg','~> 0.18.4'
   gem 'spring'
   gem 'web-console', '~> 2.0'
 end
@@ -77,9 +81,9 @@ group :test do
   gem 'factory_girl_rails', '4.1.0'
 end
 
-group :production do
-  gem 'pg', '~> 0.18.4'
-end
+#group :production do
+  #gem 'pg', '~> 0.18.4'
+#end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
