@@ -220,6 +220,8 @@ Devise.setup do |config|
   #   manager.intercept_401 = false
   #   manager.default_strategies(:scope => :user).unshift :some_external_strategy
   # end
+  #
+  config.secret_key = '4d579dd4229eedf0d4fb12acc3e874da2e8dcd0c991d67f5327178684446a996f60e7019566b3601fafc11de4b64a546dc3d4b9c60314dcba36fdf50a05cd303'
 
   config.cas_base_url = "https://metododerose.org:8443"
   config.cas_create_user = true
