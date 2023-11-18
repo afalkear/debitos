@@ -1,32 +1,33 @@
 source 'https://rubygems.org'
 ruby "2.6.3"
 
-gem 'rails', '4.2'
+gem 'rails', '5.0'
 gem 'bcrypt-ruby', '3.1.5'
 gem 'faker', '1.0.1'
 gem 'roo', '~> 1.13.0'
-gem 'best_in_place', github: "bernat/best_in_place"
+#gem 'best_in_place', git: "https://github.com/bernat/best_in_place"
 gem 'google_drive'
 gem 'execjs'
 gem 'therubyracer'
-gem 'simple_form', '~> 3.1.0'
+gem 'simple_form'
 gem 'cocoon'
 gem 'strongbox'
 gem 'turbolinks'
 
 # gems that used to be in the asset group
-gem 'sass-rails',   '5.0.4'
+gem 'sass-rails'
 gem 'coffee-rails'
 gem 'uglifier', '1.2.3'
 gem 'activeresource'
+gem 'sprockets', '~> 3'
 
 # View
 # paginate and bootstrap
 # gem 'will_paginate', '3.1.0'
 # gem 'bootstrap-will_paginate', '0.0.6'
-gem 'kaminari'
-gem "less-rails", "~> 2.7.1"
-gem 'less-rails-bootstrap'
+#gem 'kaminari'
+#gem "less-rails"
+#gem 'less-rails-bootstrap'
 
 gem 'jquery-rails'
 gem 'figaro'
@@ -35,13 +36,13 @@ gem 'figaro'
 # gem 'jquery-payment-rails'
 
 # logical_model uses MassAssignmentSecurity
-gem 'protected_attributes'
+# gem 'protected_attributes'
 
 # Padma Clients
-#gem 'logical_model', path: "/home/alex/workspace/logical_model"
-gem 'accounts_client', '~> 0.2.19'
-gem 'contacts_client', '~> 0.0.31'
-gem 'fnz_client', '~> 0.0.3'
+gem 'logical_model'
+gem 'accounts_client'
+gem 'contacts_client'
+gem 'fnz_client'
 
 # CAS authentication
 gem 'devise', '4.0.0.rc1'
@@ -53,20 +54,24 @@ gem 'activerecord-session_store'
 gem 'cancan'
 
 # Administration
-# gem "administrate"
+gem "administrate"
+
+# Rake 11.0.1 removes last_comment
+# after upgrading rspec this could be removed
+#gem 'rake', '< 11.0'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 # PostgreSQL used in production and development, no need to put it in a group
-gem 'pg','~> 0.18.4'
+gem 'pg','~> 0.21'
 
 group :development, :test do
   # gem 'sqlite3', '1.3.5'
-  gem 'rspec-rails', '2.11.0'
+  gem 'rspec-rails'
   gem 'test-unit'
-  gem 'spring'
-  gem 'web-console', '~> 2.0'
+ # gem 'spring'
+  gem 'web-console'
 end
 
 group :development do
@@ -79,7 +84,7 @@ end
 
 group :test do
   # gem 'capybara'
-  gem 'factory_girl_rails', '4.1.0'
+  #gem 'factory_girl_rails', '4.1.0'
 end
 
 #group :production do
