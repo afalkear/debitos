@@ -1,4 +1,4 @@
-class Presentation < ActiveRecord::Base
+class Presentation < ApplicationRecord
 
   def generate_file(card_company, card_type, contacts)
     filename = generate_visa_file(card_company, card_type, contacts)

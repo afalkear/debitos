@@ -10,7 +10,7 @@
 #  user_id         :integer
 #
 
-class GoogleUser < ActiveRecord::Base
+class GoogleUser < ApplicationRecord
   belongs_to :user
   has_secure_password
   before_save { |user| user.email = email.downcase }

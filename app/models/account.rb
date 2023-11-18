@@ -1,4 +1,4 @@
-class Account < ActiveRecord::Base
+class Account < ApplicationRecord
   validates_presence_of :name
   validates_uniqueness_of :name
   after_create :create_default_responsible

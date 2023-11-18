@@ -28,8 +28,8 @@
 #
 
 # @attribute active [Booelan] used for soft-delete. false means contact has been "deleted"
-class Contact < ActiveRecord::Base
-  attr_accessor :secret_value
+class Contact < ApplicationRecord
+  #attr_accessor :secret_value
   validates :name, presence: true
   encrypt_with_public_key :secret,
                           :base64 => true,
