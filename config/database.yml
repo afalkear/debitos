@@ -5,13 +5,9 @@
 #   gem 'sqlite3'
 development:
   adapter: postgresql
-  encoding: UTF8
-  database: debitos_development
-  host: localhost
+  database: debitosss_development
   pool: 5
   timeout: 5000
-  username: postgres
-  password: 1234
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -20,18 +16,5 @@ test:
   adapter: postgresql
   encoding: UTF8
   database: debitos_test
-  host: localhost
   pool: 5
   timeout: 5000
-  username: postgres
-  password: 1234
-
-production:
-  adapter: postgresql
-  encoding: UTF8
-  database: debitos_production
-  host: localhost
-  pool: 5
-  timeout: 5000
-  username: postgres
-  password: 1234
